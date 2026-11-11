@@ -20,10 +20,30 @@ PDF di dalam folder `dataset/` adalah sumber acuan utama kosakata. Berkas indeks
 - `dataset/vocabulary.json` — Indeks kosakata terstruktur hasil ekstraksi PDF beserta rujukan halaman buku dan halaman PDF per entri.
 - `src/pdf-parser.js` — Ekstraktor PDF murni Node.js (tanpa dependensi eksternal) untuk membaca halaman kamus dua kolom, penanda homonim, tag kelas kata, lema utama, dan sublema.
 - `src/dataset-server.js` — Modul acuan dataset sisi server (`KamusMandarDataset`) untuk memuat, memverifikasi SHA-256 PDF, serta menyediakan API pencarian dan lookup kosakata.
+- `src/server.js` — HTTP API server Node.js tanpa dependensi eksternal (`npm start`), melayani pencarian, lookup, halaman buku, dan berkas PDF resmi.
 - `scripts/build-dataset.js` — Skrip pembangkit & verifikasi ulang indeks JSON dari PDF resmi.
-- `test/dataset.test.js` — Pengujian otomatis (`node:test`) untuk keutuhan PDF, seksi abjad, pencarian dua arah, dan paritas ekstraksi langsung dari PDF.
+- `test/dataset.test.js` & `test/server.test.js` — Pengujian otomatis (`node:test`) untuk keutuhan PDF, seksi abjad, pencarian dua arah, dan seluruh endpoint HTTP API.
 
-## Penggunaan sebagai Dataset Server
+## Menjalankan HTTP API Server
+
+```powershell
+# Menjalankan server (default PORT=3000, HOST=0.0.0.0)
+npm start
+```
+
+Endpoint yang tersedia:
+- `GET /` — Ringkasan layanan, sumber PDF, dan daftar endpoint.
+- `GET /health` — Pemeriksaan kesehatan server & verifikasi integritas SHA-256 PDF.
+- `GET /api/manifest` — Metadata kamus, daftar singkatan, dan seksi `A`–`W`.
+- `GET /api/stats` — Statistik dataset.
+- `GET /api/lookup?word=<kata>&related=<true|false>` atau `GET /api/words/<kata>` — Lookup lema Mandar, turunan sublema, dan rujukan halaman PDF.
+- `GET /api/search?q=<kata>&direction=<all|mandar|indonesia>&section=<A..W>&pos=<v|n|...>&type=<main|sub>&limit=25&offset=0` — Pencarian dua arah.
+- `GET /api/sections` dan `GET /api/sections/<A..W>?type=<main|sub>&limit=50&offset=0` — Daftar kosakata per huruf.
+- `GET /api/pages/<1..499>` — Kosakata berdasarkan nomor halaman kamus tercetak.
+- `GET /api/entries/<id>` — Detail entri berdasarkan ID (mis. `mdr-0001`).
+- `GET /api/source/pdf` — Streaming berkas PDF acuan resmi (`application/pdf`).
+
+## Penggunaan sebagai Modul Library Server
 
 ```js
 const { KamusMandarDataset } = require('./src/dataset-server');

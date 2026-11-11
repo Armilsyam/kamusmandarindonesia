@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Dataset server acuan kosakata Kamus Bahasa Mandar–Indonesia Edisi Revisi (2025) berbasis PDF resmi.",
   "main": "src/dataset-server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
+    "start": "node src/server.js",
     "build:dataset": "node scripts/build-dataset.js",
     "verify:dataset": "node scripts/build-dataset.js --verify",
-    "test": "node --test test/dataset.test.js",
+    "test": "node --test test/dataset.test.js test/server.test.js",
     "verify": "npm run verify:dataset && npm test"
   },
   "keywords": [
