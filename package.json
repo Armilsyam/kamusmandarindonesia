@@ -1,0 +1,21 @@
+{
+  "name": "kamusmandarindonesia",
+  "version": "1.0.0",
+  "description": "Dataset server acuan kosakata Kamus Bahasa Mandar–Indonesia Edisi Revisi (2025) berbasis PDF resmi.",
+  "main": "src/dataset-server.js",
+  "scripts": {
+    "build:dataset": "node scripts/build-dataset.js",
+    "verify:dataset": "node scripts/build-dataset.js --verify",
+    "test": "node --test test/dataset.test.js",
+    "verify": "npm run verify:dataset && npm test"
+  },
+  "keywords": [
+    "mandar",
+    "indonesia",
+    "kamus",
+    "dictionary",
+    "dataset",
+    "pdf"
+  ],
+  "license": "UNLICENSED"
+}
