@@ -9,8 +9,9 @@
   "scripts": {
     "start": "node src/server.js",
     "build:dataset": "node scripts/build-dataset.js",
+    "build:pages": "node scripts/build-pages.js",
     "verify:dataset": "node scripts/build-dataset.js --verify",
-    "test": "node --test test/dataset.test.js test/server.test.js",
+    "test": "node --test test/dataset.test.js test/server.test.js test/pages.test.js",
     "verify": "npm run verify:dataset && npm test"
   },
   "keywords": [

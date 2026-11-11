@@ -21,9 +21,11 @@ PDF di dalam folder `dataset/` adalah sumber acuan utama kosakata. Berkas indeks
 - `src/pdf-parser.js` — Ekstraktor PDF murni Node.js (tanpa dependensi eksternal) untuk membaca halaman kamus dua kolom, penanda homonim, tag kelas kata, lema utama, dan sublema.
 - `src/dataset-server.js` — Modul acuan dataset sisi server (`KamusMandarDataset`) untuk memuat, memverifikasi SHA-256 PDF, serta menyediakan API pencarian dan lookup kosakata.
 - `src/server.js` — HTTP API server Node.js tanpa dependensi eksternal (`npm start`), melayani pencarian, lookup, halaman buku, dan berkas PDF resmi.
+- `public/index.html` & `scripts/build-pages.js` — Antarmuka web statis kamus Mandar–Indonesia untuk GitHub Pages (`github.io`) yang memuat langsung `./dataset/vocabulary.json`, `./dataset/manifest.json`, dan tautan halaman PDF `./dataset/kamus-mandar-indonesia-2025.pdf`.
+- `.github/workflows/pages.yml` — Workflow GitHub Actions otomatis yang memverifikasi dataset, menjalankan seluruh test, dan memublikasikan hasil statis ke branch `gh-pages` pada setiap push ke `main`.
 - `api/kamus.js` & `vercel.json` — Entrypoint Vercel Functions (Fluid Compute) dengan bundel folder `dataset/**` agar seluruh endpoint API dan PDF acuan siap berjalan di Vercel.
 - `scripts/build-dataset.js` — Skrip pembangkit & verifikasi ulang indeks JSON dari PDF resmi.
-- `test/dataset.test.js` & `test/server.test.js` — Pengujian otomatis (`node:test`) untuk keutuhan PDF, seksi abjad, pencarian dua arah, dan seluruh endpoint HTTP API.
+- `test/dataset.test.js`, `test/server.test.js`, & `test/pages.test.js` — Pengujian otomatis (`node:test`) untuk keutuhan PDF, seksi abjad, pencarian dua arah, endpoint HTTP API, serta build statis GitHub Pages.
 
 ## Menjalankan HTTP API Server
 

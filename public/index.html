@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamus Bahasa Mandar–Indonesia (Edisi Revisi 2025)</title>
+  <meta name="description" content="Kamus Bahasa Mandar–Indonesia digital bersumber resmi dari PDF Kamus Bahasa Mandar–Indonesia Edisi Revisi 2025 (Balai Bahasa Provinsi Sulawesi Selatan).">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --surface-soft: #faf8f4;
+      --text: #1f2421;
+      --muted: #5a625c;
+      --border: #e2ddd2;
+      --accent: #135d4b;
+      --accent-hover: #0e4739;
+      --accent-soft: #e6f2ee;
+      --sub-badge: #eef2ff;
+      --sub-text: #2e4392;
+      --pos-bg: #f3ece0;
+      --pos-text: #6e4814;
+      --shadow: 0 2px 10px rgba(31, 36, 33, 0.06);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #104d3e 0%, #176c57 100%);
+      color: #ffffff;
+      padding: 28px 16px 24px;
+      border-bottom: 4px solid #c89b3c;
+    }
+
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.94rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 8px;
+      padding: 8px 13px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .btn-pdf:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .stats-bar {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .stat-pill {
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 999px;
+      padding: 3px 11px;
+    }
+
+    main {
+      padding: 20px 16px 48px;
+    }
+
+    .search-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      flex: 1 1 280px;
+      position: relative;
+    }
+
+    input[type="search"],
+    select {
+      width: 100%;
+      font-size: 0.96rem;
+      font-family: inherit;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input[type="search"]:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(19, 93, 75, 0.14);
+    }
+
+    .filters-row {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .hint-text {
+      margin: 10px 0 0;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .alpha-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .alpha-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 5px 10px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .alpha-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .alpha-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    .results-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .entries-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .entry-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .entry-card.is-sub {
+      border-left: 4px solid var(--accent);
+    }
+
+    .entry-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .entry-title-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .headword {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .homonym-badge {
+      font-size: 0.78rem;
+      font-weight: 700;
+      vertical-align: super;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .badge-main {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-sub {
+      background: var(--sub-badge);
+      color: var(--sub-text);
+    }
+
+    .badge-pos {
+      background: var(--pos-bg);
+      color: var(--pos-text);
+      font-style: italic;
+    }
+
+    .parent-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .pdf-cite {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pdf-cite:hover {
+      text-decoration: underline;
+    }
+
+    .entry-body {
+      font-size: 0.98rem;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .seg-bold {
+      font-weight: 700;
+    }
+
+    .seg-italic {
+      font-style: italic;
+      color: var(--pos-text);
+    }
+
+    .derivations-box {
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .chip-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn-page {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-page:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-page:not(:disabled):hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .info-panel {
+      margin-top: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .info-panel summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .abbr-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .abbr-group h3 {
+      margin: 0 0 6px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .abbr-group ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .empty-state,
+    .loading-state {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .error-state {
+      background: #fff5f5;
+      border: 1px solid #f5c2c7;
+      color: #842029;
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Kamus Bahasa Mandar–Indonesia</h1>
+          <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Balai Bahasa Provinsi Sulawesi Selatan (Kemendikdasmen)</p>
+        </div>
+        <div class="header-actions">
+          <a class="btn-pdf" href="./dataset/kamus-mandar-indonesia-2025.pdf" target="_blank" rel="noopener">
+            Buka PDF Acuan Resmi
+          </a>
+        </div>
+      </div>
+      <div class="stats-bar" id="statsBar">
+        <span class="stat-pill">Memuat dataset PDF...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="search-card" aria-label="Pencarian kosakata">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Cari kosakata Mandar atau arti Indonesia (mis. abi, maacar, ana', ayah, perahu)..."
+            autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <label for="directionSelect">Arah Pencarian</label>
+          <select id="directionSelect">
+            <option value="all">Semua (Mandar &amp; Indonesia)</option>
+            <option value="mandar">Mandar → Indonesia</option>
+            <option value="indonesia">Indonesia → Mandar</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sectionSelect">Seksi Huruf</label>
+          <select id="sectionSelect">
+            <option value="">Semua Huruf (A–W)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="posSelect">Kelas Kata / Label</label>
+          <select id="posSelect">
+            <option value="">Semua Kelas Kata</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="typeSelect">Jenis Lema</label>
+          <select id="typeSelect">
+            <option value="">Semua (Pokok &amp; Sublema)</option>
+            <option value="main">Lema Pokok</option>
+            <option value="sub">Sublema (Turunan)</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="hint-text">
+        Tips: Huruf glotal <code>q</code> dan tanda petik (<code>'</code> / <code>’</code>) disamakan saat pencarian (misalnya <code>ana'</code> cocok dengan <code>anaq</code>).
+      </p>
+
+      <div class="alpha-bar" id="alphaBar" aria-label="Navigasi huruf A sampai W"></div>
+    </section>
+
+    <div class="results-meta" id="resultsMeta"></div>
+    <section class="entries-list" id="entriesList" aria-live="polite">
+      <div class="loading-state">Memuat indeks kosakata resmi (4.908 entri)...</div>
+    </section>
+    <div class="pagination" id="paginationBar" hidden>
+      <button type="button" class="btn-page" id="prevBtn">Sebelumnya</button>
+      <span id="pageLabel"></span>
+      <button type="button" class="btn-page" id="nextBtn">Berikutnya</button>
+    </div>
+
+    <details class="info-panel" id="abbrPanel">
+      <summary>Keterangan Singkatan, Simbol, &amp; Sumber PDF Resmi</summary>
+      <div class="abbr-grid" id="abbrGrid"></div>
+    </details>
+  </main>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const PAGE_SIZE = 40;
+      const state = {
+        manifest: null,
+        entries: [],
+        records: [],
+        byParentKey: new Map(),
+        query: '',
+        direction: 'all',
+        section: '',
+        pos: '',
+        type: '',
+        page: 1,
+      };
+
+      const els = {
+        pubSubtitle: document.getElementById('pubSubtitle'),
+        statsBar: document.getElementById('statsBar'),
+        searchInput: document.getElementById('searchInput'),
+        directionSelect: document.getElementById('directionSelect'),
+        sectionSelect: document.getElementById('sectionSelect'),
+        posSelect: document.getElementById('posSelect'),
+        typeSelect: document.getElementById('typeSelect'),
+        alphaBar: document.getElementById('alphaBar'),
+        resultsMeta: document.getElementById('resultsMeta'),
+        entriesList: document.getElementById('entriesList'),
+        paginationBar: document.getElementById('paginationBar'),
+        prevBtn: document.getElementById('prevBtn'),
+        nextBtn: document.getElementById('nextBtn'),
+        pageLabel: document.getElementById('pageLabel'),
+        abbrGrid: document.getElementById('abbrGrid'),
+      };
+
+      function normalizeLookupKey(value) {
+        return String(value || '')
+          .normalize('NFKC')
+          .toLowerCase()
+          .replace(/['`\u2018\u2019\u02BC]/g, 'q')
+          .replace(/[ \t\r\n]+/g, ' ')
+          .trim();
+      }
+
+      function stripAffixHyphen(key) {
+        return key.replace(/^-+/, '').trim();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      function indexEntries(entries) {
+        state.byParentKey.clear();
+        state.records = entries.map((entry) => {
+          const headKeys = [];
+          for (const candidate of [entry.headword, ...(entry.aliases || [])]) {
+            const k = normalizeLookupKey(candidate);
+            if (k && !headKeys.includes(k)) headKeys.push(k);
+          }
+          if (entry.type === 'sub' && entry.parentHeadword) {
+            const pk = normalizeLookupKey(entry.parentHeadword);
+            if (!state.byParentKey.has(pk)) state.byParentKey.set(pk, []);
+            state.byParentKey.get(pk).push(entry);
+          }
+          return {
+            entry,
+            headKeys,
+            defLower: normalizeLookupKey(entry.definitionText || ''),
+          };
+        });
+      }
+
+      function renderHeaderAndFilters() {
+        const m = state.manifest;
+        const c = m.structure.counts;
+        els.pubSubtitle.textContent = `${m.publication.title} (${m.publication.year}) · ${m.publication.publisher}`;
+        els.statsBar.innerHTML = [
+          `<span class="stat-pill">${c.totalEntries.toLocaleString('id-ID')} entri (${c.mainEntries.toLocaleString('id-ID')} pokok, ${c.subEntries.toLocaleString('id-ID')} sublema)</span>`,
+          `<span class="stat-pill">${m.structure.bookPageRange[0]}–${m.structure.bookPageRange[1]} halaman kamus (${m.structure.totalPdfPages} hlm. PDF)</span>`,
+          `<span class="stat-pill">SHA-256: ${escapeHtml(m.sourcePdf.sha256.slice(0, 12))}…</span>`,
+        ].join('');
+
+        for (const sec of m.sections) {
+          const opt = document.createElement('option');
+          opt.value = sec.letter;
+          opt.textContent = `${sec.letter} (${sec.entryCount} entri · hlm. ${sec.firstBookPage})`;
+          els.sectionSelect.appendChild(opt);
+        }
+
+        const posEntries = {
+          ...(m.abbreviations.pos || {}),
+          ...(m.abbreviations.labels || {}),
+        };
+        for (const [code, label] of Object.entries(posEntries)) {
+          const opt = document.createElement('option');
+          opt.value = code;
+          opt.textContent = `${code} — ${label}`;
+          els.posSelect.appendChild(opt);
+        }
+
+        renderAlphaBar();
+        renderAbbreviations();
+      }
+
+      function renderAlphaBar() {
+        const sections = state.manifest.sections;
+        const btns = [
+          `<button type="button" class="alpha-btn${state.section === '' ? ' active' : ''}" data-sec="">Semua</button>`,
+          ...sections.map(
+            (s) =>
+              `<button type="button" class="alpha-btn${state.section === s.letter ? ' active' : ''}" data-sec="${escapeHtml(s.letter)}">${escapeHtml(s.letter)}</button>`,
+          ),
+        ];
+        els.alphaBar.innerHTML = btns.join('');
+      }
+
+      function renderAbbreviations() {
+        const abbr = state.manifest.abbreviations || {};
+        const groups = [
+          ['Kelas Kata (POS)', abbr.pos],
+          ['Label Ragam / Gaya', abbr.labels],
+          ['Simbol Kamus', abbr.markers],
+          ['Singkatan Penjelasan', abbr.prose],
+        ];
+        els.abbrGrid.innerHTML = groups
+          .filter(([, map]) => map && Object.keys(map).length > 0)
+          .map(([title, map]) => {
+            const items = Object.entries(map)
+              .map(([k, v]) => `<li><strong>${escapeHtml(k)}</strong>: ${escapeHtml(v)}</li>`)
+              .join('');
+            return `<div class="abbr-group"><h3>${escapeHtml(title)}</h3><ul>${items}</ul></div>`;
+          })
+          .join('');
+      }
+
+      function getFilteredResults() {
+        const q = normalizeLookupKey(state.query);
+        const wordBoundaryRe = q ? new RegExp(`(^|[^a-z0-9])${escapeRegex(q)}([^a-z0-9]|$)`) : null;
+        const matched = [];
+
+        for (const rec of state.records) {
+          const e = rec.entry;
+          if (state.section && e.section !== state.section) continue;
+          if (state.pos && !(e.pos || []).includes(state.pos)) continue;
+          if (state.type && e.type !== state.type) continue;
+
+          if (!q) {
+            matched.push({ score: 0, entry: e });
+            continue;
+          }
+
+          let score = 0;
+          if (state.direction !== 'indonesia') {
+            for (const hk of rec.headKeys) {
+              if (hk === q || stripAffixHyphen(hk) === q) {
+                score = Math.max(score, 100);
+              } else if (hk.startsWith(q)) {
+                score = Math.max(score, 80);
+              } else if (hk.includes(q)) {
+                score = Math.max(score, 60);
+              }
+            }
+          }
+          if (state.direction !== 'mandar' && rec.defLower) {
+            if (wordBoundaryRe.test(rec.defLower)) {
+              score = Math.max(score, 40);
+            } else if (rec.defLower.includes(q)) {
+              score = Math.max(score, 20);
+            }
+          }
+
+          if (score > 0) {
+            matched.push({ score, entry: e });
+          }
+        }
+
+        if (q) {
+          matched.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            if (a.entry.type !== b.entry.type) return a.entry.type === 'main' ? -1 : 1;
+            if (a.entry.headword.length !== b.entry.headword.length) {
+              return a.entry.headword.length - b.entry.headword.length;
+            }
+            return a.entry.id.localeCompare(b.entry.id);
+          });
+        }
+
+        return matched.map((r) => r.entry);
+      }
+
+      function formatEntryBodyHtml(entry) {
+        if (!entry.definitionText) {
+          return '<span style="color:var(--muted);font-style:italic;">(Lema induk rujukan untuk sublema di bawahnya)</span>';
+        }
+        const segs = entry.segments || [];
+        // Skip leading bold headword & optional homonym digit since displayed in header
+        let idx = 0;
+        if (segs[0] && segs[0].role === 'bold') idx++;
+        if (segs[idx] && segs[idx].role === 'homonym') idx++;
+        const bodySegs = segs.slice(idx);
+        if (bodySegs.length === 0) {
+          return escapeHtml(entry.definitionText);
+        }
+        return bodySegs
+          .map((seg) => {
+            const safe = escapeHtml(seg.text);
+            if (seg.role === 'bold') return `<span class="seg-bold">${safe}</span>`;
+            if (seg.role === 'italic') return `<span class="seg-italic">${safe}</span>`;
+            return safe;
+          })
+          .join(' ');
+      }
+
+      function renderResults() {
+        const items = getFilteredResults();
+        const total = items.length;
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        if (state.page > totalPages) state.page = totalPages;
+
+        const start = (state.page - 1) * PAGE_SIZE;
+        const pageItems = items.slice(start, start + PAGE_SIZE);
+
+        const activeDesc = [];
+        if (state.query.trim()) activeDesc.push(`kueri "${state.query.trim()}"`);
+        if (state.section) activeDesc.push(`huruf ${state.section}`);
+        if (state.pos) activeDesc.push(`kelas ${state.pos}`);
+        if (state.type) activeDesc.push(state.type === 'main' ? 'lema pokok' : 'sublema');
+
+        els.resultsMeta.innerHTML = `
+          <span>Menampilkan <strong>${pageItems.length}</strong> dari <strong>${total.toLocaleString('id-ID')}</strong> entri${activeDesc.length ? ` (${escapeHtml(activeDesc.join(', '))})` : ''}.</span>
+          <span>Halaman ${state.page} / ${totalPages}</span>
+        `;
+
+        if (pageItems.length === 0) {
+          els.entriesList.innerHTML = `
+            <div class="empty-state">
+              Tidak ada kosakata yang cocok. Coba ubah kata kunci, arah pencarian, atau bersihkan filter huruf/kelas kata.
+            </div>
+          `;
+          els.paginationBar.hidden = true;
+          return;
+        }
+
+        els.entriesList.innerHTML = pageItems
+          .map((e) => {
+            const hom = e.homonym ? `<span class="homonym-badge">${escapeHtml(e.homonym)}</span>` : '';
+            const typeBadge =
+              e.type === 'sub'
+                ? `<span class="badge badge-sub">Sublema${e.parentHeadword ? ` dari <button type="button" class="parent-link" data-lookup="${escapeHtml(e.parentHeadword)}">${escapeHtml(e.parentHeadword)}</button>` : ''}</span>`
+                : '<span class="badge badge-main">Lema pokok</span>';
+            const posBadges = (e.pos || [])
+              .map((p) => `<span class="badge badge-pos">${escapeHtml(p)}</span>`)
+              .join(' ');
+            const pdfHref = `./dataset/kamus-mandar-indonesia-2025.pdf#page=${encodeURIComponent(e.source.pdfPage)}`;
+
+            let derivationsHtml = '';
+            if (e.type === 'main') {
+              const subs = state.byParentKey.get(normalizeLookupKey(e.headword)) || [];
+              if (subs.length > 0) {
+                const buttons = subs
+                  .slice(0, 12)
+                  .map(
+                    (s) =>
+                      `<button type="button" class="chip-btn" data-lookup="${escapeHtml(s.headword)}">${escapeHtml(s.headword)}</button>`,
+                  )
+                  .join('');
+                const extra = subs.length > 12 ? ` <span>+${subs.length - 12} lainnya</span>` : '';
+                derivationsHtml = `<div class="derivations-box"><span>Turunan:</span>${buttons}${extra}</div>`;
+              }
+            }
+
+            return `
+              <article class="entry-card${e.type === 'sub' ? ' is-sub' : ''}">
+                <div class="entry-header">
+                  <div class="entry-title-group">
+                    <span class="headword">${escapeHtml(e.headword)}${hom}</span>
+                    ${typeBadge}
+                    ${posBadges}
+                  </div>
+                  <a class="pdf-cite" href="${pdfHref}" target="_blank" rel="noopener" title="Buka langsung halaman ${escapeHtml(e.source.pdfPage)} pada berkas PDF acuan">
+                    Hlm. ${escapeHtml(e.source.bookPage)} (PDF ${escapeHtml(e.source.pdfPage)})
+                  </a>
+                </div>
+                <div class="entry-body">${formatEntryBodyHtml(e)}</div>
+                ${derivationsHtml}
+              </article>
+            `;
+          })
+          .join('');
+
+        els.paginationBar.hidden = totalPages <= 1;
+        els.prevBtn.disabled = state.page <= 1;
+        els.nextBtn.disabled = state.page >= totalPages;
+        els.pageLabel.textContent = `Halaman ${state.page} dari ${totalPages}`;
+      }
+
+      function jumpToWord(word) {
+        state.query = word;
+        state.direction = 'mandar';
+        state.section = '';
+        state.pos = '';
+        state.type = '';
+        state.page = 1;
+        els.searchInput.value = word;
+        els.directionSelect.value = 'mandar';
+        els.sectionSelect.value = '';
+        els.posSelect.value = '';
+        els.typeSelect.value = '';
+        renderAlphaBar();
+        renderResults();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      let searchTimer = null;
+      els.searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          state.query = els.searchInput.value;
+          state.page = 1;
+          renderResults();
+        }, 120);
+      });
+
+      els.directionSelect.addEventListener('change', () => {
+        state.direction = els.directionSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.sectionSelect.addEventListener('change', () => {
+        state.section = els.sectionSelect.value;
+        state.page = 1;
+        renderAlphaBar();
+        renderResults();
+      });
+
+      els.posSelect.addEventListener('change', () => {
+        state.pos = els.posSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.typeSelect.addEventListener('change', () => {
+        state.type = els.typeSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.alphaBar.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('button[data-sec]');
+        if (!btn) return;
+        state.section = btn.getAttribute('data-sec') || '';
+        state.page = 1;
+        els.sectionSelect.value = state.section;
+        renderAlphaBar();
+        renderResults();
+      });
+
+      els.entriesList.addEventListener('click', (ev) => {
+        const target = ev.target.closest('[data-lookup]');
+        if (!target) return;
+        const word = target.getAttribute('data-lookup');
+        if (word) jumpToWord(word);
+      });
+
+      els.prevBtn.addEventListener('click', () => {
+        if (state.page > 1) {
+          state.page--;
+          renderResults();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      els.nextBtn.addEventListener('click', () => {
+        state.page++;
+        renderResults();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      async function init() {
+        try {
+          const [manifestRes, vocabRes] = await Promise.all([
+            fetch('./dataset/manifest.json'),
+            fetch('./dataset/vocabulary.json'),
+          ]);
+          if (!manifestRes.ok || !vocabRes.ok) {
+            throw new Error(`HTTP error (${manifestRes.status} / ${vocabRes.status})`);
+          }
+          state.manifest = await manifestRes.json();
+          const vocab = await vocabRes.json();
+          state.entries = vocab.entries || [];
+          indexEntries(state.entries);
+          renderHeaderAndFilters();
+          renderResults();
+        } catch (err) {
+          els.entriesList.innerHTML = `
+            <div class="error-state">
+              Gagal memuat dataset kamus dari <code>./dataset/</code>: ${escapeHtml(err.message)}
+            </div>
+          `;
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
