@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/kamus.js": {
+      "includeFiles": "dataset/**",
+      "excludeFiles": "test/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/kamus?__path=/$1"
+    }
+  ]
+}

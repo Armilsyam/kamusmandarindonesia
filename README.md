@@ -21,6 +21,7 @@ PDF di dalam folder `dataset/` adalah sumber acuan utama kosakata. Berkas indeks
 - `src/pdf-parser.js` — Ekstraktor PDF murni Node.js (tanpa dependensi eksternal) untuk membaca halaman kamus dua kolom, penanda homonim, tag kelas kata, lema utama, dan sublema.
 - `src/dataset-server.js` — Modul acuan dataset sisi server (`KamusMandarDataset`) untuk memuat, memverifikasi SHA-256 PDF, serta menyediakan API pencarian dan lookup kosakata.
 - `src/server.js` — HTTP API server Node.js tanpa dependensi eksternal (`npm start`), melayani pencarian, lookup, halaman buku, dan berkas PDF resmi.
+- `api/kamus.js` & `vercel.json` — Entrypoint Vercel Functions (Fluid Compute) dengan bundel folder `dataset/**` agar seluruh endpoint API dan PDF acuan siap berjalan di Vercel.
 - `scripts/build-dataset.js` — Skrip pembangkit & verifikasi ulang indeks JSON dari PDF resmi.
 - `test/dataset.test.js` & `test/server.test.js` — Pengujian otomatis (`node:test`) untuk keutuhan PDF, seksi abjad, pencarian dua arah, dan seluruh endpoint HTTP API.
 

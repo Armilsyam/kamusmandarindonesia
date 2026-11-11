@@ -2,7 +2,10 @@
 
 const { after, before, test } = require('node:test');
 const assert = require('node:assert/strict');
+const http = require('node:http');
 const { createDictionaryServer } = require('../src/server');
+const vercelHandler = require('../api/kamus');
+const { restoreRewrittenUrl } = require('../api/kamus');
 
 let server;
 let baseUrl;
@@ -108,4 +111,32 @@ test('OPTIONS CORS preflight and unsupported HTTP methods return expected codes'
 
   const post = await fetch(`${baseUrl}/api/lookup`, { method: 'POST' });
   assert.equal(post.status, 405);
+});
+
+test('Vercel handler restores rewritten __path URLs and serves API endpoints', async () => {
+  assert.equal(restoreRewrittenUrl('/api/kamus?__path=/'), '/');
+  assert.equal(restoreRewrittenUrl('/api/kamus?__path=/health'), '/health');
+  assert.equal(
+    restoreRewrittenUrl('/api/kamus?__path=/api/lookup&word=maacar'),
+    '/api/lookup?word=maacar',
+  );
+  assert.equal(restoreRewrittenUrl('/api/search?q=ayah'), '/api/search?q=ayah');
+
+  const vServer = http.createServer(vercelHandler);
+  await new Promise((resolve) => vServer.listen(0, '127.0.0.1', resolve));
+  const vPort = vServer.address().port;
+  try {
+    const res = await fetch(`http://127.0.0.1:${vPort}/api/kamus?__path=/api/lookup&word=maacar`);
+    assert.equal(res.status, 200);
+    const json = await res.json();
+    assert.equal(json.total, 1);
+    assert.equal(json.matches[0].headword, 'maacar');
+
+    const rootRes = await fetch(`http://127.0.0.1:${vPort}/api/kamus?__path=/`);
+    assert.equal(rootRes.status, 200);
+    const rootJson = await rootRes.json();
+    assert.equal(rootJson.status, 'ready');
+  } finally {
+    await new Promise((resolve, reject) => vServer.close((err) => (err ? reject(err) : resolve())));
+  }
 });
