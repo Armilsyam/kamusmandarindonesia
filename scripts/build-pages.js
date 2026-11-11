@@ -4,7 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const ROOT_DIR = path.resolve(__dirname, '..');
-const PUBLIC_INDEX = path.join(ROOT_DIR, 'public', 'index.html');
+const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
+const PUBLIC_INDEX = path.join(PUBLIC_DIR, 'index.html');
 const DATASET_DIR = path.join(ROOT_DIR, 'dataset');
 const DEFAULT_OUT_DIR = path.join(ROOT_DIR, '_site');
 
@@ -13,6 +14,21 @@ const DATASET_FILES = [
   'manifest.json',
   'vocabulary.json',
 ];
+
+function copyDirFiles(srcDir, destDir, relPrefix, list) {
+  fs.mkdirSync(destDir, { recursive: true });
+  for (const item of fs.readdirSync(srcDir, { withFileTypes: true })) {
+    const srcPath = path.join(srcDir, item.name);
+    const destPath = path.join(destDir, item.name);
+    const relPath = relPrefix ? `${relPrefix}/${item.name}` : item.name;
+    if (item.isDirectory()) {
+      copyDirFiles(srcPath, destPath, relPath, list);
+    } else if (item.isFile()) {
+      fs.copyFileSync(srcPath, destPath);
+      list.push(relPath);
+    }
+  }
+}
 
 /**
  * Assemble the static site directory ready for GitHub Pages (github.io).
@@ -28,10 +44,12 @@ function buildPagesSite(outDir = DEFAULT_OUT_DIR) {
   const outDatasetDir = path.join(outDir, 'dataset');
   fs.mkdirSync(outDatasetDir, { recursive: true });
 
-  fs.copyFileSync(PUBLIC_INDEX, path.join(outDir, 'index.html'));
-  fs.writeFileSync(path.join(outDir, '.nojekyll'), '', 'utf8');
+  const copied = [];
+  copyDirFiles(PUBLIC_DIR, outDir, '', copied);
 
-  const copied = ['index.html', '.nojekyll'];
+  fs.writeFileSync(path.join(outDir, '.nojekyll'), '', 'utf8');
+  copied.push('.nojekyll');
+
   for (const name of DATASET_FILES) {
     const src = path.join(DATASET_DIR, name);
     if (!fs.existsSync(src)) {
