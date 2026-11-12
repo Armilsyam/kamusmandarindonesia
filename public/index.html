@@ -880,6 +880,61 @@
       padding: 18px;
     }
 
+    .ling-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 8px;
+      align-items: center;
+    }
+
+    .badge-register {
+      background: #f0eee8;
+      color: #464c47;
+      border: 1px solid var(--border);
+    }
+
+    .badge-idiom {
+      background: #fdf2e9;
+      color: #8a4311;
+      border: 1px solid #f0cba8;
+    }
+
+    .ling-details {
+      margin-top: 10px;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    .ling-details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+    }
+
+    .ling-grid {
+      margin-top: 8px;
+      display: grid;
+      gap: 7px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+      color: var(--text);
+    }
+
+    .ling-row strong {
+      color: var(--muted);
+    }
+
+    .example-quote {
+      border-left: 3px solid var(--gold);
+      padding-left: 9px;
+      margin: 4px 0;
+    }
+
     @media (max-width: 640px) {
       .entry-layout {
         flex-direction: column;
@@ -906,6 +961,7 @@
           <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Wilayah Budaya Sulawesi Barat (Balai Bahasa Prov. Sulawesi Selatan)</p>
         </div>
         <div class="header-actions">
+          <a class="btn-header" style="background:#c89b3c;border-color:#e0b243;color:#1b1709;" href="./belajar.html">📖 Belajar Rumus &amp; Imbuhan</a>
           <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
           <button type="button" class="btn-header" id="speedToggleBtn">🗣️ Lafal: Normal</button>
           <a class="btn-header" href="#batik-sure-para">🎨 Sure' Para Sulbar</a>
@@ -1105,12 +1161,14 @@
   <div class="sure-ribbon" aria-hidden="true"></div>
 
   <script src="./assets/kamus-media.js"></script>
+  <script src="./assets/kamus-linguistics.js"></script>
   <script>
     (function () {
       'use strict';
 
       const PAGE_SIZE = 36;
       const Media = window.KamusMedia;
+      const Ling = window.KamusLinguistics;
       const AudioCtrl = Media.createAudioController();
 
       const state = {
@@ -1118,6 +1176,7 @@
         entries: [],
         records: [],
         byParentKey: new Map(),
+        vocabMap: new Map(),
         query: '',
         direction: 'all',
         section: '',
@@ -1205,11 +1264,16 @@
 
       function indexEntries(entries) {
         state.byParentKey.clear();
+        state.vocabMap.clear();
         state.records = entries.map((entry) => {
           const headKeys = [];
           for (const candidate of [entry.headword, ...(entry.aliases || [])]) {
             const k = normalizeLookupKey(candidate);
-            if (k && !headKeys.includes(k)) headKeys.push(k);
+            if (k && !headKeys.includes(k)) {
+              headKeys.push(k);
+              if (!state.vocabMap.has(k)) state.vocabMap.set(k, []);
+              state.vocabMap.get(k).push(entry);
+            }
           }
           if (entry.type === 'sub' && entry.parentHeadword) {
             const pk = normalizeLookupKey(entry.parentHeadword);
@@ -1472,6 +1536,64 @@
                 ? `<span class="phonetic-pill">lafal: ${escapeHtml(phonetic.phoneticDisplay)}</span>`
                 : '';
 
+            const ipaInfo = Ling.toMandarIpa(e.headword);
+            const ipaBadge = ipaInfo.phonemic
+              ? `<span class="phonetic-pill" title="${escapeHtml(ipaInfo.stressRule)}">IPA: ${escapeHtml(ipaInfo.phonemic)}${ipaInfo.narrow ? ` ${escapeHtml(ipaInfo.narrow)}` : ''}</span>`
+              : '';
+            const usageInfo = Ling.extractUsageAndReferences(e);
+            const grammarInfo = Ling.buildGrammarNotes(e, state.vocabMap);
+            const examples = Ling.extractStructuredExamples(e);
+            const expandedDef = Ling.expandBookAbbreviations(e.definitionText || '');
+            const hasExpanded = expandedDef && expandedDef !== (e.definitionText || '');
+            const lontaraqWord = Ling.latinToLontaraqPreview(e.headword.split(',')[0]);
+
+            const registerBadges = usageInfo.registerTags
+              .map(
+                (t) =>
+                  `<span class="badge ${usageInfo.isIdiom ? 'badge-idiom' : 'badge-register'}">${escapeHtml(t)}</span>`,
+              )
+              .join(' ');
+            const fullPosNote = grammarInfo.posLabels.length
+              ? `<span class="phonetic-pill">${escapeHtml(grammarInfo.posLabels.join(' · '))}</span>`
+              : '';
+
+            const crossRefLinks = usageInfo.crossRefs.length
+              ? `<div class="ling-row"><strong>Rujukan Silang / Padanan Kamus:</strong> ${usageInfo.crossRefs
+                  .map((w) => `<button type="button" class="chip-btn" data-lookup="${escapeHtml(w)}">→ ${escapeHtml(w)}</button>`)
+                  .join(' ')}</div>`
+              : '';
+
+            const examplesDetailHtml = examples.length
+              ? `<div class="ling-row"><strong>Contoh Pemakaian (Mandar ↔ Indonesia):</strong>${examples
+                  .slice(0, 3)
+                  .map(
+                    (ex) =>
+                      `<div class="example-quote"><div><em>"${escapeHtml(ex.mandar)}"</em></div>${ex.indonesia ? `<div style="color:var(--muted);">Arti: ${escapeHtml(Ling.expandBookAbbreviations(ex.indonesia))}</div>` : ''}</div>`,
+                  )
+                  .join('')}</div>`
+              : '';
+
+            const morphSummary = grammarInfo.morph
+              ? grammarInfo.morph.kind === 'berimbuhan'
+                ? `${grammarInfo.morph.prefix || grammarInfo.morph.suffix} (${grammarInfo.morph.meaning}) · kata dasar: <button type="button" class="parent-link" data-lookup="${escapeHtml(grammarInfo.morph.rootCandidate)}">${escapeHtml(grammarInfo.morph.rootCandidate)}</button>`
+                : `${grammarInfo.morph.note}`
+              : 'Morfem bebas';
+
+            const lingDetailsHtml = `
+              <details class="ling-details">
+                <summary>Tata Bahasa, Ejaan Baku, Morfologi &amp; Nuansa Penggunaan</summary>
+                <div class="ling-grid">
+                  <div class="ling-row"><strong>Ejaan Baku Kamus (2025):</strong> <code>${escapeHtml(e.headword)}</code> · Lontaraq: <span style="font-size:1.1rem;color:var(--crimson);">${escapeHtml(lontaraqWord)}</span> · Pola Suku Kata: <code>${escapeHtml(grammarInfo.canonical.pattern || '-')}</code></div>
+                  <div class="ling-row"><strong>Kelas Kata &amp; Ragam:</strong> ${escapeHtml(grammarInfo.posLabels.join(', ') || 'Lema kamus')} · ${escapeHtml(usageInfo.registerTags.join(' | '))}</div>
+                  <div class="ling-row"><strong>Bedah Bentuk / Imbuhan:</strong> ${morphSummary} · <a class="pdf-cite" href="./belajar.html#simulator-imbuhan">Pelajari rumus di halaman Belajar ↗</a></div>
+                  ${grammarInfo.inflectionNotes.map((n) => `<div class="ling-row"><strong>Perubahan Bentuk Mandar:</strong> ${escapeHtml(n)}</div>`).join('')}
+                  ${hasExpanded ? `<div class="ling-row"><strong>Bacaan Definisi Utuh:</strong> ${escapeHtml(expandedDef)}</div>` : ''}
+                  ${crossRefLinks}
+                  ${examplesDetailHtml}
+                </div>
+              </details>
+            `;
+
             let illustrationBlock = '';
             if (rec.illustration) {
               const il = rec.illustration;
@@ -1524,10 +1646,13 @@
                         🔊 Dengar Lafal
                       </button>
                       ${exampleBtn}
+                      ${ipaBadge}
                       ${phoneticHint}
                     </div>
+                    <div class="ling-tags">${fullPosNote} ${registerBadges}</div>
                     <div class="entry-body">${formatEntryBodyHtml(e)}</div>
                     ${derivationsHtml}
+                    ${lingDetailsHtml}
                   </div>
                   ${illustrationBlock}
                 </div>
@@ -1779,6 +1904,11 @@
           state.entries = vocab.entries || [];
           indexEntries(state.entries);
           renderHeaderAndFilters();
+          const initialQuery = new URLSearchParams(window.location.search).get('q');
+          if (initialQuery && initialQuery.trim()) {
+            state.query = initialQuery.trim();
+            els.searchInput.value = state.query;
+          }
           renderResults();
         } catch (err) {
           els.entriesList.innerHTML = `

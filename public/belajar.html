@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Rumus, Imbuhan &amp; Petunjuk Buku — Kamus Mandar–Indonesia (2025)</title>
+  <meta name="description" content="Halaman khusus belajar rumus kanonik, imbuhan (afiksasi), pronomina persona, petunjuk pemakaian resmi PDF Kamus Mandar–Indonesia 2025, dan pengurai tulisan Bahasa Mandar.">
+  <style>
+    :root {
+      --bg: #f6f3ec;
+      --surface: #ffffff;
+      --surface-soft: #faf8f4;
+      --text: #1f2421;
+      --muted: #5a625c;
+      --border: #e2ddd2;
+      --accent: #135d4b;
+      --accent-soft: #e6f2ee;
+      --crimson: #7f1d2b;
+      --gold: #c89b3c;
+      --pos-bg: #f3ece0;
+      --pos-text: #6e4814;
+      --shadow: 0 3px 14px rgba(31, 36, 33, 0.07);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .sure-ribbon {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #7f1d2b 0px, #7f1d2b 28px,
+        #e0b243 28px, #e0b243 34px,
+        #166552 34px, #166552 54px,
+        #1e3a6d 54px, #1e3a6d 72px,
+        #e0b243 72px, #e0b243 78px
+      );
+    }
+
+    .header {
+      background: linear-gradient(135deg, #104d3e 0%, #176c57 60%, #1e4d45 100%);
+      color: #ffffff;
+      padding: 24px 16px 20px;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    h1 { margin: 0 0 6px; font-size: clamp(1.35rem, 2.5vw, 1.88rem); }
+    .subtitle { margin: 0; font-size: 0.92rem; color: rgba(255, 255, 255, 0.9); }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-header:hover { background: rgba(255, 255, 255, 0.24); }
+    .btn-header.primary { background: #c89b3c; border-color: #e0b243; color: #1b1709; }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .nav-pill {
+      background: rgba(0, 0, 0, 0.22);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-pill:hover { background: rgba(255, 255, 255, 0.22); }
+
+    main { padding: 20px 16px 52px; }
+
+    .toast {
+      position: sticky;
+      top: 10px;
+      z-index: 40;
+      margin-bottom: 12px;
+      background: #143f35;
+      color: #ffffff;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast[hidden] { display: none; }
+    .toast button {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 3px 9px;
+      cursor: pointer;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 1.18rem;
+      color: var(--crimson);
+    }
+
+    .pdf-ref {
+      font-size: 0.83rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .pdf-ref:hover { text-decoration: underline; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .sub-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .sub-box h3 {
+      margin: 0 0 8px;
+      font-size: 0.98rem;
+      color: var(--accent);
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    input[type="text"]:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(19, 93, 75, 0.14);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .btn:hover { filter: brightness(0.92); }
+    .btn-soft {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-color: rgba(19, 93, 75, 0.25);
+    }
+    .btn-mini {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-mini:hover { background: var(--accent-soft); border-color: var(--accent); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 8px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .table-wrap { overflow-x: auto; }
+
+    .ipa {
+      font-family: "Segoe UI", "DejaVu Sans", Arial, sans-serif;
+      background: var(--pos-bg);
+      color: var(--pos-text);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 12px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .token-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 12px;
+      background: var(--surface-soft);
+    }
+
+    .token-word { font-size: 1.04rem; font-weight: 700; }
+    .token-lontara { font-size: 1.25rem; color: var(--crimson); margin-left: 6px; }
+    .token-def { font-size: 0.86rem; margin-top: 6px; color: var(--text); }
+    .token-meta { font-size: 0.79rem; color: var(--muted); margin-top: 4px; }
+
+    .lontara-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .lontara-cell {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface-soft);
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .lontara-cell:hover { border-color: var(--accent); }
+    .lontara-glyph { font-size: 1.55rem; color: var(--crimson); line-height: 1.2; }
+    .lontara-latin { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
+
+    .sim-result {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .hint { font-size: 0.84rem; color: var(--muted); margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <div class="sure-ribbon" aria-hidden="true"></div>
+  <header class="header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Belajar Rumus, Imbuhan &amp; Petunjuk Buku Kamus Mandar</h1>
+          <p class="subtitle">Materi lengkap dari Petunjuk Pemakaian resmi (hlm. ix–xlvi) <em>Kamus Bahasa Mandar–Indonesia Edisi Revisi 2025</em></p>
+        </div>
+        <div class="header-actions">
+          <a class="btn-header primary" href="./">← Kembali ke Kamus</a>
+          <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
+          <a class="btn-header" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=10" target="_blank" rel="noopener">📄 Buka PDF ix–xlvi</a>
+        </div>
+      </div>
+
+      <nav class="nav-pills" aria-label="Navigasi materi">
+        <a class="nav-pill" href="#pembaca-tulisan">✍️ Baca &amp; Artikan Tulisan Mandar</a>
+        <a class="nav-pill" href="#simulator-imbuhan">🧩 Rumus &amp; Imbuhan (Afiksasi)</a>
+        <a class="nav-pill" href="#rumus-kanonik">📐 Rumus Suku Kata (K/V)</a>
+        <a class="nav-pill" href="#pronomina-seri">👤 Kata Ganti Persona Seri I–III</a>
+        <a class="nav-pill" href="#fonologi-ipa">🔊 24 Fonem, Alofon &amp; Asimilasi</a>
+        <a class="nav-pill" href="#petunjuk-simbol">📜 Petunjuk Simbol &amp; Kata Serapan</a>
+        <a class="nav-pill" href="#aksara-lontaraq">🪶 Pengenalan Lontaraq Mandar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toast" id="toastBox" hidden>
+      <span id="toastText"></span>
+      <button type="button" id="closeToastBtn">Tutup</button>
+    </div>
+
+    <!-- 1. BACA & ARTIKAN TULISAN BAHASA MANDAR -->
+    <section class="card" id="pembaca-tulisan">
+      <div class="card-header">
+        <h2>✍️ Belajar Tulisan Bahasa Mandar &amp; Artikan Kata demi Kata</h2>
+        <span class="badge" id="vocabStatusBadge">Memuat 4.908 entri...</span>
+      </div>
+      <p class="hint">
+        Ketik atau pilih contoh tulisan Bahasa Mandar di bawah ini untuk membedah kata dasar, imbuhan/klitik, lafal IPA, tulisan Lontaraq perkiraan, suara pengucapan, dan arti kamusnya.
+      </p>
+
+      <div class="chip-row" id="sampleSentences">
+        <button type="button" class="chip" data-sentence="iyau meloaq meqguru basa mandar">iyau meloaq meqguru basa mandar</button>
+        <button type="button" class="chip" data-sentence="malai mi dionging na sayangngi luluareqna">malai mi dionging na sayangngi luluareqna</button>
+        <button type="button" class="chip" data-sentence="maroaq i naqibaine lalang di pacceko">maroaq i naqibaine lalang di pacceko</button>
+        <button type="button" class="chip" data-sentence="mappakeqdeq boyang i puqaji">mappakeqdeq boyang i puqaji</button>
+        <button type="button" class="chip" data-sentence="kodi sangapa muparalluang lipaq saqbe?">kodi sangapa muparalluang lipaq saqbe?</button>
+        <button type="button" class="chip" data-sentence="diang karewa macoa u tarima">diang karewa macoa u tarima</button>
+      </div>
+
+      <textarea id="sentenceInput" rows="2" placeholder="Tulis kalimat atau kosakata Bahasa Mandar, misalnya: maqala anjoro di uma..."></textarea>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+        <button type="button" class="btn" id="analyzeSentenceBtn">🔍 Bedah &amp; Artikan Kalimat</button>
+        <button type="button" class="btn btn-soft" id="speakSentenceBtn">🔊 Dengarkan Bacaan Kalimat</button>
+      </div>
+
+      <div id="sentenceOutput"></div>
+    </section>
+
+    <!-- 2. SIMULATOR & TABEL RUMUS IMBUHAN -->
+    <section class="card" id="simulator-imbuhan">
+      <div class="card-header">
+        <h2>🧩 Rumus Imbuhan (Afiksasi), Infleksi &amp; Partikel Mandar</h2>
+        <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=22" target="_blank" rel="noopener">PDF hlm. xxi–xxxiv ↗</a>
+      </div>
+
+      <div class="sub-box" style="margin-bottom:14px;">
+        <h3>Laboratorium Pembentuk &amp; Pengurai Kata Berimbuhan</h3>
+        <div class="grid-2" style="gap:10px;">
+          <div>
+            <label for="simPrefix" class="hint"><strong>1. Pilih Prefiks (Awalan):</strong></label>
+            <select id="simPrefix">
+              <option value="">(Tanpa prefiks)</option>
+              <option value="ma">ma- / maq- (me-, ber-, adjektiva)</option>
+              <option value="me">me- / meq- (memakai, ber-, aktif)</option>
+              <option value="mi">mi- / miq- (varian me-)</option>
+              <option value="pe">pe- / peq- (pelaku, kali, perintah)</option>
+              <option value="pa">pa- (perintah / buat supaya)</option>
+              <option value="di">di- (pasif "di-...")</option>
+              <option value="na">na- (pelaku ke-3 "ia me-...")</option>
+              <option value="ti">ti- (ter-... / tak sengaja)</option>
+              <option value="si">si- (saling me- / ber-...-an)</option>
+              <option value="ke">ke- (mempunyai ...)</option>
+            </select>
+          </div>
+          <div>
+            <label for="simStem" class="hint"><strong>2. Kata Dasar Mandar:</strong></label>
+            <input type="text" id="simStem" value="ita" placeholder="Contoh: ita, baca, oro, bayu, boyang, ala">
+          </div>
+          <div>
+            <label for="simSuffix" class="hint"><strong>3. Pilih Akhiran / Partikel Klitik:</strong></label>
+            <select id="simSuffix">
+              <option value="">(Tanpa akhiran/partikel)</option>
+              <option value="i">-i (transitif / lokatif / ia)</option>
+              <option value="ang">-ang (tempat / -kan)</option>
+              <option value="u">-u (milik saya "-ku")</option>
+              <option value="mu">-mu (milik kamu "-mu")</option>
+              <option value="na">-na (milik dia "-nya")</option>
+              <option value="mi">-mi ("sudah / -lah")</option>
+              <option value="mo">-mo ("sudah")</option>
+              <option value="aq">-aq ("saya" inversi)</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:8px;">
+            <button type="button" class="btn" id="runSimBtn">⚡ Bentuk &amp; Cek Kamus</button>
+          </div>
+        </div>
+        <div class="sim-result" id="simResult"></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Jenis &amp; Imbuhan</th>
+              <th>Alomorf / Varian</th>
+              <th>Makna &amp; Fungsi Tata Bahasa</th>
+              <th>Contoh Resmi Buku</th>
+              <th>Rujukan</th>
+            </tr>
+          </thead>
+          <tbody id="affixTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. RUMUS KANONIK & KALKULATOR K/V -->
+    <section class="card" id="rumus-kanonik">
+      <div class="card-header">
+        <h2>📐 Rumus Bentuk Kanonik Suku Kata (Konsonan K &amp; Vokal V)</h2>
+        <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=19" target="_blank" rel="noopener">PDF hlm. xviii–xxi ↗</a>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Jumlah Suku</th><th>Rumus Umum</th><th>Contoh &amp; Pola</th></tr>
+              </thead>
+              <tbody id="canonicalTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sub-box">
+          <h3>Uji Rumus Kanonik &amp; IPA Kata Apa Saja</h3>
+          <input type="text" id="canonInput" value="kaluwambang" placeholder="Ketik kata Mandar, mis. boyang, kaluwambang, anjoro">
+          <div id="canonOutput" style="margin-top:10px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KATA GANTI PERSONA SERI I - III -->
+    <section class="card" id="pronomina-seri">
+      <div class="card-header">
+        <h2>👤 Rumus Perubahan Kata Ganti Persona (Seri I, II, III)</h2>
+        <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=39" target="_blank" rel="noopener">PDF hlm. xxxviii–xliv ↗</a>
+      </div>
+      <p class="hint">
+        Dalam bahasa Mandar, perubahan bentuk tata bahasa tidak memakai tenses/gender, melainkan sistem <strong>Seri I</strong> (bentuk bebas subjek), <strong>Seri IIa</strong> (klitik pelaku depan verba), <strong>Seri IIb</strong> (posesif pemilik di akhir nomina), dan <strong>Seri III</strong> (bentuk inversi yang lazim dalam tuturan sopan).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Persona</th>
+              <th>Seri I (Bebas)</th>
+              <th>Seri IIa (Pelaku)</th>
+              <th>Seri IIb (Pemilik)</th>
+              <th>Seri III (Inversi)</th>
+            </tr>
+          </thead>
+          <tbody id="pronounTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. FONOLOGI: 24 FONEM, ALOFON, 16 ASIMILASI NASAL -->
+    <section class="card" id="fonologi-ipa">
+      <div class="card-header">
+        <h2>🔊 Fonologi Buku: 24 Fonem, Alofon, Asimilasi Nasal &amp; Tekanan</h2>
+        <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=10" target="_blank" rel="noopener">PDF hlm. ix–xvii ↗</a>
+      </div>
+      <div class="grid-2">
+        <div class="sub-box">
+          <h3>5 Fonem Vokal &amp; 4 Alofon Frikatif (Pasal 1.3.1)</h3>
+          <div id="vowelList"></div>
+          <table style="margin-top:10px;">
+            <thead><tr><th>Fonem</th><th>Syarat</th><th>Bunyi</th><th>Contoh</th></tr></thead>
+            <tbody id="allophoneBody"></tbody>
+          </table>
+          <p class="hint" style="margin-top:10px;">
+            <strong>Aturan Tekanan Kata (1.4):</strong> Pada kata bersuku 2, 3, atau 4, tekanan umumnya jatuh pada <strong>suku kedua dari belakang</strong> (mis. <em>méloq</em>, <em>madóndong</em>, <em>kaluwámbang</em>). Perhatikan perbedaan <em>ála i</em> ("ambil itu") vs <em>alái</em> ("simpan"); <em>állo i</em> ("sudah siang") vs <em>allói</em> ("jemurlah!").
+          </p>
+        </div>
+        <div class="sub-box">
+          <h3>19 Fonem Konsonan Bahasa Mandar (Klik 🔊 untuk dengar contoh)</h3>
+          <div class="table-wrap" style="max-height:360px;overflow-y:auto;">
+            <table>
+              <thead><tr><th>Huruf</th><th>IPA</th><th>Depan</th><th>Tengah</th><th>Belakang</th><th>🔊</th></tr></thead>
+              <tbody id="consonantBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-box" style="margin-top:16px;">
+        <h3>Tabel III: 16 Gejala Asimilasi Konsonan Nasal (-ng + Konsonan)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Pertemuan</th><th>Menjadi</th><th>Contoh Penulisan &amp; Pelafalan</th><th>Arti</th><th>🔊</th></tr></thead>
+            <tbody id="nasalTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PETUNJUK SIMBOL & KATA SERAPAN -->
+    <section class="card" id="petunjuk-simbol">
+      <div class="card-header">
+        <h2>📜 Petunjuk Simbol Kamus, Singkatan, &amp; Kaidah Kata Serapan</h2>
+        <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=46" target="_blank" rel="noopener">PDF hlm. xxxv–xlvi ↗</a>
+      </div>
+      <div class="grid-2">
+        <div class="sub-box">
+          <h3>Simbol Penjelasan Kamus (hlm. xlv)</h3>
+          <table>
+            <thead><tr><th>Simbol</th><th>Fungsi di Kamus</th></tr></thead>
+            <tbody id="symbolsBody"></tbody>
+          </table>
+        </div>
+        <div class="sub-box">
+          <h3>Kaidah Adaptasi Kata Pinjaman (hlm. xxxvii–xxxviii)</h3>
+          <table>
+            <thead><tr><th>Kaidah Fonem</th><th>Contoh di Bahasa Mandar</th></tr></thead>
+            <tbody id="loanBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PENGENALAN AKSARA LONTARAQ MANDAR -->
+    <section class="card" id="aksara-lontaraq">
+      <div class="card-header">
+        <h2>🪶 Pengenalan Aksara Lontaraq (Sulapa Eppa) &amp; Transliterasi Visual</h2>
+        <span class="badge">Materi Tambahan Budaya Tulisan Mandar</span>
+      </div>
+      <p class="hint">
+        <em>Catatan ilmiah:</em> Naskah kamus PDF 2025 ditulis dengan ejaan Latin EYD V + <code>q</code>. Bagian ini disediakan sebagai pengantar membaca 23 huruf dasar Aksara Lontaraq (*Sulapa Eppa*) yang dikenal di tradisi tulis Sulawesi Barat/Selatan (konsonan penutup suku kata serta glotal <code>q</code> secara tradisional tidak dituliskan sebagai tanda mati terpisah).
+      </p>
+      <div class="sub-box" style="margin-bottom:12px;">
+        <h3>Konverter Latin Mandar → Pratinjau Lontaraq</h3>
+        <input type="text" id="lontaraInput" value="basa mandar sulawesi barat" placeholder="Ketik kata/kalimat untuk melihat aksara Lontaraq...">
+        <div id="lontaraPreview" style="margin-top:10px;font-size:1.7rem;color:var(--crimson);letter-spacing:0.06em;"></div>
+      </div>
+      <div class="lontara-grid" id="lontaraGrid"></div>
+    </section>
+  </main>
+
+  <div class="sure-ribbon" aria-hidden="true"></div>
+
+  <script src="./assets/kamus-media.js"></script>
+  <script src="./assets/kamus-linguistics.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const Media = window.KamusMedia;
+      const Ling = window.KamusLinguistics;
+      const AudioCtrl = Media.createAudioController();
+      const Guide = Ling.BOOK_GUIDE_DATA;
+
+      const state = {
+        entries: [],
+        vocabMap: new Map(),
+      };
+
+      const els = {
+        soundToggleBtn: document.getElementById('soundToggleBtn'),
+        toastBox: document.getElementById('toastBox'),
+        toastText: document.getElementById('toastText'),
+        closeToastBtn: document.getElementById('closeToastBtn'),
+        vocabStatusBadge: document.getElementById('vocabStatusBadge'),
+        sentenceInput: document.getElementById('sentenceInput'),
+        sampleSentences: document.getElementById('sampleSentences'),
+        analyzeSentenceBtn: document.getElementById('analyzeSentenceBtn'),
+        speakSentenceBtn: document.getElementById('speakSentenceBtn'),
+        sentenceOutput: document.getElementById('sentenceOutput'),
+        simPrefix: document.getElementById('simPrefix'),
+        simStem: document.getElementById('simStem'),
+        simSuffix: document.getElementById('simSuffix'),
+        runSimBtn: document.getElementById('runSimBtn'),
+        simResult: document.getElementById('simResult'),
+        affixTableBody: document.getElementById('affixTableBody'),
+        canonicalTableBody: document.getElementById('canonicalTableBody'),
+        canonInput: document.getElementById('canonInput'),
+        canonOutput: document.getElementById('canonOutput'),
+        pronounTableBody: document.getElementById('pronounTableBody'),
+        vowelList: document.getElementById('vowelList'),
+        allophoneBody: document.getElementById('allophoneBody'),
+        consonantBody: document.getElementById('consonantBody'),
+        nasalTableBody: document.getElementById('nasalTableBody'),
+        symbolsBody: document.getElementById('symbolsBody'),
+        loanBody: document.getElementById('loanBody'),
+        lontaraInput: document.getElementById('lontaraInput'),
+        lontaraPreview: document.getElementById('lontaraPreview'),
+        lontaraGrid: document.getElementById('lontaraGrid'),
+      };
+
+      function esc(s) {
+        return String(s || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      let toastTimer = null;
+      function showToast(msg) {
+        clearTimeout(toastTimer);
+        els.toastText.textContent = msg;
+        els.toastBox.hidden = false;
+        toastTimer = setTimeout(() => { els.toastBox.hidden = true; }, 4500);
+      }
+
+      function syncSoundBtn() {
+        const on = AudioCtrl.isSoundEnabled();
+        els.soundToggleBtn.textContent = on ? '🔊 Suara UI: Aktif' : '🔇 Suara UI: Bisu';
+      }
+
+      function lookupEntries(word) {
+        const k = String(word || '').toLowerCase().replace(/['`\u2018\u2019]/g, 'q').trim();
+        return state.vocabMap.get(k) || [];
+      }
+
+      function renderStaticGuideTables() {
+        els.affixTableBody.innerHTML = Guide.affixes
+          .map(
+            (a) => `
+            <tr>
+              <td><strong>${esc(a.name)}</strong><br><span class="badge">${esc(a.category)}</span></td>
+              <td><code>${esc(a.allomorphs)}</code></td>
+              <td>${esc(a.meaning)}</td>
+              <td>${esc(a.examples)}</td>
+              <td><a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=${a.pdfPage}" target="_blank" rel="noopener">hlm. ${esc(a.bookPage)}</a></td>
+            </tr>`,
+          )
+          .join('');
+
+        els.canonicalTableBody.innerHTML = Guide.canonicalForms
+          .map(
+            (c) => `
+            <tr>
+              <td><strong>${esc(c.syllables)}</strong></td>
+              <td><code>${esc(c.general)}</code></td>
+              <td>${esc(c.examples)}</td>
+            </tr>`,
+          )
+          .join('');
+
+        els.pronounTableBody.innerHTML = Guide.pronouns
+          .map(
+            (p) => `
+            <tr>
+              <td><strong>${esc(p.person)}</strong></td>
+              <td><code>${esc(p.seri1)}</code></td>
+              <td><code>${esc(p.pelaku)}</code></td>
+              <td><code>${esc(p.pemilik)}</code></td>
+              <td><code>${esc(p.inversi)}</code></td>
+            </tr>`,
+          )
+          .join('');
+
+        els.vowelList.innerHTML = `<div class="chip-row">${Guide.phonemes.vowels
+          .map(
+            (v) => `<button type="button" class="chip" data-speak="${esc(v.example)}"><strong>${esc(v.letter)}</strong> ${esc(v.ipa)} · <em>${esc(v.example)}</em> ("${esc(v.meaning)}") 🔊</button>`,
+          )
+          .join('')}</div>`;
+
+        els.allophoneBody.innerHTML = Guide.phonemes.allophones
+          .map((al) => `<tr><td><code>${esc(al.phoneme)}</code></td><td>${esc(al.condition)}</td><td><code>${esc(al.sound)}</code></td><td>${esc(al.example)}</td></tr>`)
+          .join('');
+
+        els.consonantBody.innerHTML = Guide.phonemes.consonants
+          .map((c) => {
+            const sampleSpeak = (c.front !== '—' ? c.front : c.mid).split(' ')[0];
+            return `<tr>
+              <td><strong>${esc(c.letter)}</strong></td>
+              <td><span class="ipa">${esc(c.ipa)}</span></td>
+              <td>${esc(c.front)}</td>
+              <td>${esc(c.mid)}</td>
+              <td>${esc(c.end)}</td>
+              <td><button type="button" class="btn-mini" data-speak="${esc(sampleSpeak)}">🔊</button></td>
+            </tr>`;
+          })
+          .join('');
+
+        els.nasalTableBody.innerHTML = Guide.nasalAssimilations
+          .map(
+            ([pair, become, ex, arti]) => `<tr>
+              <td><code>${esc(pair)}</code></td>
+              <td><code>${esc(become)}</code></td>
+              <td>${esc(ex)}</td>
+              <td>${esc(arti)}</td>
+              <td><button type="button" class="btn-mini" data-speak="${esc(ex.split('→')[1]?.trim() || ex)}">🔊</button></td>
+            </tr>`,
+          )
+          .join('');
+
+        els.symbolsBody.innerHTML = Guide.symbols
+          .map((s) => `<tr><td><strong><code>${esc(s.symbol)}</code></strong></td><td>${esc(s.desc)}</td></tr>`)
+          .join('');
+
+        els.loanBody.innerHTML = Guide.loanwordRules
+          .map((r) => `<tr><td><strong>${esc(r.rule)}</strong></td><td>${esc(r.example)}</td></tr>`)
+          .join('');
+
+        els.lontaraGrid.innerHTML = Guide.lontaraqTable
+          .map(
+            (item) => `<div class="lontara-cell" data-speak="${esc(item.latin)}">
+              <div class="lontara-glyph">${esc(item.glyph)}</div>
+              <div class="lontara-latin">${esc(item.latin)}</div>
+            </div>`,
+          )
+          .join('');
+      }
+
+      function updateCanonicalAnalyzer() {
+        const w = els.canonInput.value.trim();
+        if (!w) {
+          els.canonOutput.innerHTML = '<p class="hint">Ketik satu kata Mandar.</p>';
+          return;
+        }
+        const canon = Ling.analyzeCanonicalPattern(w);
+        const ipa = Ling.toMandarIpa(w);
+        const lontara = Ling.latinToLontaraqPreview(w);
+        const matches = lookupEntries(w);
+        const foundBadge =
+          matches.length > 0
+            ? `<span class="badge">Tercatat di Kamus (${esc(matches[0].pos.join(', ') || 'kata')} · hlm. ${matches[0].source.bookPage})</span>`
+            : '<span class="hint">Kata bentukan / belum ada di kamus dasar</span>';
+
+        els.canonOutput.innerHTML = `
+          <div style="display:grid;gap:6px;font-size:0.9rem;">
+            <div><strong>Rumus Kanonik:</strong> <code>${esc(canon.pattern)}</code> (${canon.syllables} vokal/suku)</div>
+            <div><strong>Transkripsi IPA:</strong> <span class="ipa">${esc(ipa.phonemic)}</span> ${ipa.narrow ? `<span class="ipa">${esc(ipa.narrow)}</span>` : ''}</div>
+            <div><strong>Tekanan:</strong> ${esc(ipa.stressRule)}</div>
+            <div><strong>Lontaraq:</strong> <span style="font-size:1.3rem;color:var(--crimson);">${esc(lontara)}</span></div>
+            <div>${foundBadge} <button type="button" class="btn-mini" data-speak="${esc(w)}">🔊 Lafalkan</button></div>
+          </div>
+        `;
+      }
+
+      function combineMandarAffix(prefix, stem, suffix) {
+        const cleanStem = String(stem || '').toLowerCase().trim().replace(/['`\u2018\u2019]/g, 'q');
+        if (!cleanStem) return { word: '', ruleNote: '' };
+
+        let prefForm = prefix;
+        let ruleNote = '';
+        const first = cleanStem[0];
+
+        if (prefix === 'ma' || prefix === 'me' || prefix === 'mi' || prefix === 'pe') {
+          if ('aiueog'.includes(first) || (prefix === 'ma' && first === 'b')) {
+            prefForm = `${prefix}q`;
+            ruleNote = `Alomorf ${prefix}q- digunakan karena kata dasar berawalan /${first}/.`;
+          } else if ('chklmnprst'.includes(first)) {
+            prefForm = `${prefix}${first}`;
+            ruleNote = `Alomorf geminasi ${prefix}${first}- digunakan karena kata dasar berawalan /${first}/.`;
+          } else {
+            ruleNote = `Bentuk dasar ${prefix}- langsung bergabung dengan "${cleanStem}".`;
+          }
+        } else if (prefix) {
+          ruleNote = `Prefiks ${prefix}- bergabung dengan kata dasar "${cleanStem}".`;
+        }
+
+        const word = `${prefForm}${cleanStem}${suffix}`;
+        return { word, ruleNote };
+      }
+
+      function runAffixSimulator() {
+        const prefix = els.simPrefix.value;
+        const stem = els.simStem.value.trim();
+        const suffix = els.simSuffix.value;
+        if (!stem) {
+          els.simResult.innerHTML = '<p class="hint">Masukkan kata dasar terlebih dahulu.</p>';
+          return;
+        }
+        const { word, ruleNote } = combineMandarAffix(prefix, stem, suffix);
+        const ipa = Ling.toMandarIpa(word);
+        const direct = lookupEntries(word);
+        const baseMatches = lookupEntries(stem);
+
+        const directHtml =
+          direct.length > 0
+            ? `<div style="margin-top:6px;"><strong>✅ Ditemukan di Kamus (hlm. ${direct[0].source.bookPage}):</strong> ${esc(Ling.expandBookAbbreviations(direct[0].definitionText))} <a class="pdf-ref" href="./?q=${encodeURIComponent(direct[0].headword)}">Buka di Kamus →</a></div>`
+            : '<div class="hint" style="margin-top:6px;">Bentuk kombinasi ini mengikuti rumus tata bahasa/klitik produktif meski tidak tercantum sebagai lema terpisah.</div>';
+
+        const baseHtml =
+          baseMatches.length > 0
+            ? `<div class="hint"><strong>Kata dasar "${esc(stem)}":</strong> ${esc(Ling.expandBookAbbreviations(baseMatches[0].definitionText).slice(0, 140))}</div>`
+            : '';
+
+        els.simResult.innerHTML = `
+          <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+            <strong style="font-size:1.15rem;">${esc(word)}</strong>
+            <span class="ipa">${esc(ipa.phonemic)}</span>
+            <button type="button" class="btn-mini" data-speak="${esc(word)}">🔊 Dengar Lafal</button>
+          </div>
+          ${ruleNote ? `<div class="hint">${esc(ruleNote)}</div>` : ''}
+          ${baseHtml}
+          ${directHtml}
+        `;
+      }
+
+      function renderSentenceAnalysis() {
+        const sentence = els.sentenceInput.value.trim();
+        if (!sentence) {
+          els.sentenceOutput.innerHTML = '';
+          return;
+        }
+        const analyzed = Ling.analyzeMandarSentence(sentence, lookupEntries, state.vocabMap);
+        const fullLontara = Ling.latinToLontaraqPreview(sentence);
+
+        els.sentenceOutput.innerHTML = `
+          <div class="sub-box" style="margin-top:14px;">
+            <div><strong>Pratinjau Tulisan Lontaraq Kalimat:</strong> <span style="font-size:1.35rem;color:var(--crimson);margin-left:6px;">${esc(fullLontara)}</span></div>
+          </div>
+          <div class="token-grid">
+            ${analyzed
+              .map((tok) => {
+                const lontara = Ling.latinToLontaraqPreview(tok.clean);
+                const morphDesc =
+                  tok.morph?.kind === 'berimbuhan'
+                    ? `${tok.morph.prefix || tok.morph.suffix}: ${tok.morph.meaning} (dasar: <strong>${esc(tok.morph.rootCandidate)}</strong>)`
+                    : tok.morph?.note || '—';
+
+                let defHtml = '<span class="hint">Tidak ditemukan langsung di lema kamus.</span>';
+                let pageLink = '';
+                if (tok.entry) {
+                  const fullDef = Ling.expandBookAbbreviations(tok.entry.definitionText || tok.entry.rawText);
+                  defHtml = `<div><strong>[${esc(tok.entry.pos.join(', ') || 'lema')}]</strong> ${esc(fullDef.slice(0, 150))}${fullDef.length > 150 ? '…' : ''}</div>`;
+                  pageLink = ` · <a class="pdf-ref" href="./?q=${encodeURIComponent(tok.entry.headword)}">Lihat di Kamus</a> · <a class="pdf-ref" href="./dataset/kamus-mandar-indonesia-2025.pdf#page=${tok.entry.source.pdfPage}" target="_blank" rel="noopener">hlm. ${tok.entry.source.bookPage}</a>`;
+                }
+
+                return `
+                  <div class="token-card">
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;">
+                      <div>
+                        <span class="token-word">${esc(tok.raw)}</span>
+                        <span class="token-lontara">${esc(lontara)}</span>
+                      </div>
+                      <button type="button" class="btn-mini" data-speak="${esc(tok.clean)}">🔊</button>
+                    </div>
+                    <div style="margin-top:4px;"><span class="ipa">${esc(tok.ipa)}</span></div>
+                    <div class="token-meta">${morphDesc}</div>
+                    <div class="token-def">${defHtml}</div>
+                    <div class="token-meta">${tok.matchedDirect ? 'Cocok langsung' : tok.entry ? 'Cocok kata dasar' : 'Bentuk kalimat'}${pageLink}</div>
+                  </div>
+                `;
+              })
+              .join('')}
+          </div>
+        `;
+      }
+
+      function updateLontaraPreview() {
+        els.lontaraPreview.textContent = Ling.latinToLontaraqPreview(els.lontaraInput.value);
+      }
+
+      els.soundToggleBtn.addEventListener('click', () => {
+        AudioCtrl.setSoundEnabled(!AudioCtrl.isSoundEnabled());
+        syncSoundBtn();
+        showToast(AudioCtrl.isSoundEnabled() ? 'Suara UI diaktifkan.' : 'Suara UI dibisukan.');
+      });
+
+      els.closeToastBtn.addEventListener('click', () => { els.toastBox.hidden = true; });
+
+      document.body.addEventListener('click', (ev) => {
+        const spk = ev.target.closest('[data-speak]');
+        if (!spk) return;
+        const text = spk.getAttribute('data-speak');
+        AudioCtrl.speakText(text, { headword: text, onStatus: showToast });
+      });
+
+      els.sampleSentences.addEventListener('click', (ev) => {
+        const chip = ev.target.closest('[data-sentence]');
+        if (!chip) return;
+        AudioCtrl.playUiSound('tap');
+        els.sentenceInput.value = chip.getAttribute('data-sentence');
+        renderSentenceAnalysis();
+      });
+
+      els.analyzeSentenceBtn.addEventListener('click', () => {
+        AudioCtrl.playUiSound('tap');
+        renderSentenceAnalysis();
+      });
+
+      els.speakSentenceBtn.addEventListener('click', () => {
+        const s = els.sentenceInput.value.trim();
+        if (s) AudioCtrl.speakText(s, { onStatus: showToast });
+      });
+
+      els.runSimBtn.addEventListener('click', () => {
+        AudioCtrl.playUiSound('tap');
+        runAffixSimulator();
+      });
+      els.canonInput.addEventListener('input', updateCanonicalAnalyzer);
+      els.lontaraInput.addEventListener('input', updateLontaraPreview);
+
+      async function init() {
+        syncSoundBtn();
+        renderStaticGuideTables();
+        updateCanonicalAnalyzer();
+        updateLontaraPreview();
+
+        try {
+          const res = await fetch('./dataset/vocabulary.json');
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          state.entries = data.entries || [];
+          for (const e of state.entries) {
+            for (const cand of [e.headword, ...(e.aliases || [])]) {
+              const k = String(cand || '').toLowerCase().replace(/['`\u2018\u2019]/g, 'q').trim();
+              if (!k) continue;
+              if (!state.vocabMap.has(k)) state.vocabMap.set(k, []);
+              state.vocabMap.get(k).push(e);
+            }
+          }
+          els.vocabStatusBadge.textContent = `${state.entries.length.toLocaleString('id-ID')} entri tersambung`;
+          els.sentenceInput.value = 'iyau meloaq meqguru basa mandar';
+          renderSentenceAnalysis();
+          runAffixSimulator();
+        } catch (err) {
+          els.vocabStatusBadge.textContent = `Gagal memuat dataset (${err.message})`;
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
