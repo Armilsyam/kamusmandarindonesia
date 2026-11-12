@@ -7,7 +7,7 @@ Repositori dataset acuan kosakata **Kamus Bahasa Mandar–Indonesia (Edisi Revis
 - **Berkas PDF acuan:** `dataset/kamus-mandar-indonesia-2025.pdf`
 - **Judul:** *Kamus Bahasa Mandar–Indonesia (Edisi Revisi)*
 - **Penyusun:** Sandra Safitri Hanan, dkk.
-- **Penerbit:** Kementerian Pendidikan Dasar dan Menengah / Balai Bahasa Provinsi Sulawesi Selatan (2025)
+- **Penerbit:** Kementerian Pendidikan Dasar dan Menengah / Balai Bahasa Provinsi Sulawesi Barat (2025)
 - **Ukuran & Checksum:** `3.983.041` byte | SHA-256 `3D9A671F5A5CC91523A77C308D304D36C178C5A8B2E198B1532ECFF1EC4F794C`
 - **Cakupan PDF:** `548` halaman PDF (`halaman PDF 48–546` merupakan isi kamus tercetak halaman `1–499`), memuat `4.908` entri (`2.660` lema utama dan `2.248` sublema) pada `20` seksi abjad (`A`–`W`).
 
@@ -21,7 +21,7 @@ PDF di dalam folder `dataset/` adalah sumber acuan utama kosakata. Berkas indeks
 - `src/pdf-parser.js` — Ekstraktor PDF murni Node.js (tanpa dependensi eksternal) untuk membaca halaman kamus dua kolom, penanda homonim, tag kelas kata, lema utama, dan sublema.
 - `src/dataset-server.js` — Modul acuan dataset sisi server (`KamusMandarDataset`) untuk memuat, memverifikasi SHA-256 PDF, serta menyediakan API pencarian dan lookup kosakata.
 - `src/server.js` — HTTP API server Node.js tanpa dependensi eksternal (`npm start`), melayani pencarian, lookup, halaman buku, dan berkas PDF resmi.
-- `public/index.html`, `public/belajar.html`, `public/assets/kamus-media.js`, `public/assets/kamus-linguistics.js`, & `public/assets/illustrations/` — Antarmuka web statis kamus Mandar–Indonesia & halaman khusus belajar **Rumus, Imbuhan, dan Petunjuk Buku** (`belajar.html`) untuk GitHub Pages (`github.io`), dilengkapi transkripsi IPA & alofon, uraian tata bahasa/morfologi/klitik, nuansa ragam, pengurai tulisan Mandar & pengenalan Lontaraq, sentuhan suara & pelafalan, ilustrasi kosakata konkret, desain motif Batik/Corak *Sure' Para* Sulawesi Barat, serta kontak admin WhatsApp & dukungan DANA (`MUH. ARMIL SYAM` / `082291544262`).
+- `public/index.html`, `public/belajar.html`, `public/assets/kamus-media.js`, `public/assets/kamus-linguistics.js`, & `public/assets/illustrations/` — Antarmuka web statis kamus Mandar–Indonesia & halaman khusus belajar **Rumus, Imbuhan, dan Petunjuk Buku** (`belajar.html`) untuk GitHub Pages (`github.io`), dilengkapi transkripsi IPA & alofon, uraian tata bahasa/morfologi/klitik, nuansa ragam, pengurai tulisan Mandar & pengenalan Lontaraq, sentuhan suara & pelafalan, ilustrasi kosakata konkret, desain motif *Batik Sure' Parara Sulawesi Barat*, serta kontak admin WhatsApp & dukungan DANA (`MUH. ARMIL SYAM` / `082291544262`).
 - `scripts/build-pages.js` & `.github/workflows/pages.yml` — Generator dan workflow GitHub Actions otomatis yang memverifikasi dataset, menjalankan seluruh test, dan memublikasikan situs statis ke branch `gh-pages` pada setiap push ke `main`.
 - `api/kamus.js` & `vercel.json` — Entrypoint Vercel Functions (Fluid Compute) dengan bundel folder `dataset/**` agar seluruh endpoint API dan PDF acuan siap berjalan di Vercel.
 - `scripts/build-dataset.js` — Skrip pembangkit & verifikasi ulang indeks JSON dari PDF resmi.

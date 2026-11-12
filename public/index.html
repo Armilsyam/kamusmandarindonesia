@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kamus Bahasa Mandar–Indonesia (Edisi Revisi 2025) · Sulawesi Barat</title>
-  <meta name="description" content="Kamus Bahasa Mandar–Indonesia digital bersumber resmi dari PDF 2025 dengan fitur suara cara pengucapan, ilustrasi kosakata bergambar, desain motif Sure' Para Sulawesi Barat, dan kontak kolaborasi.">
+  <meta name="description" content="Kamus Bahasa Mandar–Indonesia digital bersumber resmi dari PDF 2025 dengan fitur suara cara pengucapan, ilustrasi kosakata bergambar, halaman belajar rumus &amp; penulisan Huruf Lontar, desain Batik Sure' Parara Sulawesi Barat, dan kontak kolaborasi.">
   <style>
     :root {
       --bg: #f6f3ec;
@@ -958,13 +958,14 @@
       <div class="header-top">
         <div>
           <h1>Kamus Bahasa Mandar–Indonesia</h1>
-          <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Wilayah Budaya Sulawesi Barat (Balai Bahasa Prov. Sulawesi Selatan)</p>
+          <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Wilayah Budaya Sulawesi Barat (Balai Bahasa Prov. Sulawesi Barat)</p>
         </div>
         <div class="header-actions">
           <a class="btn-header" style="background:#c89b3c;border-color:#e0b243;color:#1b1709;" href="./belajar.html">📖 Belajar Rumus &amp; Imbuhan</a>
+          <a class="btn-header" style="background:#f5ecd7;border-color:#e0b243;color:#5a121d;" href="./lontara.html">✍️ Huruf Lontar</a>
           <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
           <button type="button" class="btn-header" id="speedToggleBtn">🗣️ Lafal: Normal</button>
-          <a class="btn-header" href="#batik-sure-para">🎨 Sure' Para Sulbar</a>
+          <a class="btn-header" href="#batik-sure-para">🎨 Batik Sure' Parara Sulawesi Barat</a>
           <a class="btn-header" href="#kontak-dukungan">💬 Admin &amp; DANA</a>
           <a class="btn-header" href="./dataset/kamus-mandar-indonesia-2025.pdf" target="_blank" rel="noopener">📄 PDF Resmi</a>
         </div>
@@ -1055,25 +1056,25 @@
       <button type="button" class="btn-page" id="nextBtn">Berikutnya</button>
     </div>
 
-    <section class="section-card" id="batik-sure-para" aria-label="Desain ilustrasi batik Sure' Para Sulawesi Barat">
+    <section class="section-card" id="batik-sure-para" aria-label="Desain ilustrasi Batik Sure' Parara Sulawesi Barat">
       <div class="section-title-row">
-        <h2>Desain Ilustrasi Batik &amp; Corak Sure' Para — Wilayah Sulawesi Barat</h2>
+        <h2>Desain Ilustrasi Batik Sure' Parara Sulawesi Barat</h2>
       </div>
       <div class="sure-para-grid">
         <div class="artwork-box">
           <img
             src="./assets/illustrations/batik-sure-para-sulbar.jpg"
-            alt="Ilustrasi tekstil Batik Sure' Para / Tenun Lipaq Saqbe khas Mandar Sulawesi Barat"
+            alt="Ilustrasi tekstil Batik Sure' Parara Sulawesi Barat / Tenun Lipaq Saqbe khas Mandar"
             loading="lazy"
           >
           <div class="artwork-caption">
-            <strong>Ilustrasi Tekstil Sure' Para (Sureq Parara / Lipaq Saqbe)</strong> — Perpaduan garis vertikal dan horizontal geometris berpadu ornamen bunga Mandar khas Sulawesi Barat.
+            <strong>Ilustrasi Tekstil Batik Sure' Parara Sulawesi Barat (Lipaq Saqbe)</strong> — Perpaduan garis vertikal dan horizontal geometris berpadu ornamen bunga Mandar khas Sulawesi Barat.
           </div>
         </div>
 
         <div>
           <div class="variant-tabs" id="sureParaTabs">
-            <button type="button" class="variant-btn active" data-variant="klasik">Sure' Para Klasik</button>
+            <button type="button" class="variant-btn active" data-variant="klasik">Sure' Parara Klasik</button>
             <button type="button" class="variant-btn" data-variant="maradia">Sure' Mara'dia</button>
             <button type="button" class="variant-btn" data-variant="salaka">Sure' Salaka</button>
           </div>
@@ -1856,12 +1857,12 @@
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `pola-sure-para-${state.sureVariant}-sulbar.svg`;
+        a.download = `pola-sure-parara-${state.sureVariant}-sulbar.svg`;
         document.body.appendChild(a);
         a.click();
         a.remove();
         setTimeout(() => URL.revokeObjectURL(url), 1000);
-        showToast(`Pola vektor SVG Sure' Para (${state.sureVariant}) berhasil diunduh.`);
+        showToast(`Pola vektor SVG Batik Sure' Parara Sulawesi Barat (${state.sureVariant}) berhasil diunduh.`);
       });
 
       // DANA number copy button

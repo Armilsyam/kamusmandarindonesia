@@ -209,7 +209,7 @@
     },
     sureq: {
       src: './assets/illustrations/batik-sure-para-sulbar.jpg',
-      title: "Motif Sure' Para (Sureq)",
+      title: "Batik Sure' Parara Sulawesi Barat (Sureq)",
       caption: 'Corak garis kotak simetris tenun Lipaq Saqbe Sulawesi Barat (hlm. 431)',
     },
     curaq: {
@@ -517,7 +517,7 @@
    */
   const SURE_PARA_VARIANTS = {
     klasik: {
-      name: "Sure' Para Klasik (Merah Marun & Emas)",
+      name: "Batik Sure' Parara Klasik Sulawesi Barat (Merah Marun & Emas)",
       note: 'Garis vertikal dan horizontal bersilang simetris di atas dasar marun hangat berbingkai benang emas, melambangkan keteguhan adat dan keharmonisan sosial masyarakat Sulawesi Barat.',
       base: '#7F1D2B',
       stripeA: '#E0B243',

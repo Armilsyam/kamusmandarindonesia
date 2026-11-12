@@ -74,7 +74,7 @@ function buildDatasetData(pdfBuffer) {
     publication: {
       title: 'Kamus Bahasa Mandar–Indonesia (Edisi Revisi)',
       authors: 'Sandra Safitri Hanan, dkk.',
-      publisher: 'Kementerian Pendidikan Dasar dan Menengah / Balai Bahasa Provinsi Sulawesi Selatan',
+      publisher: 'Kementerian Pendidikan Dasar dan Menengah / Balai Bahasa Provinsi Sulawesi Barat',
       year: 2025,
       languages: {
         source: { code: 'mdr', name: 'Mandar' },

@@ -26,14 +26,16 @@ const {
   analyzeWordMorphology,
   analyzeMandarSentence,
   latinToLontaraqPreview,
+  lontaraqToLatinPreview,
 } = globalThis.KamusLinguistics;
 
-test('buildPagesSite assembles index.html, belajar.html, .nojekyll, media/linguistics assets, and exact PDF/JSON copies', () => {
+test('buildPagesSite assembles index.html, belajar.html, lontara.html, assets, and exact PDF/JSON copies', () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kamus-pages-'));
   try {
     const res = buildPagesSite(tmpDir);
     assert.ok(res.files.includes('index.html'));
     assert.ok(res.files.includes('belajar.html'));
+    assert.ok(res.files.includes('lontara.html'));
     assert.ok(res.files.includes('.nojekyll'));
     assert.ok(res.files.includes('assets/kamus-media.js'));
     assert.ok(res.files.includes('assets/kamus-linguistics.js'));
@@ -48,6 +50,10 @@ test('buildPagesSite assembles index.html, belajar.html, .nojekyll, media/lingui
     assert.match(html, /\.\/assets\/kamus-media\.js/);
     assert.match(html, /\.\/assets\/kamus-linguistics\.js/);
     assert.match(html, /\.\/belajar\.html/);
+    assert.match(html, /\.\/lontara\.html/);
+    assert.match(html, /Batik Sure' Parara Sulawesi Barat/);
+    assert.match(html, /Sulawesi Barat/);
+    assert.doesNotMatch(html, /Sulawesi Selatan/i);
     assert.match(html, /MUH\. ARMIL SYAM/);
     assert.match(html, /082291544262/);
     assert.match(html, /wa\.me\/6282291544262/);
@@ -56,7 +62,21 @@ test('buildPagesSite assembles index.html, belajar.html, .nojekyll, media/lingui
     const belajarHtml = fs.readFileSync(path.join(tmpDir, 'belajar.html'), 'utf8');
     assert.match(belajarHtml, /\.\/assets\/kamus-linguistics\.js/);
     assert.match(belajarHtml, /\.\/dataset\/vocabulary\.json/);
+    assert.match(belajarHtml, /\.\/lontara\.html/);
     assert.match(belajarHtml, /Petunjuk Pemakaian/);
+    assert.match(belajarHtml, /Sulawesi Barat/);
+    assert.doesNotMatch(belajarHtml, /Sulawesi Selatan/i);
+
+    const lontaraHtml = fs.readFileSync(path.join(tmpDir, 'lontara.html'), 'utf8');
+    assert.match(lontaraHtml, /\.\/assets\/kamus-linguistics\.js/);
+    assert.match(lontaraHtml, /lontaraCanvas/);
+    assert.match(lontaraHtml, /Batik Sure' Parara Sulawesi Barat/);
+    assert.match(lontaraHtml, /Sulawesi Barat/);
+    assert.doesNotMatch(lontaraHtml, /Sulawesi Selatan/i);
+
+    const manifestJson = JSON.parse(fs.readFileSync(path.join(tmpDir, 'dataset', 'manifest.json'), 'utf8'));
+    assert.match(manifestJson.publication.publisher, /Sulawesi Barat/);
+    assert.doesNotMatch(manifestJson.publication.publisher, /Sulawesi Selatan/i);
 
     const srcRoot = path.resolve(__dirname, '..');
     for (const name of DATASET_FILES) {
@@ -106,6 +126,7 @@ test('KamusLinguistics handles IPA, canonical patterns, affixes, abbreviations, 
   assert.equal(BOOK_GUIDE_DATA.phonemes.allophones.length, 4);
   assert.equal(BOOK_GUIDE_DATA.phonemes.nasalAssimilations.length, 16);
   assert.equal(BOOK_GUIDE_DATA.lontaraqTable.length, 23);
+  assert.equal(BOOK_GUIDE_DATA.lontaraqVowels.length, 5);
 
   assert.equal(analyzeCanonicalPattern('kaluwambang').pattern, 'KVKVKVKKVK');
   assert.equal(analyzeCanonicalPattern('boyang').pattern, 'KVKVK');
@@ -136,4 +157,7 @@ test('KamusLinguistics handles IPA, canonical patterns, affixes, abbreviations, 
 
   assert.equal(latinToLontaraqPreview('bunga'), 'ᨅᨘᨂ');
   assert.equal(latinToLontaraqPreview('boyang'), 'ᨅᨚᨐ');
+  assert.equal(lontaraqToLatinPreview('ᨅᨘᨂ'), 'bunga');
+  assert.equal(lontaraqToLatinPreview('ᨅᨚᨐ'), 'boya');
+  assert.match(SURE_PARA_VARIANTS.klasik.name, /Batik Sure' Parara/);
 });

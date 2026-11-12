@@ -210,6 +210,13 @@
       { glyph: 'ᨐ', latin: 'ya' }, { glyph: 'ᨑ', latin: 'ra' }, { glyph: 'ᨒ', latin: 'la' }, { glyph: 'ᨓ', latin: 'wa' },
       { glyph: 'ᨔ', latin: 'sa' }, { glyph: 'ᨕ', latin: 'a' }, { glyph: 'ᨖ', latin: 'ha' },
     ],
+    lontaraqVowels: [
+      { vowel: 'a', mark: '', sample: 'ᨀ', label: 'Vokal bawaan (a)', position: 'Tanpa tanda diakritik (ka)' },
+      { vowel: 'i', mark: '\u1A17', sample: 'ᨀ\u1A17', label: 'Tettiq di yaseq (i)', position: 'Titik di atas huruf (ki)' },
+      { vowel: 'u', mark: '\u1A18', sample: 'ᨀ\u1A18', label: 'Tettiq di naung (u)', position: 'Titik di bawah huruf (ku)' },
+      { vowel: 'e', mark: '\u1A19', sample: 'ᨀ\u1A19', label: 'Anaq sureq ri olo (e)', position: 'Tanda di depan / kiri huruf (ke)' },
+      { vowel: 'o', mark: '\u1A1A', sample: 'ᨀ\u1A1A', label: 'Anaq sureq ri boko (o)', position: 'Tanda di belakang / kanan huruf (ko)' },
+    ],
   };
 
   /**
@@ -559,6 +566,9 @@
    * Basic Lontaraq Sulapa Eppa Unicode transliteration preview (educational visual helper).
    */
   const LONTARA_BASE_MAP = new Map(BOOK_GUIDE_DATA.lontaraqTable.map((x) => [x.latin, x.glyph]));
+  const LONTARA_GLYPH_TO_LATIN = new Map(BOOK_GUIDE_DATA.lontaraqTable.map((x) => [x.glyph, x.latin]));
+  const LONTARA_MARK_TO_VOWEL = { '\u1A17': 'i', '\u1A18': 'u', '\u1A19': 'e', '\u1A1A': 'o' };
+
   function latinToLontaraqPreview(text) {
     const clean = String(text || '').toLowerCase().replace(/['`\u2018\u2019q]/g, '');
     const out = [];
@@ -566,6 +576,15 @@
     while (i < clean.length) {
       if (/\s/.test(clean[i])) {
         out.push(' ');
+        i++;
+        continue;
+      }
+      if (/[.,;!?]/.test(clean[i])) {
+        out.push('᨞');
+        i++;
+        continue;
+      }
+      if (!/[a-z]/.test(clean[i])) {
         i++;
         continue;
       }
@@ -594,7 +613,40 @@
       const diacritic = { a: '', i: '\u1A17', u: '\u1A18', e: '\u1A19', o: '\u1A1A' }[vowel] || '';
       if (glyph) out.push(glyph + diacritic);
     }
-    return out.join('') || 'ᨕ';
+    return out.join('').trim() || 'ᨕ';
+  }
+
+  /**
+   * Read Unicode Lontaraq script back into Latin syllable form.
+   */
+  function lontaraqToLatinPreview(lontarText) {
+    const chars = Array.from(String(lontarText || ''));
+    const out = [];
+    for (let i = 0; i < chars.length; i++) {
+      const ch = chars[i];
+      if (ch === '᨞') {
+        out.push(',');
+        continue;
+      }
+      if (/\s/.test(ch)) {
+        out.push(' ');
+        continue;
+      }
+      const base = LONTARA_GLYPH_TO_LATIN.get(ch);
+      if (base) {
+        const next = chars[i + 1];
+        const vowel = next && LONTARA_MARK_TO_VOWEL[next];
+        if (vowel) {
+          out.push(base.slice(0, -1) + vowel);
+          i++;
+        } else {
+          out.push(base);
+        }
+      } else if (!LONTARA_MARK_TO_VOWEL[ch]) {
+        out.push(ch);
+      }
+    }
+    return out.join('').replace(/\s+,/g, ',').replace(/\s+/g, ' ').trim();
   }
 
   global.KamusLinguistics = {
@@ -609,5 +661,6 @@
     buildGrammarNotes,
     analyzeMandarSentence,
     latinToLontaraqPreview,
+    lontaraqToLatinPreview,
   };
 })(typeof window !== 'undefined' ? window : globalThis);
