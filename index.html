@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamus Bahasa Mandar–Indonesia (Edisi Revisi 2025) · Sulawesi Barat</title>
+  <meta name="description" content="Kamus Bahasa Mandar–Indonesia digital bersumber resmi dari PDF 2025 dengan fitur suara cara pengucapan, ilustrasi kosakata bergambar, halaman belajar rumus &amp; penulisan Huruf Lontar, desain Batik Sure' Parara Sulawesi Barat, dan kontak kolaborasi.">
+  <style>
+    :root {
+      --bg: #f6f3ec;
+      --surface: #ffffff;
+      --surface-soft: #faf8f4;
+      --text: #1f2421;
+      --muted: #5a625c;
+      --border: #e2ddd2;
+      --accent: #135d4b;
+      --accent-hover: #0e4739;
+      --accent-soft: #e6f2ee;
+      --crimson: #7f1d2b;
+      --gold: #c89b3c;
+      --indigo: #1e3a6d;
+      --sub-badge: #eef2ff;
+      --sub-text: #2e4392;
+      --pos-bg: #f3ece0;
+      --pos-text: #6e4814;
+      --dana-blue: #118eea;
+      --wa-green: #188a45;
+      --shadow: 0 3px 14px rgba(31, 36, 33, 0.07);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    /* Woven Sure' Para decorative ribbon */
+    .sure-ribbon {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #7f1d2b 0px,
+        #7f1d2b 28px,
+        #e0b243 28px,
+        #e0b243 34px,
+        #166552 34px,
+        #166552 54px,
+        #1e3a6d 54px,
+        #1e3a6d 72px,
+        #e0b243 72px,
+        #e0b243 78px
+      );
+    }
+
+    .header {
+      background: linear-gradient(135deg, #104d3e 0%, #176c57 60%, #1e4d45 100%);
+      color: #ffffff;
+      padding: 26px 16px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0 0 6px;
+      font-size: clamp(1.38rem, 2.5vw, 1.95rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.93rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s ease;
+    }
+
+    .btn-header:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .btn-header.is-muted {
+      background: rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .stats-bar {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .stat-pill {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 999px;
+      padding: 3px 11px;
+    }
+
+    main {
+      padding: 20px 16px 52px;
+    }
+
+    .audio-toast {
+      position: sticky;
+      top: 10px;
+      z-index: 40;
+      margin-bottom: 12px;
+      background: #143f35;
+      color: #ffffff;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .audio-toast[hidden] {
+      display: none;
+    }
+
+    .audio-toast button {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 3px 9px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+
+    .search-card,
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .section-title-row h2 {
+      margin: 0;
+      font-size: 1.12rem;
+      color: var(--crimson);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-wrap {
+      flex: 1 1 280px;
+    }
+
+    input[type="search"],
+    select {
+      width: 100%;
+      font-size: 0.96rem;
+      font-family: inherit;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    input[type="search"]:focus,
+    select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(19, 93, 75, 0.14);
+    }
+
+    .filters-row {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .search-options-bar {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      background: var(--accent-soft);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(19, 93, 75, 0.2);
+    }
+
+    .toggle-check input {
+      accent-color: var(--accent);
+      width: 16px;
+      height: 16px;
+      margin: 0;
+    }
+
+    .hint-text {
+      margin: 0;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .alpha-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .alpha-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 5px 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .alpha-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .alpha-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+    }
+
+    /* Featured illustrated vocabulary strip */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.14s ease, border-color 0.14s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .gallery-visual {
+      height: 112px;
+      background: #faf8f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .gallery-visual img,
+    .gallery-visual svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-body {
+      padding: 9px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .gallery-word {
+      font-weight: 700;
+      font-size: 0.94rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .gallery-indo {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .btn-mini-audio {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+      border-radius: 7px;
+      padding: 5px 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .btn-mini-audio:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .results-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 0.91rem;
+      color: var(--muted);
+    }
+
+    .entries-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .entry-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .entry-card.is-sub {
+      border-left: 4px solid var(--accent);
+    }
+
+    .entry-layout {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .entry-content {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .entry-illustration {
+      flex: 0 0 156px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #faf8f4;
+    }
+
+    .entry-illustration-frame {
+      width: 156px;
+      height: 112px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .entry-illustration-frame img,
+    .entry-illustration-frame svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .entry-illustration-caption {
+      padding: 5px 8px;
+      font-size: 0.74rem;
+      line-height: 1.3;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .entry-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .entry-title-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .headword {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .homonym-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      vertical-align: super;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .badge-main {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .badge-sub {
+      background: var(--sub-badge);
+      color: var(--sub-text);
+    }
+
+    .badge-pos {
+      background: var(--pos-bg);
+      color: var(--pos-text);
+      font-style: italic;
+    }
+
+    .entry-audio-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 9px;
+      align-items: center;
+    }
+
+    .btn-speak {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid rgba(19, 93, 75, 0.3);
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-speak:hover {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .phonetic-pill {
+      font-size: 0.79rem;
+      color: var(--muted);
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px 9px;
+    }
+
+    .parent-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .pdf-cite {
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pdf-cite:hover {
+      text-decoration: underline;
+    }
+
+    .entry-body {
+      font-size: 0.98rem;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .seg-bold {
+      font-weight: 700;
+    }
+
+    .seg-italic {
+      font-style: italic;
+      color: var(--pos-text);
+    }
+
+    .derivations-box {
+      margin-top: 10px;
+      padding-top: 9px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .chip-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .btn-page {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-page:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .btn-page:not(:disabled):hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Batik Sure' Para Showcase */
+    .sure-para-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .artwork-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--surface-soft);
+    }
+
+    .artwork-box img,
+    .artwork-box svg {
+      width: 100%;
+      display: block;
+    }
+
+    .artwork-caption {
+      padding: 10px 12px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .variant-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .variant-btn {
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      border-radius: 7px;
+      padding: 6px 11px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .variant-btn.active {
+      background: var(--crimson);
+      border-color: var(--crimson);
+      color: #ffffff;
+    }
+
+    .philosophy-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .download-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Admin WhatsApp & DANA Support Grid */
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-panel {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      background: var(--surface-soft);
+    }
+
+    .contact-panel h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .account-box {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+      margin: 10px 0 12px;
+      font-size: 0.9rem;
+    }
+
+    .account-number {
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .action-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--wa-green);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-wa:hover {
+      filter: brightness(0.93);
+    }
+
+    .btn-dana {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--dana-blue);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-dana:hover {
+      filter: brightness(0.93);
+    }
+
+    .info-panel {
+      margin-top: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+
+    .info-panel summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .abbr-grid {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .abbr-group h3 {
+      margin: 0 0 6px;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .abbr-group ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .empty-state,
+    .loading-state {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .error-state {
+      background: #fff5f5;
+      border: 1px solid #f5c2c7;
+      color: #842029;
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .ling-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 8px;
+      align-items: center;
+    }
+
+    .badge-register {
+      background: #f0eee8;
+      color: #464c47;
+      border: 1px solid var(--border);
+    }
+
+    .badge-idiom {
+      background: #fdf2e9;
+      color: #8a4311;
+      border: 1px solid #f0cba8;
+    }
+
+    .ling-details {
+      margin-top: 10px;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    .ling-details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--accent);
+      user-select: none;
+    }
+
+    .ling-grid {
+      margin-top: 8px;
+      display: grid;
+      gap: 7px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 12px;
+      color: var(--text);
+    }
+
+    .ling-row strong {
+      color: var(--muted);
+    }
+
+    .example-quote {
+      border-left: 3px solid var(--gold);
+      padding-left: 9px;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 640px) {
+      .entry-layout {
+        flex-direction: column;
+      }
+      .entry-illustration {
+        flex: none;
+        width: 100%;
+        max-width: 240px;
+      }
+      .entry-illustration-frame {
+        width: 100%;
+        height: 140px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sure-ribbon" aria-hidden="true"></div>
+  <header class="header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Kamus Bahasa Mandar–Indonesia</h1>
+          <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Wilayah Budaya Sulawesi Barat (Balai Bahasa Prov. Sulawesi Barat)</p>
+        </div>
+        <div class="header-actions">
+          <a class="btn-header" style="background:#c89b3c;border-color:#e0b243;color:#1b1709;" href="./belajar.html">📖 Belajar Rumus &amp; Imbuhan</a>
+          <a class="btn-header" style="background:#f5ecd7;border-color:#e0b243;color:#5a121d;" href="./lontara.html">✍️ Huruf Lontar</a>
+          <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
+          <button type="button" class="btn-header" id="speedToggleBtn">🗣️ Lafal: Normal</button>
+          <a class="btn-header" href="#batik-sure-para">🎨 Batik Sure' Parara Sulawesi Barat</a>
+          <a class="btn-header" href="#kontak-dukungan">💬 Admin &amp; DANA</a>
+          <a class="btn-header" href="./dataset/kamus-mandar-indonesia-2025.pdf" target="_blank" rel="noopener">📄 PDF Resmi</a>
+        </div>
+      </div>
+      <div class="stats-bar" id="statsBar">
+        <span class="stat-pill">Memuat dataset PDF...</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="audio-toast" id="audioToast" hidden>
+      <span id="audioToastText"></span>
+      <button type="button" id="closeToastBtn">Tutup</button>
+    </div>
+
+    <section class="search-card" aria-label="Pencarian kosakata">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Cari kosakata Mandar atau arti Indonesia (mis. lopi, boyang, anjoro, sureq, ayah, perahu)..."
+            autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <label for="directionSelect">Arah Pencarian</label>
+          <select id="directionSelect">
+            <option value="all">Semua (Mandar &amp; Indonesia)</option>
+            <option value="mandar">Mandar → Indonesia</option>
+            <option value="indonesia">Indonesia → Mandar</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="sectionSelect">Seksi Huruf</label>
+          <select id="sectionSelect">
+            <option value="">Semua Huruf (A–W)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="posSelect">Kelas Kata / Label</label>
+          <select id="posSelect">
+            <option value="">Semua Kelas Kata</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="typeSelect">Jenis Lema</label>
+          <select id="typeSelect">
+            <option value="">Semua (Pokok &amp; Sublema)</option>
+            <option value="main">Lema Pokok</option>
+            <option value="sub">Sublema (Turunan)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-options-bar">
+        <label class="toggle-check">
+          <input type="checkbox" id="illustratedOnlyChk">
+          <span>Tampilkan khusus kata bergambar (nomina/benda konkret)</span>
+        </label>
+        <p class="hint-text">
+          Cara baca: <code>q</code> dibaca hentian glotal (seperti hamzah / <code>'</code>). Tekan <strong>🔊 Dengar Lafal</strong> pada kartu kata.
+        </p>
+      </div>
+
+      <div class="alpha-bar" id="alphaBar" aria-label="Navigasi huruf A sampai W"></div>
+    </section>
+
+    <section class="section-card" id="gallerySection" aria-label="Contoh kosakata bergambar">
+      <div class="section-title-row">
+        <h2>Contoh Kosakata Bergambar &amp; Pelafalan</h2>
+        <button type="button" class="btn-outline" id="toggleGalleryBtn">Sembunyikan Galeri</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <div class="results-meta" id="resultsMeta"></div>
+    <section class="entries-list" id="entriesList" aria-live="polite">
+      <div class="loading-state">Memuat indeks kosakata resmi (4.908 entri)...</div>
+    </section>
+    <div class="pagination" id="paginationBar" hidden>
+      <button type="button" class="btn-page" id="prevBtn">Sebelumnya</button>
+      <span id="pageLabel"></span>
+      <button type="button" class="btn-page" id="nextBtn">Berikutnya</button>
+    </div>
+
+    <section class="section-card" id="batik-sure-para" aria-label="Desain ilustrasi Batik Sure' Parara Sulawesi Barat">
+      <div class="section-title-row">
+        <h2>Desain Ilustrasi Batik Sure' Parara Sulawesi Barat</h2>
+      </div>
+      <div class="sure-para-grid">
+        <div class="artwork-box">
+          <img
+            src="./assets/illustrations/batik-sure-para-sulbar.jpg"
+            alt="Ilustrasi tekstil Batik Sure' Parara Sulawesi Barat / Tenun Lipaq Saqbe khas Mandar"
+            loading="lazy"
+          >
+          <div class="artwork-caption">
+            <strong>Ilustrasi Tekstil Batik Sure' Parara Sulawesi Barat (Lipaq Saqbe)</strong> — Perpaduan garis vertikal dan horizontal geometris berpadu ornamen bunga Mandar khas Sulawesi Barat.
+          </div>
+        </div>
+
+        <div>
+          <div class="variant-tabs" id="sureParaTabs">
+            <button type="button" class="variant-btn active" data-variant="klasik">Sure' Parara Klasik</button>
+            <button type="button" class="variant-btn" data-variant="maradia">Sure' Mara'dia</button>
+            <button type="button" class="variant-btn" data-variant="salaka">Sure' Salaka</button>
+          </div>
+          <div class="artwork-box">
+            <div id="sureParaSvgBox"></div>
+            <div class="artwork-caption" id="sureParaNote"></div>
+          </div>
+          <ul class="philosophy-list">
+            <li><strong>Garis Vertikal:</strong> Melambangkan hubungan manusia dengan Sang Pencipta serta keteguhan pemimpin dan rakyat.</li>
+            <li><strong>Garis Horizontal:</strong> Menyimbolkan keharmonisan hubungan antar-sesama manusia di tanah Mandar.</li>
+            <li><strong>Bidang Kotak:</strong> Bermakna pagar pelindung norma, etika, dan kehormatan budaya Sulawesi Barat.</li>
+          </ul>
+          <div class="download-row">
+            <a class="btn-outline" href="./assets/illustrations/batik-sure-para-sulbar.jpg" download="batik-sure-para-sulbar.jpg">Unduh Ilustrasi JPG</a>
+            <button type="button" class="btn-outline" id="downloadSureSvgBtn">Unduh Pola Vektor SVG</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card" id="kontak-dukungan" aria-label="Kontak Admin WhatsApp, Kolaborasi, dan Support Pendanaan">
+      <div class="section-title-row">
+        <h2>Kontak Admin, Kolaborasi &amp; Support Pendanaan</h2>
+      </div>
+      <div class="support-grid">
+        <div class="contact-panel">
+          <h3>💬 Kontak WhatsApp Admin &amp; Kolaborasi</h3>
+          <p style="margin:0;font-size:0.9rem;color:var(--muted);">
+            Hubungi admin untuk pelaporan koreksi entri kamus, bantuan teknis, usulan audio penutur asli Mandar, maupun kerja sama pengembangan literasi bahasa daerah Sulawesi Barat.
+          </p>
+          <div class="account-box">
+            <div><strong>Admin:</strong> MUH. ARMIL SYAM</div>
+            <div class="account-number">082291544262</div>
+          </div>
+          <div class="action-btns">
+            <a
+              class="btn-wa"
+              href="https://wa.me/6282291544262?text=Halo%20Admin%20Kamus%20Mandar%20(MUH.%20ARMIL%20SYAM)%2C%20saya%20ingin%20menghubungi%20perihal%20bantuan%2Fmasukan%20kamus."
+              target="_blank"
+              rel="noopener"
+            >
+              Chat Admin (Bantuan &amp; Masukan)
+            </a>
+            <a
+              class="btn-outline"
+              href="https://wa.me/6282291544262?text=Halo%20Admin%20MUH.%20ARMIL%20SYAM%2C%20saya%20tertarik%20untuk%20kolaborasi%20pengembangan%20Kamus%20Mandar%E2%80%93Indonesia."
+              target="_blank"
+              rel="noopener"
+            >
+              🤝 Ajukan Kolaborasi
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <h3>💙 Support Pendanaan (e-Wallet DANA)</h3>
+          <p style="margin:0;font-size:0.9rem;color:var(--muted);">
+            Dukung pemeliharaan dataset digital, perekaman suara pelafalan penutur asli Mandar, dan perluasan ilustrasi kosakata Sulawesi Barat melalui rekening e-wallet DANA resmi berikut:
+          </p>
+          <div class="account-box">
+            <div><strong>E-Wallet DANA · Atas Nama:</strong> MUH. ARMIL SYAM</div>
+            <div class="account-number" id="danaNumberText">082291544262</div>
+          </div>
+          <div class="action-btns">
+            <button type="button" class="btn-dana" id="copyDanaBtn">📋 Salin Nomor DANA (082291544262)</button>
+            <a
+              class="btn-outline"
+              href="https://wa.me/6282291544262?text=Halo%20MUH.%20ARMIL%20SYAM%2C%20saya%20telah%20mengirimkan%20dukungan%20pendanaan%20untuk%20Kamus%20Mandar%E2%80%93Indonesia%20via%20DANA."
+              target="_blank"
+              rel="noopener"
+            >
+              Konfirmasi via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <details class="info-panel" id="abbrPanel">
+      <summary>Keterangan Singkatan, Simbol, &amp; Cara Baca Ejaan PDF Resmi</summary>
+      <div class="abbr-grid" id="abbrGrid"></div>
+    </details>
+  </main>
+
+  <div class="sure-ribbon" aria-hidden="true"></div>
+
+  <script src="./assets/kamus-media.js"></script>
+  <script src="./assets/kamus-linguistics.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const PAGE_SIZE = 36;
+      const Media = window.KamusMedia;
+      const Ling = window.KamusLinguistics;
+      const AudioCtrl = Media.createAudioController();
+
+      const state = {
+        manifest: null,
+        entries: [],
+        records: [],
+        byParentKey: new Map(),
+        vocabMap: new Map(),
+        query: '',
+        direction: 'all',
+        section: '',
+        pos: '',
+        type: '',
+        illustratedOnly: false,
+        slowSpeech: false,
+        sureVariant: 'klasik',
+        page: 1,
+      };
+
+      const els = {
+        pubSubtitle: document.getElementById('pubSubtitle'),
+        statsBar: document.getElementById('statsBar'),
+        soundToggleBtn: document.getElementById('soundToggleBtn'),
+        speedToggleBtn: document.getElementById('speedToggleBtn'),
+        audioToast: document.getElementById('audioToast'),
+        audioToastText: document.getElementById('audioToastText'),
+        closeToastBtn: document.getElementById('closeToastBtn'),
+        searchInput: document.getElementById('searchInput'),
+        directionSelect: document.getElementById('directionSelect'),
+        sectionSelect: document.getElementById('sectionSelect'),
+        posSelect: document.getElementById('posSelect'),
+        typeSelect: document.getElementById('typeSelect'),
+        illustratedOnlyChk: document.getElementById('illustratedOnlyChk'),
+        alphaBar: document.getElementById('alphaBar'),
+        galleryGrid: document.getElementById('galleryGrid'),
+        toggleGalleryBtn: document.getElementById('toggleGalleryBtn'),
+        resultsMeta: document.getElementById('resultsMeta'),
+        entriesList: document.getElementById('entriesList'),
+        paginationBar: document.getElementById('paginationBar'),
+        prevBtn: document.getElementById('prevBtn'),
+        nextBtn: document.getElementById('nextBtn'),
+        pageLabel: document.getElementById('pageLabel'),
+        abbrGrid: document.getElementById('abbrGrid'),
+        sureParaTabs: document.getElementById('sureParaTabs'),
+        sureParaSvgBox: document.getElementById('sureParaSvgBox'),
+        sureParaNote: document.getElementById('sureParaNote'),
+        downloadSureSvgBtn: document.getElementById('downloadSureSvgBtn'),
+        copyDanaBtn: document.getElementById('copyDanaBtn'),
+      };
+
+      let toastTimeout = null;
+      function showToast(msg) {
+        clearTimeout(toastTimeout);
+        els.audioToastText.textContent = msg;
+        els.audioToast.hidden = false;
+        toastTimeout = setTimeout(() => {
+          els.audioToast.hidden = true;
+        }, 4800);
+      }
+
+      function syncAudioButtons() {
+        const on = AudioCtrl.isSoundEnabled();
+        els.soundToggleBtn.textContent = on ? '🔊 Suara UI: Aktif' : '🔇 Suara UI: Bisu';
+        els.soundToggleBtn.classList.toggle('is-muted', !on);
+        els.speedToggleBtn.textContent = state.slowSpeech ? '🐢 Lafal: Pelan' : '🗣️ Lafal: Normal';
+      }
+
+      function normalizeLookupKey(value) {
+        return String(value || '')
+          .normalize('NFKC')
+          .toLowerCase()
+          .replace(/['`\u2018\u2019\u02BC]/g, 'q')
+          .replace(/[ \t\r\n]+/g, ' ')
+          .trim();
+      }
+
+      function stripAffixHyphen(key) {
+        return key.replace(/^-+/, '').trim();
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function escapeRegex(str) {
+        return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      function indexEntries(entries) {
+        state.byParentKey.clear();
+        state.vocabMap.clear();
+        state.records = entries.map((entry) => {
+          const headKeys = [];
+          for (const candidate of [entry.headword, ...(entry.aliases || [])]) {
+            const k = normalizeLookupKey(candidate);
+            if (k && !headKeys.includes(k)) {
+              headKeys.push(k);
+              if (!state.vocabMap.has(k)) state.vocabMap.set(k, []);
+              state.vocabMap.get(k).push(entry);
+            }
+          }
+          if (entry.type === 'sub' && entry.parentHeadword) {
+            const pk = normalizeLookupKey(entry.parentHeadword);
+            if (!state.byParentKey.has(pk)) state.byParentKey.set(pk, []);
+            state.byParentKey.get(pk).push(entry);
+          }
+          return {
+            entry,
+            headKeys,
+            defLower: normalizeLookupKey(entry.definitionText || ''),
+            illustration: Media.getEntryIllustration(entry),
+          };
+        });
+      }
+
+      function renderFeaturedGallery() {
+        els.galleryGrid.innerHTML = Media.FEATURED_GALLERY.map((item) => {
+          const fakeEntry = {
+            headword: item.headword,
+            pos: ['n'],
+            definitionText: item.indo,
+            source: { bookPage: item.page },
+          };
+          const illus = Media.getEntryIllustration(fakeEntry);
+          const visual =
+            illus && illus.kind === 'image'
+              ? `<img src="${escapeHtml(illus.src)}" alt="${escapeHtml(item.label)}" loading="lazy">`
+              : (illus && illus.svg) || '';
+
+          return `
+            <div class="gallery-item">
+              <div class="gallery-visual" data-lookup="${escapeHtml(item.headword)}" title="Cari entri ${escapeHtml(item.headword)}">
+                ${visual}
+              </div>
+              <div class="gallery-body">
+                <div>
+                  <div class="gallery-word" data-lookup="${escapeHtml(item.headword)}">${escapeHtml(item.label)}</div>
+                  <div class="gallery-indo">${escapeHtml(item.indo)}</div>
+                </div>
+                <button
+                  type="button"
+                  class="btn-mini-audio"
+                  data-speak="${escapeHtml(item.headword)}"
+                  title="Dengar cara pengucapan ${escapeHtml(item.headword)}"
+                  aria-label="Dengar pengucapan ${escapeHtml(item.headword)}"
+                >🔊</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderSureParaSection() {
+        const variant = Media.SURE_PARA_VARIANTS[state.sureVariant] || Media.SURE_PARA_VARIANTS.klasik;
+        els.sureParaSvgBox.innerHTML = Media.renderSureParaSvg(state.sureVariant);
+        els.sureParaNote.innerHTML = `<strong>${escapeHtml(variant.name)}</strong> — ${escapeHtml(variant.note)}`;
+        els.sureParaTabs.querySelectorAll('.variant-btn').forEach((btn) => {
+          btn.classList.toggle('active', btn.getAttribute('data-variant') === state.sureVariant);
+        });
+      }
+
+      function renderHeaderAndFilters() {
+        const m = state.manifest;
+        const c = m.structure.counts;
+        const illusTotal = state.records.filter((r) => Boolean(r.illustration)).length;
+        els.pubSubtitle.textContent = `${m.publication.title} (${m.publication.year}) · ${m.publication.publisher}`;
+        els.statsBar.innerHTML = [
+          `<span class="stat-pill">${c.totalEntries.toLocaleString('id-ID')} entri (${c.mainEntries.toLocaleString('id-ID')} pokok, ${c.subEntries.toLocaleString('id-ID')} sublema)</span>`,
+          `<span class="stat-pill">${illusTotal.toLocaleString('id-ID')} entri bergambar (nomina konkret)</span>`,
+          `<span class="stat-pill">${m.structure.bookPageRange[0]}–${m.structure.bookPageRange[1]} hlm. kamus (${m.structure.totalPdfPages} hlm. PDF)</span>`,
+        ].join('');
+
+        for (const sec of m.sections) {
+          const opt = document.createElement('option');
+          opt.value = sec.letter;
+          opt.textContent = `${sec.letter} (${sec.entryCount} entri · hlm. ${sec.firstBookPage})`;
+          els.sectionSelect.appendChild(opt);
+        }
+
+        const posEntries = {
+          ...(m.abbreviations.pos || {}),
+          ...(m.abbreviations.labels || {}),
+        };
+        for (const [code, label] of Object.entries(posEntries)) {
+          const opt = document.createElement('option');
+          opt.value = code;
+          opt.textContent = `${code} — ${label}`;
+          els.posSelect.appendChild(opt);
+        }
+
+        renderAlphaBar();
+        renderAbbreviations();
+      }
+
+      function renderAlphaBar() {
+        const sections = state.manifest.sections;
+        const btns = [
+          `<button type="button" class="alpha-btn${state.section === '' ? ' active' : ''}" data-sec="">Semua</button>`,
+          ...sections.map(
+            (s) =>
+              `<button type="button" class="alpha-btn${state.section === s.letter ? ' active' : ''}" data-sec="${escapeHtml(s.letter)}">${escapeHtml(s.letter)}</button>`,
+          ),
+        ];
+        els.alphaBar.innerHTML = btns.join('');
+      }
+
+      function renderAbbreviations() {
+        const abbr = state.manifest.abbreviations || {};
+        const groups = [
+          ['Kelas Kata (POS)', abbr.pos],
+          ['Label Ragam / Gaya', abbr.labels],
+          ['Simbol Kamus', abbr.markers],
+          ['Singkatan Penjelasan', abbr.prose],
+        ];
+        els.abbrGrid.innerHTML = groups
+          .filter(([, map]) => map && Object.keys(map).length > 0)
+          .map(([title, map]) => {
+            const items = Object.entries(map)
+              .map(([k, v]) => `<li><strong>${escapeHtml(k)}</strong>: ${escapeHtml(v)}</li>`)
+              .join('');
+            return `<div class="abbr-group"><h3>${escapeHtml(title)}</h3><ul>${items}</ul></div>`;
+          })
+          .join('');
+      }
+
+      function getFilteredResults() {
+        const q = normalizeLookupKey(state.query);
+        const wordBoundaryRe = q ? new RegExp(`(^|[^a-z0-9])${escapeRegex(q)}([^a-z0-9]|$)`) : null;
+        const matched = [];
+
+        for (const rec of state.records) {
+          const e = rec.entry;
+          if (state.illustratedOnly && !rec.illustration) continue;
+          if (state.section && e.section !== state.section) continue;
+          if (state.pos && !(e.pos || []).includes(state.pos)) continue;
+          if (state.type && e.type !== state.type) continue;
+
+          if (!q) {
+            matched.push({ score: rec.illustration ? 1 : 0, rec });
+            continue;
+          }
+
+          let score = 0;
+          if (state.direction !== 'indonesia') {
+            for (const hk of rec.headKeys) {
+              if (hk === q || stripAffixHyphen(hk) === q) {
+                score = Math.max(score, 100);
+              } else if (hk.startsWith(q)) {
+                score = Math.max(score, 80);
+              } else if (hk.includes(q)) {
+                score = Math.max(score, 60);
+              }
+            }
+          }
+          if (state.direction !== 'mandar' && rec.defLower) {
+            if (wordBoundaryRe.test(rec.defLower)) {
+              score = Math.max(score, 40);
+            } else if (rec.defLower.includes(q)) {
+              score = Math.max(score, 20);
+            }
+          }
+
+          if (score > 0) {
+            matched.push({ score, rec });
+          }
+        }
+
+        if (q) {
+          matched.sort((a, b) => {
+            if (b.score !== a.score) return b.score - a.score;
+            if (a.rec.entry.type !== b.rec.entry.type) {
+              return a.rec.entry.type === 'main' ? -1 : 1;
+            }
+            if (a.rec.entry.headword.length !== b.rec.entry.headword.length) {
+              return a.rec.entry.headword.length - b.rec.entry.headword.length;
+            }
+            return a.rec.entry.id.localeCompare(b.rec.entry.id);
+          });
+        }
+
+        return matched.map((r) => r.rec);
+      }
+
+      function formatEntryBodyHtml(entry) {
+        if (!entry.definitionText) {
+          return '<span style="color:var(--muted);font-style:italic;">(Lema induk rujukan untuk sublema di bawahnya)</span>';
+        }
+        const segs = entry.segments || [];
+        let idx = 0;
+        if (segs[0] && segs[0].role === 'bold') idx++;
+        if (segs[idx] && segs[idx].role === 'homonym') idx++;
+        const bodySegs = segs.slice(idx);
+        if (bodySegs.length === 0) {
+          return escapeHtml(entry.definitionText);
+        }
+        return bodySegs
+          .map((seg) => {
+            const safe = escapeHtml(seg.text);
+            if (seg.role === 'bold') return `<span class="seg-bold">${safe}</span>`;
+            if (seg.role === 'italic') return `<span class="seg-italic">${safe}</span>`;
+            return safe;
+          })
+          .join(' ');
+      }
+
+      function renderResults() {
+        const records = getFilteredResults();
+        const total = records.length;
+        const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+        if (state.page > totalPages) state.page = totalPages;
+
+        const start = (state.page - 1) * PAGE_SIZE;
+        const pageRecords = records.slice(start, start + PAGE_SIZE);
+
+        const activeDesc = [];
+        if (state.query.trim()) activeDesc.push(`kueri "${state.query.trim()}"`);
+        if (state.section) activeDesc.push(`huruf ${state.section}`);
+        if (state.pos) activeDesc.push(`kelas ${state.pos}`);
+        if (state.type) activeDesc.push(state.type === 'main' ? 'lema pokok' : 'sublema');
+        if (state.illustratedOnly) activeDesc.push('bergambar');
+
+        els.resultsMeta.innerHTML = `
+          <span>Menampilkan <strong>${pageRecords.length}</strong> dari <strong>${total.toLocaleString('id-ID')}</strong> entri${activeDesc.length ? ` (${escapeHtml(activeDesc.join(', '))})` : ''}.</span>
+          <span>Halaman ${state.page} / ${totalPages}</span>
+        `;
+
+        if (pageRecords.length === 0) {
+          els.entriesList.innerHTML = `
+            <div class="empty-state">
+              Tidak ada kosakata yang cocok. Coba ubah kata kunci, arah pencarian, atau bersihkan filter huruf/kelas kata.
+            </div>
+          `;
+          els.paginationBar.hidden = true;
+          return;
+        }
+
+        els.entriesList.innerHTML = pageRecords
+          .map((rec) => {
+            const e = rec.entry;
+            const hom = e.homonym ? `<span class="homonym-badge">${escapeHtml(e.homonym)}</span>` : '';
+            const typeBadge =
+              e.type === 'sub'
+                ? `<span class="badge badge-sub">Sublema${e.parentHeadword ? ` dari <button type="button" class="parent-link" data-lookup="${escapeHtml(e.parentHeadword)}">${escapeHtml(e.parentHeadword)}</button>` : ''}</span>`
+                : '<span class="badge badge-main">Lema pokok</span>';
+            const posBadges = (e.pos || [])
+              .map((p) => `<span class="badge badge-pos">${escapeHtml(p)}</span>`)
+              .join(' ');
+            const pdfHref = `./dataset/kamus-mandar-indonesia-2025.pdf#page=${encodeURIComponent(e.source.pdfPage)}`;
+
+            const phonetic = AudioCtrl.toMandarPhonetic(e.headword, {
+              headword: e.headword,
+              parentHeadword: e.parentHeadword || '',
+            });
+            const exMandar = AudioCtrl.extractFirstExampleMandar(e);
+            const exampleBtn = exMandar
+              ? `<button type="button" class="btn-speak" data-speak-example="${escapeHtml(e.id)}" title="Dengarkan contoh kalimat Mandar">🗣️ Dengar Contoh</button>`
+              : '';
+            const phoneticHint =
+              phonetic.phoneticDisplay !== e.headword
+                ? `<span class="phonetic-pill">lafal: ${escapeHtml(phonetic.phoneticDisplay)}</span>`
+                : '';
+
+            const ipaInfo = Ling.toMandarIpa(e.headword);
+            const ipaBadge = ipaInfo.phonemic
+              ? `<span class="phonetic-pill" title="${escapeHtml(ipaInfo.stressRule)}">IPA: ${escapeHtml(ipaInfo.phonemic)}${ipaInfo.narrow ? ` ${escapeHtml(ipaInfo.narrow)}` : ''}</span>`
+              : '';
+            const usageInfo = Ling.extractUsageAndReferences(e);
+            const grammarInfo = Ling.buildGrammarNotes(e, state.vocabMap);
+            const examples = Ling.extractStructuredExamples(e);
+            const expandedDef = Ling.expandBookAbbreviations(e.definitionText || '');
+            const hasExpanded = expandedDef && expandedDef !== (e.definitionText || '');
+            const lontaraqWord = Ling.latinToLontaraqPreview(e.headword.split(',')[0]);
+
+            const registerBadges = usageInfo.registerTags
+              .map(
+                (t) =>
+                  `<span class="badge ${usageInfo.isIdiom ? 'badge-idiom' : 'badge-register'}">${escapeHtml(t)}</span>`,
+              )
+              .join(' ');
+            const fullPosNote = grammarInfo.posLabels.length
+              ? `<span class="phonetic-pill">${escapeHtml(grammarInfo.posLabels.join(' · '))}</span>`
+              : '';
+
+            const crossRefLinks = usageInfo.crossRefs.length
+              ? `<div class="ling-row"><strong>Rujukan Silang / Padanan Kamus:</strong> ${usageInfo.crossRefs
+                  .map((w) => `<button type="button" class="chip-btn" data-lookup="${escapeHtml(w)}">→ ${escapeHtml(w)}</button>`)
+                  .join(' ')}</div>`
+              : '';
+
+            const examplesDetailHtml = examples.length
+              ? `<div class="ling-row"><strong>Contoh Pemakaian (Mandar ↔ Indonesia):</strong>${examples
+                  .slice(0, 3)
+                  .map(
+                    (ex) =>
+                      `<div class="example-quote"><div><em>"${escapeHtml(ex.mandar)}"</em></div>${ex.indonesia ? `<div style="color:var(--muted);">Arti: ${escapeHtml(Ling.expandBookAbbreviations(ex.indonesia))}</div>` : ''}</div>`,
+                  )
+                  .join('')}</div>`
+              : '';
+
+            const morphSummary = grammarInfo.morph
+              ? grammarInfo.morph.kind === 'berimbuhan'
+                ? `${grammarInfo.morph.prefix || grammarInfo.morph.suffix} (${grammarInfo.morph.meaning}) · kata dasar: <button type="button" class="parent-link" data-lookup="${escapeHtml(grammarInfo.morph.rootCandidate)}">${escapeHtml(grammarInfo.morph.rootCandidate)}</button>`
+                : `${grammarInfo.morph.note}`
+              : 'Morfem bebas';
+
+            const lingDetailsHtml = `
+              <details class="ling-details">
+                <summary>Tata Bahasa, Ejaan Baku, Morfologi &amp; Nuansa Penggunaan</summary>
+                <div class="ling-grid">
+                  <div class="ling-row"><strong>Ejaan Baku Kamus (2025):</strong> <code>${escapeHtml(e.headword)}</code> · Lontaraq: <span style="font-size:1.1rem;color:var(--crimson);">${escapeHtml(lontaraqWord)}</span> · Pola Suku Kata: <code>${escapeHtml(grammarInfo.canonical.pattern || '-')}</code></div>
+                  <div class="ling-row"><strong>Kelas Kata &amp; Ragam:</strong> ${escapeHtml(grammarInfo.posLabels.join(', ') || 'Lema kamus')} · ${escapeHtml(usageInfo.registerTags.join(' | '))}</div>
+                  <div class="ling-row"><strong>Bedah Bentuk / Imbuhan:</strong> ${morphSummary} · <a class="pdf-cite" href="./belajar.html#simulator-imbuhan">Pelajari rumus di halaman Belajar ↗</a></div>
+                  ${grammarInfo.inflectionNotes.map((n) => `<div class="ling-row"><strong>Perubahan Bentuk Mandar:</strong> ${escapeHtml(n)}</div>`).join('')}
+                  ${hasExpanded ? `<div class="ling-row"><strong>Bacaan Definisi Utuh:</strong> ${escapeHtml(expandedDef)}</div>` : ''}
+                  ${crossRefLinks}
+                  ${examplesDetailHtml}
+                </div>
+              </details>
+            `;
+
+            let illustrationBlock = '';
+            if (rec.illustration) {
+              const il = rec.illustration;
+              const mediaEl =
+                il.kind === 'image'
+                  ? `<img src="${escapeHtml(il.src)}" alt="${escapeHtml(il.title)}" loading="lazy">`
+                  : il.svg;
+              illustrationBlock = `
+                <div class="entry-illustration">
+                  <div class="entry-illustration-frame">${mediaEl}</div>
+                  <div class="entry-illustration-caption">
+                    <strong>${escapeHtml(il.badge)}</strong><br>${escapeHtml(il.caption)}
+                  </div>
+                </div>
+              `;
+            }
+
+            let derivationsHtml = '';
+            if (e.type === 'main') {
+              const subs = state.byParentKey.get(normalizeLookupKey(e.headword)) || [];
+              if (subs.length > 0) {
+                const buttons = subs
+                  .slice(0, 12)
+                  .map(
+                    (s) =>
+                      `<button type="button" class="chip-btn" data-lookup="${escapeHtml(s.headword)}">${escapeHtml(s.headword)}</button>`,
+                  )
+                  .join('');
+                const extra = subs.length > 12 ? ` <span>+${subs.length - 12} lainnya</span>` : '';
+                derivationsHtml = `<div class="derivations-box"><span>Turunan:</span>${buttons}${extra}</div>`;
+              }
+            }
+
+            return `
+              <article class="entry-card${e.type === 'sub' ? ' is-sub' : ''}">
+                <div class="entry-layout">
+                  <div class="entry-content">
+                    <div class="entry-header">
+                      <div class="entry-title-group">
+                        <span class="headword">${escapeHtml(e.headword)}${hom}</span>
+                        ${typeBadge}
+                        ${posBadges}
+                      </div>
+                      <a class="pdf-cite" href="${pdfHref}" target="_blank" rel="noopener" title="Buka halaman ${escapeHtml(e.source.pdfPage)} pada PDF acuan">
+                        Hlm. ${escapeHtml(e.source.bookPage)} (PDF ${escapeHtml(e.source.pdfPage)})
+                      </a>
+                    </div>
+                    <div class="entry-audio-controls">
+                      <button type="button" class="btn-speak" data-speak-id="${escapeHtml(e.id)}" title="Dengar pengucapan kata ${escapeHtml(e.headword)}">
+                        🔊 Dengar Lafal
+                      </button>
+                      ${exampleBtn}
+                      ${ipaBadge}
+                      ${phoneticHint}
+                    </div>
+                    <div class="ling-tags">${fullPosNote} ${registerBadges}</div>
+                    <div class="entry-body">${formatEntryBodyHtml(e)}</div>
+                    ${derivationsHtml}
+                    ${lingDetailsHtml}
+                  </div>
+                  ${illustrationBlock}
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        els.paginationBar.hidden = totalPages <= 1;
+        els.prevBtn.disabled = state.page <= 1;
+        els.nextBtn.disabled = state.page >= totalPages;
+        els.pageLabel.textContent = `Halaman ${state.page} dari ${totalPages}`;
+      }
+
+      function jumpToWord(word) {
+        AudioCtrl.playUiSound('tap');
+        state.query = word;
+        state.direction = 'mandar';
+        state.section = '';
+        state.pos = '';
+        state.type = '';
+        state.illustratedOnly = false;
+        state.page = 1;
+        els.searchInput.value = word;
+        els.directionSelect.value = 'mandar';
+        els.sectionSelect.value = '';
+        els.posSelect.value = '';
+        els.typeSelect.value = '';
+        els.illustratedOnlyChk.checked = false;
+        renderAlphaBar();
+        renderResults();
+        els.searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Audio & speed controls
+      els.soundToggleBtn.addEventListener('click', () => {
+        AudioCtrl.setSoundEnabled(!AudioCtrl.isSoundEnabled());
+        syncAudioButtons();
+        showToast(AudioCtrl.isSoundEnabled() ? 'Sentuhan suara UI diaktifkan.' : 'Suara UI dibisukan.');
+      });
+
+      els.speedToggleBtn.addEventListener('click', () => {
+        state.slowSpeech = !state.slowSpeech;
+        AudioCtrl.playUiSound('tap');
+        syncAudioButtons();
+        showToast(state.slowSpeech ? 'Kecepatan pengucapan diatur ke Pelan (0.7x).' : 'Kecepatan pengucapan diatur ke Normal (0.9x).');
+      });
+
+      els.closeToastBtn.addEventListener('click', () => {
+        els.audioToast.hidden = true;
+      });
+
+      // Search & filters
+      let searchTimer = null;
+      els.searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          state.query = els.searchInput.value;
+          state.page = 1;
+          renderResults();
+        }, 120);
+      });
+
+      els.directionSelect.addEventListener('change', () => {
+        AudioCtrl.playUiSound('tap');
+        state.direction = els.directionSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.sectionSelect.addEventListener('change', () => {
+        AudioCtrl.playUiSound('tap');
+        state.section = els.sectionSelect.value;
+        state.page = 1;
+        renderAlphaBar();
+        renderResults();
+      });
+
+      els.posSelect.addEventListener('change', () => {
+        AudioCtrl.playUiSound('tap');
+        state.pos = els.posSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.typeSelect.addEventListener('change', () => {
+        AudioCtrl.playUiSound('tap');
+        state.type = els.typeSelect.value;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.illustratedOnlyChk.addEventListener('change', () => {
+        AudioCtrl.playUiSound('tap');
+        state.illustratedOnly = els.illustratedOnlyChk.checked;
+        state.page = 1;
+        renderResults();
+      });
+
+      els.alphaBar.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('button[data-sec]');
+        if (!btn) return;
+        AudioCtrl.playUiSound('tap');
+        state.section = btn.getAttribute('data-sec') || '';
+        state.page = 1;
+        els.sectionSelect.value = state.section;
+        renderAlphaBar();
+        renderResults();
+      });
+
+      els.toggleGalleryBtn.addEventListener('click', () => {
+        const hidden = els.galleryGrid.hidden;
+        els.galleryGrid.hidden = !hidden;
+        els.toggleGalleryBtn.textContent = hidden ? 'Sembunyikan Galeri' : 'Tampilkan Galeri';
+        AudioCtrl.playUiSound('tap');
+      });
+
+      els.galleryGrid.addEventListener('click', (ev) => {
+        const speakBtn = ev.target.closest('[data-speak]');
+        if (speakBtn) {
+          const word = speakBtn.getAttribute('data-speak');
+          AudioCtrl.speakText(word, { headword: word, slow: state.slowSpeech, onStatus: showToast });
+          return;
+        }
+        const lookupEl = ev.target.closest('[data-lookup]');
+        if (lookupEl) {
+          jumpToWord(lookupEl.getAttribute('data-lookup'));
+        }
+      });
+
+      els.entriesList.addEventListener('click', (ev) => {
+        const speakIdBtn = ev.target.closest('[data-speak-id]');
+        if (speakIdBtn) {
+          const id = speakIdBtn.getAttribute('data-speak-id');
+          const entry = state.entries.find((x) => x.id === id);
+          if (entry) {
+            AudioCtrl.speakText(entry.headword, {
+              headword: entry.headword,
+              parentHeadword: entry.parentHeadword || '',
+              slow: state.slowSpeech,
+              onStatus: showToast,
+            });
+          }
+          return;
+        }
+
+        const speakExBtn = ev.target.closest('[data-speak-example]');
+        if (speakExBtn) {
+          const id = speakExBtn.getAttribute('data-speak-example');
+          const entry = state.entries.find((x) => x.id === id);
+          if (entry) {
+            const ex = AudioCtrl.extractFirstExampleMandar(entry);
+            if (ex) {
+              AudioCtrl.speakText(ex, {
+                headword: entry.headword,
+                parentHeadword: entry.parentHeadword || '',
+                slow: state.slowSpeech,
+                onStatus: showToast,
+              });
+            }
+          }
+          return;
+        }
+
+        const target = ev.target.closest('[data-lookup]');
+        if (target) {
+          const word = target.getAttribute('data-lookup');
+          if (word) jumpToWord(word);
+        }
+      });
+
+      els.prevBtn.addEventListener('click', () => {
+        if (state.page > 1) {
+          AudioCtrl.playUiSound('tap');
+          state.page--;
+          renderResults();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+
+      els.nextBtn.addEventListener('click', () => {
+        AudioCtrl.playUiSound('tap');
+        state.page++;
+        renderResults();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Sure' Para design variant switcher & SVG download
+      els.sureParaTabs.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('[data-variant]');
+        if (!btn) return;
+        AudioCtrl.playUiSound('tap');
+        state.sureVariant = btn.getAttribute('data-variant');
+        renderSureParaSection();
+      });
+
+      els.downloadSureSvgBtn.addEventListener('click', () => {
+        AudioCtrl.playUiSound('copy');
+        const svgMarkup = Media.renderSureParaSvg(state.sureVariant);
+        const blob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `pola-sure-parara-${state.sureVariant}-sulbar.svg`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast(`Pola vektor SVG Batik Sure' Parara Sulawesi Barat (${state.sureVariant}) berhasil diunduh.`);
+      });
+
+      // DANA number copy button
+      els.copyDanaBtn.addEventListener('click', async () => {
+        const danaNumber = '082291544262';
+        AudioCtrl.playUiSound('copy');
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(danaNumber);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = danaNumber;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+          }
+          showToast('Nomor DANA 082291544262 (MUH. ARMIL SYAM) berhasil disalin!');
+        } catch {
+          showToast('Nomor DANA: 082291544262 (a.n. MUH. ARMIL SYAM).');
+        }
+      });
+
+      async function init() {
+        syncAudioButtons();
+        renderSureParaSection();
+        renderFeaturedGallery();
+        try {
+          const [manifestRes, vocabRes] = await Promise.all([
+            fetch('./dataset/manifest.json'),
+            fetch('./dataset/vocabulary.json'),
+          ]);
+          if (!manifestRes.ok || !vocabRes.ok) {
+            throw new Error(`HTTP error (${manifestRes.status} / ${vocabRes.status})`);
+          }
+          state.manifest = await manifestRes.json();
+          const vocab = await vocabRes.json();
+          state.entries = vocab.entries || [];
+          indexEntries(state.entries);
+          renderHeaderAndFilters();
+          const initialQuery = new URLSearchParams(window.location.search).get('q');
+          if (initialQuery && initialQuery.trim()) {
+            state.query = initialQuery.trim();
+            els.searchInput.value = state.query;
+          }
+          renderResults();
+        } catch (err) {
+          els.entriesList.innerHTML = `
+            <div class="error-state">
+              Gagal memuat dataset kamus dari <code>./dataset/</code>: ${escapeHtml(err.message)}
+            </div>
+          `;
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

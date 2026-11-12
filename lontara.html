@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Penulisan Huruf Lontar Bahasa Mandar — Sulawesi Barat</title>
+  <meta name="description" content="Halaman khusus belajar penulisan Huruf Lontar (Lontaraq Sulapa Eppa) Bahasa Mandar wilayah Sulawesi Barat lengkap dengan papan latihan menulis, tanda bunyi vokal, papan ketik Lontar, dan suara pengucapan.">
+  <style>
+    :root {
+      --bg: #f6f3ec;
+      --surface: #ffffff;
+      --surface-soft: #faf8f4;
+      --text: #1f2421;
+      --muted: #5a625c;
+      --border: #e2ddd2;
+      --accent: #135d4b;
+      --accent-soft: #e6f2ee;
+      --crimson: #7f1d2b;
+      --gold: #c89b3c;
+      --pos-bg: #f3ece0;
+      --pos-text: #6e4814;
+      --shadow: 0 3px 14px rgba(31, 36, 33, 0.07);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .sure-ribbon {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        #7f1d2b 0px, #7f1d2b 28px,
+        #e0b243 28px, #e0b243 34px,
+        #166552 34px, #166552 54px,
+        #1e3a6d 54px, #1e3a6d 72px,
+        #e0b243 72px, #e0b243 78px
+      );
+    }
+
+    .header {
+      background: linear-gradient(135deg, #104d3e 0%, #176c57 60%, #1e4d45 100%);
+      color: #ffffff;
+      padding: 24px 16px 20px;
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; }
+
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    h1 { margin: 0 0 6px; font-size: clamp(1.35rem, 2.5vw, 1.9rem); }
+    .subtitle { margin: 0; font-size: 0.92rem; color: rgba(255, 255, 255, 0.9); }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .btn-header:hover { background: rgba(255, 255, 255, 0.24); }
+    .btn-header.primary { background: #c89b3c; border-color: #e0b243; color: #1b1709; }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    .nav-pill {
+      background: rgba(0, 0, 0, 0.22);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .nav-pill:hover { background: rgba(255, 255, 255, 0.22); }
+
+    main { padding: 20px 16px 52px; }
+
+    .toast {
+      position: sticky;
+      top: 10px;
+      z-index: 40;
+      margin-bottom: 12px;
+      background: #143f35;
+      color: #ffffff;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast[hidden] { display: none; }
+    .toast button {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 3px 9px;
+      cursor: pointer;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .card-header h2 { margin: 0; font-size: 1.16rem; color: var(--crimson); }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hint { font-size: 0.86rem; color: var(--muted); margin: 6px 0; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .sub-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 14px;
+    }
+    .sub-box h3 { margin: 0 0 8px; font-size: 0.98rem; color: var(--accent); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 8px 13px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .btn:hover { filter: brightness(0.92); }
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.96rem;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    /* Practice Canvas */
+    .canvas-stage {
+      border: 2px solid var(--crimson);
+      border-radius: 12px;
+      background: #fffdf8;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      touch-action: none;
+    }
+
+    canvas#lontaraCanvas {
+      display: block;
+      width: 100%;
+      max-width: 380px;
+      height: 270px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    .canvas-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: center;
+    }
+
+    .vowel-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .vowel-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .vowel-btn.active {
+      background: var(--crimson);
+      border-color: var(--crimson);
+      color: #ffffff;
+    }
+
+    .lontara-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+      gap: 8px;
+    }
+
+    .lontara-cell {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      padding: 9px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+    .lontara-cell:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .lontara-cell.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(19, 93, 75, 0.2);
+    }
+    .lontara-glyph { font-size: 1.7rem; color: var(--crimson); line-height: 1.2; }
+    .lontara-latin { font-size: 0.84rem; font-weight: 700; color: var(--text); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.89rem;
+      margin-top: 8px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .lontar-display {
+      font-size: clamp(1.55rem, 3.2vw, 2.25rem);
+      color: var(--crimson);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      padding: 12px 14px;
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      min-height: 66px;
+      word-break: break-word;
+    }
+
+    .kbd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .kbd-key {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 6px 4px;
+      text-align: center;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .kbd-key:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .kbd-key .g { display: block; font-size: 1.32rem; color: var(--crimson); line-height: 1.15; }
+    .kbd-key .l { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+
+    .sample-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 12px;
+    }
+    .sample-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sample-lontar { font-size: 1.55rem; color: var(--crimson); letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+  <div class="sure-ribbon" aria-hidden="true"></div>
+  <header class="header">
+    <div class="container">
+      <div class="header-top">
+        <div>
+          <h1>Penulisan Huruf Lontar (Lontaraq) Bahasa Mandar</h1>
+          <p class="subtitle">Panduan Aksara Tradisional Sulapa Eppa Wilayah Sulawesi Barat — Bentuk Huruf, Tanda Bunyi, Papan Latihan Menulis, &amp; Papan Ketik</p>
+        </div>
+        <div class="header-actions">
+          <a class="btn-header primary" href="./">← Kembali ke Kamus</a>
+          <a class="btn-header" href="./belajar.html">📖 Belajar Rumus &amp; Imbuhan</a>
+          <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
+          <a class="btn-header" href="./dataset/kamus-mandar-indonesia-2025.pdf" target="_blank" rel="noopener">📄 PDF Resmi</a>
+        </div>
+      </div>
+
+      <nav class="nav-pills" aria-label="Navigasi halaman Lontar">
+        <a class="nav-pill" href="#latihan-menulis">✍️ Papan Latihan Menulis</a>
+        <a class="nav-pill" href="#daftar-huruf">🔤 23 Huruf &amp; Tanda Bunyi</a>
+        <a class="nav-pill" href="#kaidah-mandar">📏 Aturan Penulisan Mandar</a>
+        <a class="nav-pill" href="#konverter-keyboard">⌨️ Konverter &amp; Papan Ketik Lontar</a>
+        <a class="nav-pill" href="#contoh-sulbar">🏝️ Contoh Kata Sulawesi Barat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toast" id="toastBox" hidden>
+      <span id="toastText"></span>
+      <button type="button" id="closeToastBtn">Tutup</button>
+    </div>
+
+    <!-- 1. PAPAN LATIHAN MENULIS KANVAS -->
+    <section class="card" id="latihan-menulis">
+      <div class="card-header">
+        <h2>✍️ Papan Latihan Menulis Huruf Lontar (Jejak Sulapa Eppa)</h2>
+        <span class="badge" id="activeLetterBadge">Huruf: ᨀ (ka)</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p class="hint">
+            Pilih huruf dasar dan tanda vokal (*Anaqna Sureq*), lalu ikuti garis bantu di kanvas dengan mouse atau jari untuk berlatih menulis bentuk sudut khas *Sulapa Eppa*.
+          </p>
+
+          <div class="sub-box" style="margin-bottom:10px;">
+            <h3>1. Pilih Tanda Bunyi Vokal (Anaqna Sureq)</h3>
+            <div class="vowel-pills" id="vowelSelector"></div>
+            <div class="hint" id="selectedSyllableInfo"></div>
+          </div>
+
+          <div class="sub-box">
+            <h3>2. Pilih Huruf Dasar (Inanna Sureq)</h3>
+            <div class="lontara-grid" id="practiceLetterGrid"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="canvas-stage">
+            <canvas id="lontaraCanvas" width="380" height="270" aria-label="Kanvas latihan menulis huruf Lontar"></canvas>
+          </div>
+          <div class="canvas-controls">
+            <button type="button" class="btn" id="speakSyllableBtn">🔊 Dengar Bunyi</button>
+            <button type="button" class="btn btn-outline" id="toggleGuideBtn">👁️ Panduan Jejak: Nyala</button>
+            <button type="button" class="btn btn-outline" id="undoCanvasBtn">↺ Urungkan</button>
+            <button type="button" class="btn btn-outline" id="clearCanvasBtn">🗑️ Hapus</button>
+            <button type="button" class="btn btn-outline" id="saveCanvasBtn">💾 Simpan PNG</button>
+          </div>
+          <div class="canvas-controls">
+            <label class="hint" style="margin:0;">Warna Tinta:
+              <select id="brushColor" style="width:auto;padding:5px 8px;">
+                <option value="#1f2421">Hitam Tinta</option>
+                <option value="#7f1d2b">Merah Sure' Parara</option>
+                <option value="#135d4b">Hijau Mandar</option>
+                <option value="#1e3a6d">Biru Nila</option>
+              </select>
+            </label>
+            <label class="hint" style="margin:0;">Ketebalan:
+              <select id="brushSize" style="width:auto;padding:5px 8px;">
+                <option value="5">Tipis</option>
+                <option value="8" selected>Sedang</option>
+                <option value="12">Tebal</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PENJELASAN TANDA BUNYI & ATURAN MANDAR -->
+    <section class="card" id="daftar-huruf">
+      <div class="card-header">
+        <h2>🔤 5 Tanda Bunyi Vokal (*Anaqna Sureq*) &amp; Tanda Jeda</h2>
+        <span class="badge">23 Huruf Dasar + 4 Diakritik</span>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr><th>Contoh Huruf</th><th>Nama / Istilah</th><th>Vokal</th><th>Posisi Penulisan</th></tr>
+          </thead>
+          <tbody id="vowelTableBody"></tbody>
+        </table>
+      </div>
+      <p class="hint" style="margin-top:10px;">
+        <strong>Tanda Baca Lontar:</strong> Simbol <span style="font-size:1.35rem;color:var(--crimson);margin:0 4px;">᨞</span> (*pallaq / pallawa*) digunakan sebagai tanda jeda antarfrasa atau pemisah kalimat (seperti koma/titik).
+      </p>
+    </section>
+
+    <section class="card" id="kaidah-mandar">
+      <div class="card-header">
+        <h2>📏 Kaidah Penulisan Huruf Lontar Bahasa Mandar (Wilayah Sulawesi Barat)</h2>
+      </div>
+      <div class="grid-2">
+        <div class="sub-box">
+          <h3>1. Konsonan Penutup Suku Kata (Koda) Tidak Ditulis</h3>
+          <p class="hint">
+            Seperti tradisi Lontaraq di Sulawesi Barat, konsonan mati di akhir suku kata—termasuk <strong>-ng, -q (glotal), -k, -s, -r, -l, -n, -t</strong>—tidak dituliskan secara eksplisit. Pembaca menafsirkan penutup kata dari konteks kalimat Mandar:
+          </p>
+          <ul>
+            <li><strong>boyang</strong> (rumah) → <span style="font-size:1.25rem;color:var(--crimson);">ᨅᨚᨐ</span> (<em>bo-ya</em>)</li>
+            <li><strong>sandeq</strong> (perahu runcing) → <span style="font-size:1.25rem;color:var(--crimson);">ᨔᨉᨙ</span> (<em>sa-de</em>)</li>
+            <li><strong>Mandar</strong> → <span style="font-size:1.25rem;color:var(--crimson);">ᨆᨉ</span> (<em>ma-da</em>)</li>
+            <li><strong>Sulawesi Barat</strong> → <span style="font-size:1.25rem;color:var(--crimson);">ᨔᨘᨒᨓᨙᨔᨗ ᨅᨑ</span> (<em>su-la-we-si ba-ra</em>)</li>
+            <li><strong>Batik Sure' Parara Sulawesi Barat</strong> → <span style="font-size:1.25rem;color:var(--crimson);">ᨅᨈᨗ ᨔᨘᨑᨙ ᨄᨑᨑ ᨔᨘᨒᨓᨙᨔᨗ ᨅᨑ</span></li>
+          </ul>
+        </div>
+        <div class="sub-box">
+          <h3>2. Huruf Pranasal &amp; Hubungan dengan Ejaan Kamus 2025</h3>
+          <ul>
+            <li><strong>Huruf Pranasal Khusus:</strong> Gabungan sengau+letupan <code>ngka</code> (ᨃ), <code>mpa</code> (ᨇ), <code>nra</code> (ᨋ), dan <code>nca</code> (ᨏ) masing-masing punya 1 aksara tersendiri (mis. <em>tampa</em> → <span style="font-size:1.2rem;color:var(--crimson);">ᨈᨇ</span>).</li>
+            <li><strong>Perbandingan Ejaan PDF 2025:</strong> Kamus cetak modern memakai huruf Latin EYD V dengan <code>q</code> untuk konsonan glotal /ʔ/ (mis. <em>anaq</em>, <em>lipaq</em>, <em>saqbe</em>) agar pembaca modern tidak ragu, sedangkan aksara Lontar menuliskan suku kata terbukanya (ᨕᨊ, ᨒᨗᨄ, ᨔᨅᨙ).</li>
+            <li><strong>Arah Menulis:</strong> Ditulis dari kiri ke kanan, bentuk bersudut tegas menyerupai empat sisi bujursangkar (*Sulapa Eppa*).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. KONVERTER DUA ARAH & PAPAN KETIK LONTAR -->
+    <section class="card" id="konverter-keyboard">
+      <div class="card-header">
+        <h2>⌨️ Konverter &amp; Papan Ketik Huruf Lontar Mandar</h2>
+        <span class="badge" id="dictReadyBadge">Menyambungkan kamus...</span>
+      </div>
+      <div class="grid-2">
+        <div class="sub-box">
+          <h3>Latin Mandar → Huruf Lontar</h3>
+          <input type="text" id="latinInput" value="tabeq, meloaq meqguru lontaraq mandar di sulawesi barat." placeholder="Ketik kata/kalimat Bahasa Mandar...">
+          <div style="margin-top:10px;">
+            <div class="lontar-display" id="lontarConvertedBox"></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+            <button type="button" class="btn" id="speakLatinBtn">🔊 Dengarkan</button>
+            <button type="button" class="btn btn-outline" id="copyLontarBtn">📋 Salin Aksara Lontar</button>
+          </div>
+          <div id="latinMeaningBox" class="hint" style="margin-top:10px;"></div>
+        </div>
+
+        <div class="sub-box">
+          <h3>Papan Ketik Huruf Lontar Langsung</h3>
+          <div class="lontar-display" id="lontarTypedBox" aria-label="Hasil ketik aksara Lontar"></div>
+          <div class="hint" id="lontarDecodedBox">Pembacaan Latin: —</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;">
+            <button type="button" class="btn" id="speakTypedBtn">🔊 Baca</button>
+            <button type="button" class="btn btn-outline" id="kbdVowelI">◌ᨗ (i)</button>
+            <button type="button" class="btn btn-outline" id="kbdVowelU">◌ᨘ (u)</button>
+            <button type="button" class="btn btn-outline" id="kbdVowelE">◌ᨙ (e)</button>
+            <button type="button" class="btn btn-outline" id="kbdVowelO">◌ᨚ (o)</button>
+            <button type="button" class="btn btn-outline" id="kbdPallawa">᨞</button>
+            <button type="button" class="btn btn-outline" id="kbdSpace">Spasi</button>
+            <button type="button" class="btn btn-outline" id="kbdBackspace">⌫</button>
+            <button type="button" class="btn btn-outline" id="kbdClear">Bersih</button>
+          </div>
+          <div class="kbd-grid" id="virtualLontaraKbd"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GALERI CONTOH KATA SULAWESI BARAT -->
+    <section class="card" id="contoh-sulbar">
+      <div class="card-header">
+        <h2>🏝️ Contoh Penulisan Kosakata Mandar Wilayah Sulawesi Barat</h2>
+      </div>
+      <div class="sample-cards" id="sampleCardsGrid"></div>
+    </section>
+  </main>
+
+  <div class="sure-ribbon" aria-hidden="true"></div>
+
+  <script src="./assets/kamus-media.js"></script>
+  <script src="./assets/kamus-linguistics.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      const Media = window.KamusMedia;
+      const Ling = window.KamusLinguistics;
+      const AudioCtrl = Media.createAudioController();
+      const Guide = Ling.BOOK_GUIDE_DATA;
+
+      const SAMPLE_MANDAR_WORDS = [
+        { latin: 'boyang', arti: 'rumah (hlm. 84)' },
+        { latin: 'lopi', arti: 'perahu (hlm. 259)' },
+        { latin: 'sandeq', arti: 'sandek / perahu runcing (hlm. 391)' },
+        { latin: 'lipaq saqbe', arti: 'sarung sutra Mandar (hlm. 252, 397)' },
+        { latin: "Batik Sure' Parara Sulawesi Barat", arti: 'motif garis tenun & batik khas Mandar Sulawesi Barat (hlm. 431)' },
+        { latin: 'Sulawesi Barat', arti: 'wilayah budaya Suku Mandar' },
+        { latin: 'anjoro', arti: 'kelapa (hlm. 21)' },
+        { latin: 'bau', arti: 'ikan (hlm. 61)' },
+        { latin: 'jepa', arti: 'penganan khas Mandar (hlm. 180)' },
+        { latin: 'manuq', arti: 'ayam (hlm. 275)' },
+        { latin: 'tedong', arti: 'kerbau (hlm. 455)' },
+        { latin: 'tabeq', arti: 'permisi / sapaan sopan' },
+      ];
+
+      const state = {
+        selectedBase: Guide.lontaraqTable[0],
+        selectedVowel: 'a',
+        showGuide: true,
+        strokes: [],
+        drawing: false,
+        currentStroke: [],
+        typedLontarChars: [],
+        vocabMap: new Map(),
+      };
+
+      const els = {
+        soundToggleBtn: document.getElementById('soundToggleBtn'),
+        toastBox: document.getElementById('toastBox'),
+        toastText: document.getElementById('toastText'),
+        closeToastBtn: document.getElementById('closeToastBtn'),
+        activeLetterBadge: document.getElementById('activeLetterBadge'),
+        vowelSelector: document.getElementById('vowelSelector'),
+        selectedSyllableInfo: document.getElementById('selectedSyllableInfo'),
+        practiceLetterGrid: document.getElementById('practiceLetterGrid'),
+        canvas: document.getElementById('lontaraCanvas'),
+        speakSyllableBtn: document.getElementById('speakSyllableBtn'),
+        toggleGuideBtn: document.getElementById('toggleGuideBtn'),
+        undoCanvasBtn: document.getElementById('undoCanvasBtn'),
+        clearCanvasBtn: document.getElementById('clearCanvasBtn'),
+        saveCanvasBtn: document.getElementById('saveCanvasBtn'),
+        brushColor: document.getElementById('brushColor'),
+        brushSize: document.getElementById('brushSize'),
+        vowelTableBody: document.getElementById('vowelTableBody'),
+        latinInput: document.getElementById('latinInput'),
+        lontarConvertedBox: document.getElementById('lontarConvertedBox'),
+        speakLatinBtn: document.getElementById('speakLatinBtn'),
+        copyLontarBtn: document.getElementById('copyLontarBtn'),
+        latinMeaningBox: document.getElementById('latinMeaningBox'),
+        lontarTypedBox: document.getElementById('lontarTypedBox'),
+        lontarDecodedBox: document.getElementById('lontarDecodedBox'),
+        virtualLontaraKbd: document.getElementById('virtualLontaraKbd'),
+        speakTypedBtn: document.getElementById('speakTypedBtn'),
+        sampleCardsGrid: document.getElementById('sampleCardsGrid'),
+        dictReadyBadge: document.getElementById('dictReadyBadge'),
+      };
+
+      const ctx = els.canvas.getContext('2d');
+
+      function esc(s) {
+        return String(s || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      let toastTimer = null;
+      function showToast(msg) {
+        clearTimeout(toastTimer);
+        els.toastText.textContent = msg;
+        els.toastBox.hidden = false;
+        toastTimer = setTimeout(() => { els.toastBox.hidden = true; }, 4200);
+      }
+
+      function syncSoundBtn() {
+        els.soundToggleBtn.textContent = AudioCtrl.isSoundEnabled() ? '🔊 Suara UI: Aktif' : '🔇 Suara UI: Bisu';
+      }
+
+      function getActiveSyllable() {
+        const markObj = Guide.lontaraqVowels.find((v) => v.vowel === state.selectedVowel) || Guide.lontaraqVowels[0];
+        const glyph = state.selectedBase.glyph + markObj.mark;
+        const baseCons = state.selectedBase.latin.slice(0, -1);
+        const latin = `${baseCons}${markObj.vowel}`;
+        return { glyph, latin, markObj };
+      }
+
+      function redrawCanvas() {
+        const w = els.canvas.width;
+        const h = els.canvas.height;
+        ctx.clearRect(0, 0, w, h);
+
+        // Sulapa Eppa guiding grid lines
+        ctx.save();
+        ctx.strokeStyle = '#e7dfd0';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(w / 2, 16);
+        ctx.lineTo(w / 2, h - 16);
+        ctx.moveTo(24, h / 2);
+        ctx.lineTo(w - 24, h / 2);
+        ctx.stroke();
+        ctx.strokeRect(58, 28, w - 116, h - 56);
+        ctx.restore();
+
+        // Trace template glyph
+        if (state.showGuide) {
+          const { glyph } = getActiveSyllable();
+          ctx.save();
+          ctx.fillStyle = 'rgba(127, 29, 43, 0.14)';
+          ctx.font = '150px "Segoe UI", "Noto Sans Buginese", sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(glyph, w / 2, h / 2 + 8);
+          ctx.restore();
+        }
+
+        // User strokes
+        for (const stroke of state.strokes) {
+          if (stroke.points.length < 2) continue;
+          ctx.save();
+          ctx.strokeStyle = stroke.color;
+          ctx.lineWidth = stroke.size;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.beginPath();
+          ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+          for (let i = 1; i < stroke.points.length; i++) {
+            ctx.lineTo(stroke.points[i].x, stroke.points[i].y);
+          }
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+
+      function getCanvasPoint(ev) {
+        const rect = els.canvas.getBoundingClientRect();
+        const scaleX = els.canvas.width / rect.width;
+        const scaleY = els.canvas.height / rect.height;
+        return {
+          x: (ev.clientX - rect.left) * scaleX,
+          y: (ev.clientY - rect.top) * scaleY,
+        };
+      }
+
+      els.canvas.addEventListener('pointerdown', (ev) => {
+        els.canvas.setPointerCapture(ev.pointerId);
+        state.drawing = true;
+        const pt = getCanvasPoint(ev);
+        state.currentStroke = {
+          color: els.brushColor.value,
+          size: Number(els.brushSize.value),
+          points: [pt, { x: pt.x + 0.1, y: pt.y + 0.1 }],
+        };
+        state.strokes.push(state.currentStroke);
+        redrawCanvas();
+      });
+
+      els.canvas.addEventListener('pointermove', (ev) => {
+        if (!state.drawing || !state.currentStroke) return;
+        state.currentStroke.points.push(getCanvasPoint(ev));
+        redrawCanvas();
+      });
+
+      const endStroke = () => {
+        state.drawing = false;
+        state.currentStroke = null;
+      };
+      els.canvas.addEventListener('pointerup', endStroke);
+      els.canvas.addEventListener('pointercancel', endStroke);
+
+      function renderPracticeSelectors() {
+        const { glyph, latin, markObj } = getActiveSyllable();
+        els.activeLetterBadge.textContent = `Huruf: ${glyph} (${latin})`;
+        els.selectedSyllableInfo.innerHTML = `<strong>${esc(glyph)}</strong> dibaca <strong>"${esc(latin)}"</strong> — ${esc(markObj.position)}.`;
+
+        els.vowelSelector.innerHTML = Guide.lontaraqVowels
+          .map(
+            (v) => `<button type="button" class="vowel-btn${state.selectedVowel === v.vowel ? ' active' : ''}" data-vowel="${esc(v.vowel)}">${esc(v.sample)} (${esc(v.vowel)})</button>`,
+          )
+          .join('');
+
+        els.practiceLetterGrid.innerHTML = Guide.lontaraqTable
+          .map((item) => {
+            const isAct = item.glyph === state.selectedBase.glyph;
+            const shown = item.glyph + markObj.mark;
+            const syll = item.latin.slice(0, -1) + markObj.vowel;
+            return `<div class="lontara-cell${isAct ? ' active' : ''}" data-base="${esc(item.glyph)}">
+              <div class="lontara-glyph">${esc(shown)}</div>
+              <div class="lontara-latin">${esc(syll)}</div>
+            </div>`;
+          })
+          .join('');
+
+        redrawCanvas();
+      }
+
+      function renderTablesAndKeyboard() {
+        els.vowelTableBody.innerHTML = Guide.lontaraqVowels
+          .map(
+            (v) => `<tr>
+              <td style="font-size:1.55rem;color:var(--crimson);">${esc(v.sample)}</td>
+              <td><strong>${esc(v.label)}</strong></td>
+              <td><code>${esc(v.vowel)}</code></td>
+              <td>${esc(v.position)}</td>
+            </tr>`,
+          )
+          .join('');
+
+        els.virtualLontaraKbd.innerHTML = Guide.lontaraqTable
+          .map(
+            (item) => `<button type="button" class="kbd-key" data-kbd="${esc(item.glyph)}">
+              <span class="g">${esc(item.glyph)}</span>
+              <span class="l">${esc(item.latin)}</span>
+            </button>`,
+          )
+          .join('');
+
+        els.sampleCardsGrid.innerHTML = SAMPLE_MANDAR_WORDS.map((item) => {
+          const lontar = Ling.latinToLontaraqPreview(item.latin);
+          const ipa = Ling.toMandarIpa(item.latin).phonemic;
+          const firstCons = Guide.lontaraqTable.find((g) => item.latin.toLowerCase().startsWith(g.latin.slice(0, -1) || 'a')) || Guide.lontaraqTable[0];
+          return `
+            <div class="sample-card">
+              <div class="sample-lontar">${esc(lontar)}</div>
+              <div><strong>${esc(item.latin)}</strong> · <span style="font-size:0.83rem;color:var(--pos-text);">${esc(ipa)}</span></div>
+              <div class="hint" style="margin:0;">${esc(item.arti)}</div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;">
+                <button type="button" class="btn btn-outline" style="padding:4px 9px;font-size:0.78rem;" data-speak="${esc(item.latin)}">🔊 Lafalkan</button>
+                <button type="button" class="btn btn-outline" style="padding:4px 9px;font-size:0.78rem;" data-trace="${esc(firstCons.glyph)}" data-load-latin="${esc(item.latin)}">✍️ Tulis &amp; Cek</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function updateLatinConverter() {
+        const raw = els.latinInput.value;
+        const lontar = raw.trim() ? Ling.latinToLontaraqPreview(raw) : '—';
+        els.lontarConvertedBox.textContent = lontar;
+
+        if (state.vocabMap.size > 0 && raw.trim()) {
+          const analyzed = Ling.analyzeMandarSentence(raw, (w) => state.vocabMap.get(w) || [], state.vocabMap);
+          const found = analyzed.filter((t) => t.entry);
+          if (found.length > 0) {
+            els.latinMeaningBox.innerHTML =
+              '<strong>Arti kata terdeteksi di kamus:</strong> ' +
+              found
+                .slice(0, 6)
+                .map(
+                  (t) =>
+                    `<a href="./?q=${encodeURIComponent(t.entry.headword)}" style="color:var(--accent);font-weight:600;">${esc(t.entry.headword)}</a> (${esc((t.entry.definitionText || '').slice(0, 45))})`,
+                )
+                .join(' · ');
+          } else {
+            els.latinMeaningBox.textContent = 'Pratinjau ejaan Lontar otomatis sesuai aturan koda tradisional.';
+          }
+        }
+      }
+
+      function updateTypedLontarView() {
+        const text = state.typedLontarChars.join('');
+        els.lontarTypedBox.textContent = text || '—';
+        const decoded = Ling.lontaraqToLatinPreview(text);
+        els.lontarDecodedBox.textContent = `Pembacaan Latin: ${decoded || '—'}`;
+      }
+
+      // Events
+      els.soundToggleBtn.addEventListener('click', () => {
+        AudioCtrl.setSoundEnabled(!AudioCtrl.isSoundEnabled());
+        syncSoundBtn();
+        showToast(AudioCtrl.isSoundEnabled() ? 'Suara UI diaktifkan.' : 'Suara UI dibisukan.');
+      });
+      els.closeToastBtn.addEventListener('click', () => { els.toastBox.hidden = true; });
+
+      els.vowelSelector.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('[data-vowel]');
+        if (!btn) return;
+        state.selectedVowel = btn.getAttribute('data-vowel');
+        renderPracticeSelectors();
+        const { latin } = getActiveSyllable();
+        AudioCtrl.speakText(latin, { headword: latin });
+      });
+
+      els.practiceLetterGrid.addEventListener('click', (ev) => {
+        const cell = ev.target.closest('[data-base]');
+        if (!cell) return;
+        const g = cell.getAttribute('data-base');
+        const found = Guide.lontaraqTable.find((x) => x.glyph === g);
+        if (found) {
+          state.selectedBase = found;
+          renderPracticeSelectors();
+          const { latin } = getActiveSyllable();
+          AudioCtrl.speakText(latin, { headword: latin, onStatus: showToast });
+        }
+      });
+
+      els.speakSyllableBtn.addEventListener('click', () => {
+        const { latin } = getActiveSyllable();
+        AudioCtrl.speakText(latin, { headword: latin, onStatus: showToast });
+      });
+
+      els.toggleGuideBtn.addEventListener('click', () => {
+        state.showGuide = !state.showGuide;
+        els.toggleGuideBtn.textContent = state.showGuide ? '👁️ Panduan Jejak: Nyala' : '👁️ Panduan Jejak: Mati';
+        redrawCanvas();
+      });
+
+      els.undoCanvasBtn.addEventListener('click', () => {
+        state.strokes.pop();
+        redrawCanvas();
+      });
+
+      els.clearCanvasBtn.addEventListener('click', () => {
+        state.strokes = [];
+        redrawCanvas();
+      });
+
+      els.saveCanvasBtn.addEventListener('click', () => {
+        const { latin } = getActiveSyllable();
+        const url = els.canvas.toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `latihan-lontar-${latin}.png`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        AudioCtrl.playUiSound('copy');
+        showToast(`Gambar latihan huruf "${latin}" berhasil diunduh.`);
+      });
+
+      els.latinInput.addEventListener('input', updateLatinConverter);
+
+      els.speakLatinBtn.addEventListener('click', () => {
+        const t = els.latinInput.value.trim();
+        if (t) AudioCtrl.speakText(t, { onStatus: showToast });
+      });
+
+      els.copyLontarBtn.addEventListener('click', async () => {
+        const txt = els.lontarConvertedBox.textContent;
+        AudioCtrl.playUiSound('copy');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(txt).catch(() => {});
+        }
+        showToast(`Aksara Lontar "${txt}" disalin.`);
+      });
+
+      // Virtual keyboard
+      els.virtualLontaraKbd.addEventListener('click', (ev) => {
+        const key = ev.target.closest('[data-kbd]');
+        if (!key) return;
+        AudioCtrl.playUiSound('tap');
+        state.typedLontarChars.push(key.getAttribute('data-kbd'));
+        updateTypedLontarView();
+      });
+
+      const appendMark = (mark) => {
+        AudioCtrl.playUiSound('tap');
+        const lastIdx = state.typedLontarChars.length - 1;
+        if (lastIdx >= 0 && Guide.lontaraqTable.some((x) => x.glyph === state.typedLontarChars[lastIdx])) {
+          state.typedLontarChars[lastIdx] += mark;
+        }
+        updateTypedLontarView();
+      };
+      document.getElementById('kbdVowelI').addEventListener('click', () => appendMark('\u1A17'));
+      document.getElementById('kbdVowelU').addEventListener('click', () => appendMark('\u1A18'));
+      document.getElementById('kbdVowelE').addEventListener('click', () => appendMark('\u1A19'));
+      document.getElementById('kbdVowelO').addEventListener('click', () => appendMark('\u1A1A'));
+      document.getElementById('kbdPallawa').addEventListener('click', () => {
+        state.typedLontarChars.push('᨞');
+        updateTypedLontarView();
+      });
+      document.getElementById('kbdSpace').addEventListener('click', () => {
+        state.typedLontarChars.push(' ');
+        updateTypedLontarView();
+      });
+      document.getElementById('kbdBackspace').addEventListener('click', () => {
+        state.typedLontarChars.pop();
+        updateTypedLontarView();
+      });
+      document.getElementById('kbdClear').addEventListener('click', () => {
+        state.typedLontarChars = [];
+        updateTypedLontarView();
+      });
+      els.speakTypedBtn.addEventListener('click', () => {
+        const decoded = Ling.lontaraqToLatinPreview(state.typedLontarChars.join(''));
+        if (decoded) AudioCtrl.speakText(decoded, { onStatus: showToast });
+      });
+
+      document.body.addEventListener('click', (ev) => {
+        const spk = ev.target.closest('[data-speak]');
+        if (spk) {
+          const text = spk.getAttribute('data-speak');
+          AudioCtrl.speakText(text, { headword: text, onStatus: showToast });
+          return;
+        }
+        const tr = ev.target.closest('[data-load-latin]');
+        if (tr) {
+          const phrase = tr.getAttribute('data-load-latin');
+          const glyph = tr.getAttribute('data-trace');
+          els.latinInput.value = phrase;
+          updateLatinConverter();
+          const found = Guide.lontaraqTable.find((x) => x.glyph === glyph);
+          if (found) {
+            state.selectedBase = found;
+            renderPracticeSelectors();
+          }
+          document.getElementById('latihan-menulis').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+
+      async function init() {
+        syncSoundBtn();
+        renderPracticeSelectors();
+        renderTablesAndKeyboard();
+        updateLatinConverter();
+        updateTypedLontarView();
+
+        try {
+          const res = await fetch('./dataset/vocabulary.json');
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          for (const e of data.entries || []) {
+            for (const cand of [e.headword, ...(e.aliases || [])]) {
+              const k = String(cand || '').toLowerCase().replace(/['`\u2018\u2019]/g, 'q').trim();
+              if (!k) continue;
+              if (!state.vocabMap.has(k)) state.vocabMap.set(k, []);
+              state.vocabMap.get(k).push(e);
+            }
+          }
+          els.dictReadyBadge.textContent = `${(data.entries || []).length.toLocaleString('id-ID')} entri terhubung`;
+          updateLatinConverter();
+        } catch (err) {
+          els.dictReadyBadge.textContent = 'Mode luring';
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

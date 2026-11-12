@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "role": "server-vocabulary-reference-dataset",
+  "sourcePdf": {
+    "path": "dataset/kamus-mandar-indonesia-2025.pdf",
+    "fileName": "kamus-mandar-indonesia-2025.pdf",
+    "sizeBytes": 3983041,
+    "sha256": "3D9A671F5A5CC91523A77C308D304D36C178C5A8B2E198B1532ECFF1EC4F794C"
+  },
+  "publication": {
+    "title": "Kamus Bahasa Mandar–Indonesia (Edisi Revisi)",
+    "authors": "Sandra Safitri Hanan, dkk.",
+    "publisher": "Kementerian Pendidikan Dasar dan Menengah / Balai Bahasa Provinsi Sulawesi Barat",
+    "year": 2025,
+    "languages": {
+      "source": {
+        "code": "mdr",
+        "name": "Mandar"
+      },
+      "target": {
+        "code": "id",
+        "name": "Indonesia"
+      }
+    }
+  },
+  "structure": {
+    "totalPdfPages": 548,
+    "dictionaryPdfPageRange": [
+      48,
+      546
+    ],
+    "bookPageRange": [
+      1,
+      499
+    ],
+    "columnsPerPage": 2,
+    "counts": {
+      "totalEntries": 4908,
+      "mainEntries": 2660,
+      "subEntries": 2248,
+      "sections": 20,
+      "entriesWithoutDefinitionInPdf": 6
+    }
+  },
+  "abbreviations": {
+    "pos": {
+      "n": "nomina (kata benda)",
+      "v": "verba (kata kerja)",
+      "a": "adjektiva (kata sifat)",
+      "adv": "adverbia (kata keterangan)",
+      "p": "partikel / kata tugas",
+      "num": "numeralia (kata bilangan)",
+      "pron": "pronomina (kata ganti)",
+      "i": "interjeksi (kata seru)",
+      "klitik": "klitik",
+      "frasa": "frasa"
+    },
+    "labels": {
+      "ki": "kiasan",
+      "ukp": "ungkapan",
+      "pb": "peribahasa",
+      "k": "kasar / ragam khusus"
+    },
+    "markers": {
+      "--": "pengganti lema utama dalam contoh pemakaian",
+      "~": "pengganti sublema/lema dalam contoh pemakaian",
+      "(q)": "pelafalan konsonan hambat glotal dalam ejaan Mandar"
+    },
+    "prose": {
+      "dng": "dengan",
+      "dp": "daripada",
+      "dr": "dari",
+      "kpd": "kepada",
+      "krn": "karena",
+      "msl": "misalnya",
+      "pd": "pada",
+      "sbg": "sebagai",
+      "spt": "seperti",
+      "thd": "terhadap",
+      "tt": "tentang",
+      "yg": "yang"
+    }
+  },
+  "sections": [
+    {
+      "letter": "A",
+      "firstBookPage": 1,
+      "firstPdfPage": 48,
+      "entryCount": 334,
+      "mainCount": 153,
+      "subCount": 181
+    },
+    {
+      "letter": "B",
+      "firstBookPage": 36,
+      "firstPdfPage": 83,
+      "entryCount": 618,
+      "mainCount": 293,
+      "subCount": 325
+    },
+    {
+      "letter": "C",
+      "firstBookPage": 98,
+      "firstPdfPage": 145,
+      "entryCount": 178,
+      "mainCount": 113,
+      "subCount": 65
+    },
+    {
+      "letter": "D",
+      "firstBookPage": 116,
+      "firstPdfPage": 163,
+      "entryCount": 132,
+      "mainCount": 66,
+      "subCount": 66
+    },
+    {
+      "letter": "E",
+      "firstBookPage": 130,
+      "firstPdfPage": 177,
+      "entryCount": 16,
+      "mainCount": 12,
+      "subCount": 4
+    },
+    {
+      "letter": "G",
+      "firstBookPage": 132,
+      "firstPdfPage": 179,
+      "entryCount": 201,
+      "mainCount": 91,
+      "subCount": 110
+    },
+    {
+      "letter": "H",
+      "firstBookPage": 154,
+      "firstPdfPage": 201,
+      "entryCount": 31,
+      "mainCount": 20,
+      "subCount": 11
+    },
+    {
+      "letter": "I",
+      "firstBookPage": 158,
+      "firstPdfPage": 205,
+      "entryCount": 110,
+      "mainCount": 38,
+      "subCount": 72
+    },
+    {
+      "letter": "J",
+      "firstBookPage": 172,
+      "firstPdfPage": 219,
+      "entryCount": 124,
+      "mainCount": 64,
+      "subCount": 60
+    },
+    {
+      "letter": "K",
+      "firstBookPage": 186,
+      "firstPdfPage": 233,
+      "entryCount": 317,
+      "mainCount": 210,
+      "subCount": 107
+    },
+    {
+      "letter": "L",
+      "firstBookPage": 219,
+      "firstPdfPage": 266,
+      "entryCount": 439,
+      "mainCount": 244,
+      "subCount": 195
+    },
+    {
+      "letter": "M",
+      "firstBookPage": 267,
+      "firstPdfPage": 314,
+      "entryCount": 229,
+      "mainCount": 167,
+      "subCount": 62
+    },
+    {
+      "letter": "N",
+      "firstBookPage": 290,
+      "firstPdfPage": 337,
+      "entryCount": 57,
+      "mainCount": 35,
+      "subCount": 22
+    },
+    {
+      "letter": "O",
+      "firstBookPage": 297,
+      "firstPdfPage": 344,
+      "entryCount": 86,
+      "mainCount": 41,
+      "subCount": 45
+    },
+    {
+      "letter": "P",
+      "firstBookPage": 307,
+      "firstPdfPage": 354,
+      "entryCount": 500,
+      "mainCount": 284,
+      "subCount": 216
+    },
+    {
+      "letter": "R",
+      "firstBookPage": 358,
+      "firstPdfPage": 405,
+      "entryCount": 263,
+      "mainCount": 125,
+      "subCount": 138
+    },
+    {
+      "letter": "S",
+      "firstBookPage": 384,
+      "firstPdfPage": 431,
+      "entryCount": 564,
+      "mainCount": 313,
+      "subCount": 251
+    },
+    {
+      "letter": "T",
+      "firstBookPage": 434,
+      "firstPdfPage": 481,
+      "entryCount": 564,
+      "mainCount": 316,
+      "subCount": 248
+    },
+    {
+      "letter": "U",
+      "firstBookPage": 485,
+      "firstPdfPage": 532,
+      "entryCount": 131,
+      "mainCount": 65,
+      "subCount": 66
+    },
+    {
+      "letter": "W",
+      "firstBookPage": 498,
+      "firstPdfPage": 545,
+      "entryCount": 14,
+      "mainCount": 10,
+      "subCount": 4
+    }
+  ]
+}
