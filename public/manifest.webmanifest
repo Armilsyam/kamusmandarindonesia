@@ -1,0 +1,19 @@
+{
+  "name": "Kamus Digital Mandar-Indonesia (Boyang Digital)",
+  "short_name": "Kamus Mandar",
+  "description": "Kamus Digital Mandar-Indonesia oleh Boyang Digital: 4.908 kosakata resmi 2025, Asisten Kaka AI, Kamera Lontara, dan Sosial Media Edukatif bagi Pelajar & PKBM Sulawesi Barat.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f5ee",
+  "theme_color": "#7f1d2b",
+  "icons": [
+    {
+      "src": "./assets/illustrations/batik-sure-para-sulbar.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "books", "culture"]
+}

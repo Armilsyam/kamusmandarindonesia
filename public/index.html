@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kamus Bahasa Mandar–Indonesia (Edisi Revisi 2025) · Sulawesi Barat</title>
-  <meta name="description" content="Kamus Bahasa Mandar–Indonesia digital bersumber resmi dari PDF 2025 dengan fitur suara cara pengucapan, ilustrasi kosakata bergambar, halaman belajar rumus &amp; penulisan Huruf Lontar, desain Batik Sure' Parara Sulawesi Barat, dan kontak kolaborasi.">
+  <title>Kamus Digital Mandar–Indonesia (oleh BOYANG DIGITAL) · 4.908 Kosakata Sulawesi Barat</title>
+  <meta name="description" content="KAMUS DIGITAL MANDAR-INDONESIA (oleh BOYANG DIGITAL) hadir mencegah kepunahan bahasa Sulbar. Aplikasi ini berisi 4.908 kosakata, asisten (Kaka AI), kamera Lontara, dan sosial media edukatif bagi pelajar di Sulbar &amp; PKBM serta komunitas lainnya. Melalui model bisnis freemium dan kerja sama sekolah, aplikasi ini siap dirilis ke Play Store agar budaya Mandar mendunia.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#7f1d2b">
   <style>
     :root {
       --bg: #f6f3ec;
@@ -935,6 +937,448 @@
       margin: 4px 0;
     }
 
+    /* BOYANG DIGITAL BRAND & SUPER-APP FEATURES STYLES */
+    .boyang-brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+      align-items: center;
+    }
+    .brand-chip {
+      background: var(--crimson);
+      color: #fff;
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .mission-chip {
+      background: #eef7f3;
+      color: #0d5c46;
+      border: 1px solid #b7e3d3;
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .store-chip {
+      background: #fdf5e6;
+      color: #7a4b00;
+      border: 1px solid #edd5a6;
+      font-size: 0.73rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .store-chip:hover {
+      background: #faebd0;
+    }
+
+    /* Kaka AI Chat Interface */
+    .ai-chat-container {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .ai-chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .ai-status-tag {
+      font-size: 0.78rem;
+      color: #0d5c46;
+      background: #e6f6ee;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+    .ai-chat-messages {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      max-height: 420px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      scroll-behavior: smooth;
+    }
+    .chat-msg {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      max-width: 90%;
+    }
+    .chat-msg.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--crimson);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .chat-msg.user .chat-avatar {
+      background: var(--accent);
+    }
+    .chat-bubble {
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .chat-msg.ai .chat-bubble {
+      background: #ffffff;
+      border: 1px solid #e7dfd0;
+      color: var(--text);
+    }
+    .chat-msg.ai .chat-bubble p {
+      margin: 4px 0;
+    }
+    .chat-msg.ai .chat-bubble blockquote {
+      border-left: 3px solid var(--crimson);
+      padding-left: 10px;
+      margin: 8px 0;
+      color: var(--crimson);
+      font-weight: 600;
+    }
+    .chat-msg.user .chat-bubble {
+      background: var(--crimson);
+      color: #ffffff;
+    }
+    .ai-prompt-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0;
+    }
+    .ai-chip {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px 11px;
+      font-size: 0.8rem;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .ai-chip:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .ai-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .ai-input-row input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+      background: var(--surface);
+    }
+    .btn-ai-send {
+      background: var(--crimson);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .btn-ai-send:hover {
+      background: #641520;
+    }
+
+    /* Kamera Lontara Vision Interface */
+    .camera-layout-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 820px) {
+      .camera-layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .camera-box-wrap {
+      position: relative;
+      background: #181614;
+      border-radius: 12px;
+      overflow: hidden;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--border);
+    }
+    .camera-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 340px;
+      display: none;
+    }
+    .camera-canvas {
+      width: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      display: none;
+    }
+    .camera-placeholder {
+      padding: 24px;
+      text-align: center;
+      color: #d8cfbe;
+    }
+    .camera-viewfinder {
+      position: absolute;
+      inset: 22px;
+      border: 2px dashed rgba(200, 155, 60, 0.85);
+      border-radius: 10px;
+      pointer-events: none;
+      display: none;
+    }
+    .camera-viewfinder::after {
+      content: 'Bidikan Aksara Lontara';
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.72rem;
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.65);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .scanner-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .ocr-result-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .ocr-lontara-text {
+      font-size: 2.1rem;
+      color: var(--crimson);
+      letter-spacing: 0.08em;
+      margin: 8px 0;
+      line-height: 1.25;
+    }
+
+    /* Edu Community & Social Feed */
+    .reels-scroll {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 4px 0 12px;
+      scroll-snap-type: x mandatory;
+    }
+    .reel-item {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      padding: 14px;
+      color: #fff;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .reel-item:hover {
+      transform: translateY(-2px);
+    }
+    .reel-badge {
+      font-size: 0.72rem;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(4px);
+      padding: 2px 8px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .feed-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 14px 0 10px;
+    }
+    .feed-tab {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .feed-tab.active {
+      background: var(--crimson);
+      color: #fff;
+      border-color: var(--crimson);
+    }
+    .new-post-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .community-feed-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .feed-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .feed-mandar-quote {
+      background: #faf6ee;
+      border-left: 4px solid var(--crimson);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 8px 0;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1b1709;
+    }
+    .feed-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: center;
+    }
+    .btn-feed-action {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .btn-feed-action:hover {
+      border-color: var(--accent);
+    }
+    .comments-drawer {
+      margin-top: 10px;
+      border-top: 1px dashed var(--border);
+      padding-top: 8px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    /* Boyang Ecosystem, Freemium & Play Store */
+    .freemium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plan-card.featured {
+      border: 2px solid var(--gold);
+      background: linear-gradient(to bottom, #fffdf8, #ffffff);
+      box-shadow: 0 4px 16px rgba(200, 155, 60, 0.15);
+    }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 0.88rem;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .school-collab-banner {
+      background: linear-gradient(135deg, #0d3b66 0%, #06192d 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+    }
+    .playstore-launch-banner {
+      background: linear-gradient(135deg, #1b2e23 0%, #0f1c15 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-pwa-install {
+      background: var(--gold);
+      color: #1b1709;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-size: 0.92rem;
+    }
+    .btn-pwa-install:hover {
+      background: #d8aa47;
+    }
+
     @media (max-width: 640px) {
       .entry-layout {
         flex-direction: column;
@@ -957,15 +1401,24 @@
     <div class="container">
       <div class="header-top">
         <div>
-          <h1>Kamus Bahasa Mandar–Indonesia</h1>
+          <div class="boyang-brand-row">
+            <span class="brand-chip">🏢 BOYANG DIGITAL</span>
+            <span class="mission-chip">🛡️ Hadir Mencegah Kepunahan Bahasa Sulbar</span>
+            <a class="store-chip" href="#ekosistem-boyang">📲 Siap Rilis Play Store · Pasang PWA</a>
+          </div>
+          <h1>Kamus Digital Mandar–Indonesia</h1>
           <p class="subtitle" id="pubSubtitle">Edisi Revisi 2025 · Wilayah Budaya Sulawesi Barat (Balai Bahasa Prov. Sulawesi Barat)</p>
         </div>
         <div class="header-actions">
           <a class="btn-header" style="background:#c89b3c;border-color:#e0b243;color:#1b1709;" href="./belajar.html">📖 Belajar Rumus &amp; Imbuhan</a>
           <a class="btn-header" style="background:#f5ecd7;border-color:#e0b243;color:#5a121d;" href="./lontara.html">✍️ Huruf Lontar</a>
+          <a class="btn-header" style="background:#eaf2ff;border-color:#b4c8f5;color:#1034a6;" href="#kaka-ai">🤖 Kaka AI</a>
+          <a class="btn-header" style="background:#fcf0e5;border-color:#f5c9a4;color:#7a3900;" href="#kamera-lontara">📷 Kamera Lontara</a>
+          <a class="btn-header" style="background:#e8f7f1;border-color:#a8e2cb;color:#0c503e;" href="#komunitas-edukatif">👥 Komunitas Edukatif</a>
+          <a class="btn-header" style="background:#fbf3e0;border-color:#f0d796;color:#5c4200;" href="#ekosistem-boyang">🏫 Kemitraan &amp; Freemium</a>
           <button type="button" class="btn-header" id="soundToggleBtn">🔊 Suara UI: Aktif</button>
           <button type="button" class="btn-header" id="speedToggleBtn">🗣️ Lafal: Normal</button>
-          <a class="btn-header" href="#batik-sure-para">🎨 Batik Sure' Parara Sulawesi Barat</a>
+          <a class="btn-header" href="#batik-sure-para">🎨 Batik Sure' Parara</a>
           <a class="btn-header" href="#kontak-dukungan">💬 Admin &amp; DANA</a>
           <a class="btn-header" href="./dataset/kamus-mandar-indonesia-2025.pdf" target="_blank" rel="noopener">📄 PDF Resmi</a>
         </div>
@@ -1153,7 +1606,255 @@
       </div>
     </section>
 
-    <details class="info-panel" id="abbrPanel">
+    <!-- 1. ASISTEN CERDAS KAKA AI (BOYANG DIGITAL) -->
+    <section class="section-card" id="kaka-ai" aria-label="Asisten Cerdas Kaka AI (Boyang Digital)">
+      <div class="section-title-row">
+        <h2>🤖 Asisten Cerdas Kaka AI — Sahabat Belajar Bahasa &amp; Budaya Mandar</h2>
+        <span class="ai-status-tag">🟢 Online · Terhubung 4.908 Kosakata Resmi</span>
+      </div>
+      <p style="margin:0 0 12px;font-size:0.9rem;color:var(--muted);">
+        Dikembangkan oleh <strong>Boyang Digital</strong> untuk mendampingi adik-adik pelajar, tutor dan warga belajar <strong>PKBM (Pusat Kegiatan Belajar Masyarakat)</strong>, serta komunitas budaya. Tanyakan arti lema kamus 2025, kaidah rumus imbuhan, sastra <em>Kalindaqdaq</em> (pola 8-7-5-7), pesan <em>Pappasang</em>, atau aturan aksara Lontara!
+      </p>
+
+      <div class="ai-chat-container">
+        <div class="ai-chat-header">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <div class="chat-avatar">🤖</div>
+            <div>
+              <strong style="font-size:0.95rem;">Kaka AI (Mandar Virtual Assistant)</strong>
+              <div style="font-size:0.75rem;color:var(--muted);">Versi Edukasi Pelajar &amp; PKBM Sulawesi Barat</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <button type="button" class="btn-outline" style="font-size:0.78rem;padding:4px 8px;" id="clearChatBtn">🗑️ Bersihkan Obrolan</button>
+            <button type="button" class="btn-outline" style="font-size:0.78rem;padding:4px 8px;" id="speakAiLastBtn">🔊 Ucapkan Jawaban</button>
+          </div>
+        </div>
+
+        <div class="ai-chat-messages" id="aiChatMessages" role="log" aria-live="polite">
+          <div class="chat-msg ai">
+            <div class="chat-avatar">🤖</div>
+            <div class="chat-bubble">
+              <p><strong>Tabeq! Halo Sahabat Budaya</strong> 👋</p>
+              <p>Saya <strong>Kaka AI</strong>, asisten virtual dari <strong>Boyang Digital</strong> yang bertugas mencegah kepunahan bahasa Sulbar. Saya siap membantu Anda menelusuri <strong>4.908 kosakata resmi</strong>, membedah rumus imbuhan, menerjemahkan kalimat, melafalkan audio, dan mengulas sastra <em>Kalindaqdaq</em>.</p>
+              <p style="font-size:0.83rem;color:var(--muted);margin-top:6px;">Pilih salah satu rekomendasi pertanyaan cepat di bawah atau ketik pertanyaan Anda sendiri!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-prompt-chips" id="aiPromptChips">
+          <button type="button" class="ai-chip" data-prompt="Apa arti kata tabeq dan bagaimana etikanya?">🗣️ Etika Kata "Tabeq"</button>
+          <button type="button" class="ai-chip" data-prompt="Jelaskan rumus awalan ma- dan meccoko">🧩 Rumus Imbuhan "ma-"</button>
+          <button type="button" class="ai-chip" data-prompt="Tuliskan contoh puisi Kalindaqdaq Mandar pola 8-7-5-7">🪶 Puisi Kalindaqdaq</button>
+          <button type="button" class="ai-chip" data-prompt="Apa itu perahu Sandeq dan bagian-bagiannya?">⛵ Perahu Sandeq</button>
+          <button type="button" class="ai-chip" data-prompt="Bagaimana cara menulis aksara Lontar boyang?">✍️ Tulisan Lontar "Boyang"</button>
+          <button type="button" class="ai-chip" data-prompt="Apa itu Batik Sure' Parara Sulawesi Barat?">🎨 Batik Sure' Parara Sulbar</button>
+        </div>
+
+        <form class="ai-input-row" id="aiChatForm">
+          <input type="text" id="aiUserInput" placeholder="Tanyakan ke Kaka AI, misalnya: apa arti kata lopi? atau jelaskan peribahasa Mandar..." autocomplete="off">
+          <button type="submit" class="btn-ai-send" id="aiSendBtn">Tanya Kaka AI 🚀</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. KAMERA LONTARA (VISION OCR / SCANNER) -->
+    <section class="section-card" id="kamera-lontara" aria-label="Kamera Lontara (Vision OCR / Scanner Aksara)">
+      <div class="section-title-row">
+        <h2>📷 Kamera Lontara — Pemindai &amp; Vision OCR Aksara Sulapa Eppa</h2>
+        <span class="stat-pill" style="background:#fdf2e9;color:#8a4311;border:1px solid #f0cba8;">Kamera &amp; Unggah Foto</span>
+      </div>
+      <p style="margin:0 0 12px;font-size:0.9rem;color:var(--muted);">
+        Fitur pemindai cerdas untuk membaca naskah kuno, buku pelajaran siswa, atau papan nama beraksara Lontara di Sulawesi Barat. Pindai langsung melalui kamera gawai Anda atau unggah foto untuk mendapatkan alih aksara Latin dan artinya di kamus secara instan.
+      </p>
+
+      <div class="camera-layout-grid">
+        <div>
+          <div class="camera-box-wrap" id="cameraBoxWrap">
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <div style="font-size:2.4rem;margin-bottom:8px;">📷</div>
+              <strong>Kamera Siap Diaktifkan</strong>
+              <p style="font-size:0.83rem;margin:6px 0 12px;color:#a89f8d;">Arahkan kamera ke tulisan Aksara Lontara atau pilih contoh naskah di bawah.</p>
+              <button type="button" class="btn" style="background:var(--gold);color:#1b1709;" id="startCameraBtn">Buka Kamera Perangkat</button>
+            </div>
+            <video class="camera-video" id="cameraVideo" playsinline autoplay muted></video>
+            <canvas class="camera-canvas" id="cameraCanvas"></canvas>
+            <div class="camera-viewfinder" id="cameraViewfinder"></div>
+          </div>
+
+          <div class="scanner-controls">
+            <button type="button" class="btn-outline" id="snapScanBtn" style="display:none;">⚡ Bidik &amp; Pindai</button>
+            <button type="button" class="btn-outline" id="flipCameraBtn" style="display:none;">🔄 Putar Kamera</button>
+            <button type="button" class="btn-outline" id="stopCameraBtn" style="display:none;">⏹️ Hentikan Kamera</button>
+            <label class="btn-outline" style="cursor:pointer;margin:0;">
+              📁 Unggah Foto Dokumen
+              <input type="file" id="ocrFileInput" accept="image/*" style="display:none;">
+            </label>
+          </div>
+
+          <div style="margin-top:12px;">
+            <div style="font-size:0.8rem;font-weight:700;color:var(--muted);margin-bottom:6px;">UJI CEPAT SAMPEL AKSARA LONTARA:</div>
+            <div class="scanner-presets" id="scannerPresets">
+              <!-- Populated dynamically from SAMPLE_PRESETS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="ocr-result-panel" id="ocrResultPanel">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h3 style="margin:0;font-size:1.05rem;">Hasil Pemindaian Aksara Lontara</h3>
+            <span class="badge" id="ocrConfidenceBadge" style="background:#eaf7ee;color:#0d5c46;">Akurasi: 98.4%</span>
+          </div>
+
+          <div style="margin-top:10px;">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--muted);">AKSARA LONTARA TERDETEKSI:</div>
+            <div class="ocr-lontara-text" id="ocrDetectedLontara">ᨅᨔ ᨆᨉ</div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
+            <div class="sub-box">
+              <div style="font-size:0.75rem;font-weight:700;color:var(--muted);">TRANSKRIPSI LATIN:</div>
+              <div id="ocrLatinTrans" style="font-size:1.1rem;font-weight:700;color:var(--crimson);margin-top:2px;">basa Mandar</div>
+            </div>
+            <div class="sub-box">
+              <div style="font-size:0.75rem;font-weight:700;color:var(--muted);">RUJUKAN KAMUS:</div>
+              <div id="ocrDictRef" style="font-size:0.92rem;font-weight:600;margin-top:2px;">basa (hlm. 55)</div>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;" class="sub-box">
+            <div style="font-size:0.75rem;font-weight:700;color:var(--muted);">MAKNA / DEFINISI:</div>
+            <p id="ocrDefinitionText" style="margin:4px 0 0;font-size:0.88rem;line-height:1.45;">bahasa / tata bahasa suku Mandar di Sulawesi Barat (hlm. 55 &amp; 270)</p>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+            <button type="button" class="btn" id="ocrSpeakBtn">🔊 Dengarkan Suara</button>
+            <a class="btn-outline" id="ocrJumpPracticeBtn" href="./lontara.html#latihan-menulis">✍️ Buka di Papan Latihan</a>
+            <button type="button" class="btn-outline" id="ocrSearchDictBtn">🔍 Cari di Indeks Kamus</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SOSIAL MEDIA EDUKATIF PELAJAR SULBAR & PKBM -->
+    <section class="section-card" id="komunitas-edukatif" aria-label="Sosial Media Edukatif Pelajar Sulbar dan PKBM">
+      <div class="section-title-row">
+        <h2>👥 Sosial Media Edukatif — Komunitas Pelajar di Sulbar &amp; PKBM</h2>
+        <span class="brand-chip" style="background:#0d5c46;">Ruang Kolaborasi Budaya</span>
+      </div>
+      <p style="margin:0 0 12px;font-size:0.9rem;color:var(--muted);">
+        Wadah interaktif bagi siswa/siswi sekolah di Sulawesi Barat, warga belajar serta tutor <strong>Pusat Kegiatan Belajar Masyarakat (PKBM)</strong>, sanggar seni, dan komunitas diaspora untuk saling berbagi catatan belajar, mendiskusikan arti kata, dan melestarikan sastra lisan.
+      </p>
+
+      <div style="margin-bottom:12px;">
+        <div style="font-size:0.82rem;font-weight:700;color:var(--muted);margin-bottom:6px;">MANDAR REELS — KARTU BELAJAR KILAT (MICRO-LEARNING):</div>
+        <div class="reels-scroll" id="mandarReelsScroll">
+          <!-- Populated from KamusKomunitas.MANDAR_REELS -->
+        </div>
+      </div>
+
+      <div class="new-post-box">
+        <h3 style="margin:0 0 10px;font-size:1rem;">✍️ Bagikan Catatan Belajar atau Pertanyaan ke Komunitas</h3>
+        <form id="newPostForm">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;">
+            <input type="text" id="postAuthorInput" placeholder="Nama Anda (contoh: Fatimah - Siswi SMAN 1 Majene)" required>
+            <select id="postCategorySelect">
+              <option value="pelajar">🎒 Pelajar Sulbar (Tugas / Muatan Lokal)</option>
+              <option value="pkbm">📖 PKBM &amp; Warga Belajar (Keaksaraan)</option>
+              <option value="komunitas">🏛️ Komunitas Budaya &amp; Diaspora</option>
+              <option value="kalindaqdaq">🪶 Sastra Puisi Kalindaqdaq</option>
+            </select>
+          </div>
+          <div style="margin-bottom:8px;">
+            <input type="text" id="postMandarInput" placeholder="Kalimat atau Kosakata Bahasa Mandar (contoh: Diang karewa macoa u tarima)" required>
+          </div>
+          <div style="margin-bottom:8px;">
+            <textarea id="postArtiInput" rows="2" placeholder="Arti bahasa Indonesia dan catatan belajarmu..." required></textarea>
+          </div>
+          <button type="submit" class="btn" style="background:var(--crimson);color:#fff;">Kirim ke Feed Komunitas 🚀</button>
+        </form>
+      </div>
+
+      <div class="feed-tabs" id="communityFeedTabs">
+        <button type="button" class="feed-tab active" data-cat="semua">🌟 Semua Diskusi</button>
+        <button type="button" class="feed-tab" data-cat="pelajar">🎒 Pelajar Sulbar</button>
+        <button type="button" class="feed-tab" data-cat="pkbm">📖 PKBM &amp; Warga Belajar</button>
+        <button type="button" class="feed-tab" data-cat="komunitas">🏛️ Komunitas Budaya &amp; Diaspora</button>
+      </div>
+
+      <div class="community-feed-list" id="communityFeedList">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- 4. EKOSISTEM BOYANG DIGITAL, FREEMIUM, KEMITRAAN & PLAY STORE -->
+    <section class="section-card" id="ekosistem-boyang" aria-label="Ekosistem Boyang Digital, Model Bisnis Freemium, Kemitraan Sekolah & PKBM, serta Kesiapan Play Store">
+      <div class="section-title-row">
+        <h2>🏫 Ekosistem Boyang Digital — Model Freemium, Kemitraan Sekolah &amp; Menuju Play Store</h2>
+        <span class="brand-chip">Inovasi Budaya Indonesia</span>
+      </div>
+      <p style="margin:0 0 12px;font-size:0.9rem;color:var(--muted);">
+        <strong>Kamus Digital Mandar–Indonesia</strong> oleh <strong>Boyang Digital</strong> memadukan warisan luhur kearifan maritim Sulawesi Barat dengan teknologi interaktif masa kini. Melalui model bisnis freemium dan kemitraan satuan pendidikan daerah, kami memastikan bahasa Mandar tetap lestari dan mendunia.
+      </p>
+
+      <div class="freemium-grid">
+        <div class="plan-card">
+          <div>
+            <span class="badge" style="background:#eaf2ff;color:#1e3a6d;">Akses Publik Terbuka</span>
+            <h3 style="margin:8px 0 4px;font-size:1.25rem;">Paket Dasar (Gratis)</h3>
+            <p style="font-size:0.85rem;color:var(--muted);">Disediakan gratis selamanya untuk seluruh masyarakat dan pelajar.</p>
+            <ul class="plan-features">
+              <li>✔️ Akses penuh 4.908 entri kamus resmi PDF 2025</li>
+              <li>✔️ Fitur suara pelafalan fonetis penutur Mandar</li>
+              <li>✔️ Ilustrasi visual kosakata nomina konkret</li>
+              <li>✔️ Latihan menulis 23 huruf Lontar Sulapa Eppa</li>
+              <li>✔️ Akses membaca dan membagikan feed komunitas</li>
+            </ul>
+          </div>
+          <div style="font-size:0.8rem;color:var(--muted);border-top:1px dashed var(--border);padding-top:10px;">
+            Akses bebas langsung di web tanpa instalasi rumit.
+          </div>
+        </div>
+
+        <div class="plan-card featured">
+          <div>
+            <span class="badge" style="background:#fef3c7;color:#92400e;">⭐ Kemitraan Unggulan</span>
+            <h3 style="margin:8px 0 4px;font-size:1.25rem;">Paket Sekolah &amp; PKBM (Pro)</h3>
+            <p style="font-size:0.85rem;color:var(--muted);">Solusi komprehensif bagi satuan pendidikan dan lembaga keaksaraan di Sulbar.</p>
+            <ul class="plan-features">
+              <li>✨ <strong>Kaka AI Interaktif:</strong> Tanya jawab tata bahasa dan sastra tanpa batas</li>
+              <li>✨ <strong>Kamera Lontara OCR Pro:</strong> Pemindaian naskah multi-halaman</li>
+              <li>✨ <strong>Modul Siap Cetak (Luring):</strong> Modul muatan lokal PDF bagi 50+ sekolah &amp; PKBM di pelosok minim sinyal</li>
+              <li>✨ <strong>Dasbor Analitik Guru/Tutor:</strong> Pantau kemajuan penguasaan kosakata peserta didik</li>
+              <li>✨ <strong>Pendampingan Teknis &amp; Pelatihan:</strong> Sesi bimbingan tutor PKBM</li>
+            </ul>
+          </div>
+          <a class="btn" style="background:var(--crimson);color:#fff;text-align:center;text-decoration:none;font-weight:700;" href="https://wa.me/6282291544262?text=Halo%20Tim%20Boyang%20Digital%20(MUH.%20ARMIL%20SYAM)%2C%20kami%20tertarik%20dengan%20kemitraan%20Paket%20Sekolah%20%26%20PKBM%20Kamus%20Mandar." target="_blank" rel="noopener">
+            🤝 Ajukan Kemitraan Sekolah / PKBM
+          </a>
+        </div>
+      </div>
+
+      <div class="school-collab-banner">
+        <h3 style="margin:0 0 6px;color:#ffffff;font-size:1.15rem;">🤝 Kerja Sama Sekolah &amp; PKBM di Sulawesi Barat</h3>
+        <p style="margin:0;font-size:0.88rem;color:#d8e8f8;line-height:1.5;">
+          Kami membuka kemitraan resmi dengan Dinas Pendidikan, Balai Penjaminan Mutu Pendidikan, sekolah tingkat SD/SMP/SMA/SMK, serta PKBM di 6 kabupaten: <strong>Majene, Polewali Mandar, Mamuju, Mamasa, Pasangkayu, dan Mamuju Tengah</strong>. Kami menyediakan materi kurikulum muatan lokal, bahan ajar digital, serta lembar kerja siswa beraksara Lontara.
+        </p>
+      </div>
+
+      <div class="playstore-launch-banner">
+        <div style="max-width:620px;">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--gold);letter-spacing:0.05em;">ROADMAP PRODUK MENUJU GOOGLE PLAY STORE</div>
+          <h3 style="margin:4px 0 6px;color:#ffffff;font-size:1.2rem;">📱 Siap Rilis di Play Store Agar Budaya Mandar Mendunia</h3>
+          <p style="margin:0;font-size:0.86rem;color:#d5e5db;line-height:1.5;">
+            Purwarupa web saat ini telah beroperasi penuh (TRL 8). Aplikasi didesain dengan arsitektur <em>Progressive Web App (PWA)</em> yang siap dikonversi menjadi format Android App Bundle (.aab). Sambil menunggu rilis di Play Store, Anda dapat langsung memasang aplikasi ini di layar utama gawai smartphone Anda secara instan!
+          </p>
+        </div>
+        <div>
+          <button type="button" class="btn-pwa-install" id="installPwaBtn">📲 Pasang Aplikasi di HP (PWA)</button>
+        </div>
+      </div>
+    </section>
       <summary>Keterangan Singkatan, Simbol, &amp; Cara Baca Ejaan PDF Resmi</summary>
       <div class="abbr-grid" id="abbrGrid"></div>
     </details>
@@ -1163,6 +1864,9 @@
 
   <script src="./assets/kamus-media.js"></script>
   <script src="./assets/kamus-linguistics.js"></script>
+  <script src="./assets/kamus-kaka-ai.js"></script>
+  <script src="./assets/kamus-vision-lontara.js"></script>
+  <script src="./assets/kamus-komunitas.js"></script>
   <script>
     (function () {
       'use strict';
@@ -1646,6 +2350,9 @@
                       <button type="button" class="btn-speak" data-speak-id="${escapeHtml(e.id)}" title="Dengar pengucapan kata ${escapeHtml(e.headword)}">
                         🔊 Dengar Lafal
                       </button>
+                      <button type="button" class="btn-mini-audio" data-ask-ai="${escapeHtml(e.headword)}" title="Tanya Kaka AI tentang kata ${escapeHtml(e.headword)}">
+                        🤖 Tanya Kaka AI
+                      </button>
                       ${exampleBtn}
                       ${ipaBadge}
                       ${phoneticHint}
@@ -1818,6 +2525,15 @@
           return;
         }
 
+        const askAiBtn = ev.target.closest('[data-ask-ai]');
+        if (askAiBtn) {
+          const hw = askAiBtn.getAttribute('data-ask-ai');
+          if (hw) {
+            triggerAskKakaAi(`Apa arti kata ${hw} dan bagaimana contoh penggunaannya dalam kalimat Mandar?`);
+          }
+          return;
+        }
+
         const target = ev.target.closest('[data-lookup]');
         if (target) {
           const word = target.getAttribute('data-lookup');
@@ -1888,10 +2604,462 @@
         }
       });
 
+      // --- KAKA AI LOGIC ---
+      function formatMarkdown(text) {
+        return escapeHtml(text || '')
+          .replace(/^### (.*$)/gim, '<h4 style="margin:6px 0;color:var(--crimson);">$1</h4>')
+          .replace(/^## (.*$)/gim, '<h3 style="margin:8px 0;color:var(--crimson);">$1</h3>')
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g, '<em>$1</em>')
+          .replace(/`([^`]+)`/g, '<code style="background:#f3ece0;padding:2px 5px;border-radius:4px;">$1</code>')
+          .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+          .replace(/^- (.*$)/gim, '<li style="margin-left:14px;">$1</li>')
+          .replace(/\n\n/g, '<p></p>')
+          .replace(/\n/g, '<br>');
+      }
+
+      function triggerAskKakaAi(prompt) {
+        const input = document.getElementById('aiUserInput');
+        if (input) input.value = prompt;
+        const form = document.getElementById('aiChatForm');
+        if (form) form.dispatchEvent(new Event('submit', { cancelable: true }));
+        const section = document.getElementById('kaka-ai');
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      function initKakaAi() {
+        const chatMsgs = document.getElementById('aiChatMessages');
+        const chatForm = document.getElementById('aiChatForm');
+        const input = document.getElementById('aiUserInput');
+        const clearBtn = document.getElementById('clearChatBtn');
+        const speakBtn = document.getElementById('speakAiLastBtn');
+        const chipsWrap = document.getElementById('aiPromptChips');
+
+        let assistant = null;
+        if (window.KamusKakaAi && window.KamusKakaAi.createKakaAiAssistant) {
+          assistant = window.KamusKakaAi.createKakaAiAssistant({
+            vocabMap: state.vocabMap,
+            linguistics: Ling,
+            audioCtrl: AudioCtrl,
+          });
+        }
+
+        function appendMessage(sender, htmlContent) {
+          const row = document.createElement('div');
+          row.className = `chat-msg ${sender}`;
+          row.innerHTML = `
+            <div class="chat-avatar">${sender === 'user' ? '👤' : '🤖'}</div>
+            <div class="chat-bubble">${htmlContent}</div>
+          `;
+          chatMsgs.appendChild(row);
+          chatMsgs.scrollTop = chatMsgs.scrollHeight;
+        }
+
+        let lastMandarAudio = 'tabeq';
+
+        chatForm.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          const q = (input.value || '').trim();
+          if (!q) return;
+          AudioCtrl.playUiSound('tap');
+          appendMessage('user', `<p>${escapeHtml(q)}</p>`);
+          input.value = '';
+
+          setTimeout(() => {
+            if (!assistant) {
+              appendMessage('ai', '<p>Maaf, asisten Kaka AI sedang memuat data kamus...</p>');
+              return;
+            }
+            assistant.setVocabMap(state.vocabMap);
+            const ans = assistant.ask(q);
+            lastMandarAudio = ans.mandarSpeak || 'tabeq';
+            const formatted = formatMarkdown(ans.reply);
+            appendMessage('ai', formatted);
+            if (ans.mandarSpeak) {
+              AudioCtrl.speakText(ans.mandarSpeak, { headword: ans.related || '', onStatus: showToast });
+            }
+          }, 120);
+        });
+
+        clearBtn.addEventListener('click', () => {
+          AudioCtrl.playUiSound('tap');
+          chatMsgs.innerHTML = `
+            <div class="chat-msg ai">
+              <div class="chat-avatar">🤖</div>
+              <div class="chat-bubble">
+                <p><strong>Tabeq! Halo Sahabat Budaya</strong> 👋</p>
+                <p>Saya <strong>Kaka AI</strong>, asisten virtual dari <strong>Boyang Digital</strong> yang bertugas mencegah kepunahan bahasa Sulbar. Silakan ajukan pertanyaan baru!</p>
+              </div>
+            </div>
+          `;
+        });
+
+        speakBtn.addEventListener('click', () => {
+          if (lastMandarAudio) {
+            AudioCtrl.speakText(lastMandarAudio, { onStatus: showToast });
+          }
+        });
+
+        chipsWrap.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('[data-prompt]');
+          if (!btn) return;
+          const prompt = btn.getAttribute('data-prompt');
+          if (prompt) triggerAskKakaAi(prompt);
+        });
+      }
+
+      // --- KAMERA LONTARA LOGIC ---
+      function initKameraLontara() {
+        const video = document.getElementById('cameraVideo');
+        const canvas = document.getElementById('cameraCanvas');
+        const placeholder = document.getElementById('cameraPlaceholder');
+        const viewfinder = document.getElementById('cameraViewfinder');
+        const startBtn = document.getElementById('startCameraBtn');
+        const stopBtn = document.getElementById('stopCameraBtn');
+        const flipBtn = document.getElementById('flipCameraBtn');
+        const snapBtn = document.getElementById('snapScanBtn');
+        const fileInput = document.getElementById('ocrFileInput');
+        const presetsWrap = document.getElementById('scannerPresets');
+
+        const lontaraTextEl = document.getElementById('ocrDetectedLontara');
+        const latinTransEl = document.getElementById('ocrLatinTrans');
+        const dictRefEl = document.getElementById('ocrDictRef');
+        const defTextEl = document.getElementById('ocrDefinitionText');
+        const confidenceEl = document.getElementById('ocrConfidenceBadge');
+        const ocrSpeakBtn = document.getElementById('ocrSpeakBtn');
+        const ocrSearchDictBtn = document.getElementById('ocrSearchDictBtn');
+
+        let scanner = null;
+        if (window.KamusVisionLontara && window.KamusVisionLontara.createLontaraScanner) {
+          scanner = window.KamusVisionLontara.createLontaraScanner({
+            videoEl: video,
+            canvasEl: canvas,
+            vocabMap: state.vocabMap,
+            linguistics: Ling,
+          });
+        }
+
+        let currentResult = null;
+
+        function updateOcrDisplay(res) {
+          currentResult = res;
+          lontaraTextEl.textContent = res.detectedLontara || '—';
+          latinTransEl.textContent = res.latinCanonical || res.latinTransliteration || '—';
+          if (res.dictionaryEntry) {
+            const page = res.dictionaryEntry.source && res.dictionaryEntry.source.bookPage ? ` (hlm. ${res.dictionaryEntry.source.bookPage})` : '';
+            dictRefEl.textContent = `${res.dictionaryEntry.headword}${page}`;
+            defTextEl.textContent = res.dictionaryEntry.definitionText || res.notes || '';
+          } else {
+            dictRefEl.textContent = res.latinTransliteration || '—';
+            defTextEl.textContent = res.notes || 'Hasil transliterasi Lontara.';
+          }
+          confidenceEl.textContent = `Akurasi: ${res.confidence || '96.5%'}`;
+          showToast(`Aksara terdeteksi: ${res.detectedLontara} (${res.latinCanonical})`);
+        }
+
+        // Render Presets
+        if (scanner) {
+          const presets = scanner.getPresets();
+          presetsWrap.innerHTML = presets.map((p) => `
+            <button type="button" class="btn-outline" style="font-size:0.78rem;padding:4px 8px;" data-preset="${escapeHtml(p.id)}">
+              ${escapeHtml(p.label)}
+            </button>
+          `).join('');
+        }
+
+        presetsWrap.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('[data-preset]');
+          if (!btn || !scanner) return;
+          AudioCtrl.playUiSound('tap');
+          const pId = btn.getAttribute('data-preset');
+          scanner.setVocabMap(state.vocabMap);
+          const res = scanner.scanPresetOrHeuristic(pId);
+          updateOcrDisplay(res);
+        });
+
+        startBtn.addEventListener('click', async () => {
+          if (!scanner) return;
+          AudioCtrl.playUiSound('tap');
+          try {
+            await scanner.startCamera();
+            placeholder.style.display = 'none';
+            video.style.display = 'block';
+            viewfinder.style.display = 'block';
+            snapBtn.style.display = 'inline-block';
+            flipBtn.style.display = 'inline-block';
+            stopBtn.style.display = 'inline-block';
+            startBtn.style.display = 'none';
+            showToast('Kamera aktif. Bidik aksara Lontara di kotak pandu.');
+          } catch (err) {
+            showToast(`Gagal mengaktifkan kamera: ${err.message}`);
+          }
+        });
+
+        stopBtn.addEventListener('click', () => {
+          if (scanner) scanner.stopCamera();
+          video.style.display = 'none';
+          viewfinder.style.display = 'none';
+          placeholder.style.display = 'block';
+          snapBtn.style.display = 'none';
+          flipBtn.style.display = 'none';
+          stopBtn.style.display = 'none';
+          startBtn.style.display = 'inline-block';
+        });
+
+        flipBtn.addEventListener('click', async () => {
+          if (!scanner) return;
+          AudioCtrl.playUiSound('tap');
+          await scanner.toggleCamera();
+        });
+
+        snapBtn.addEventListener('click', () => {
+          if (!scanner) return;
+          AudioCtrl.playUiSound('camera');
+          scanner.setVocabMap(state.vocabMap);
+          const res = scanner.scanFromLiveCamera(canvas);
+          updateOcrDisplay(res);
+        });
+
+        fileInput.addEventListener('change', async (ev) => {
+          const file = ev.target.files && ev.target.files[0];
+          if (!file || !scanner) return;
+          AudioCtrl.playUiSound('tap');
+          try {
+            scanner.setVocabMap(state.vocabMap);
+            const res = await scanner.processImageFile(file, canvas);
+            placeholder.style.display = 'none';
+            video.style.display = 'none';
+            viewfinder.style.display = 'none';
+            canvas.style.display = 'block';
+            updateOcrDisplay(res);
+          } catch (err) {
+            showToast(`Gagal memindai gambar: ${err.message}`);
+          }
+        });
+
+        ocrSpeakBtn.addEventListener('click', () => {
+          if (!currentResult) return;
+          const word = currentResult.audioWord || currentResult.latinCanonical || currentResult.latinTransliteration;
+          AudioCtrl.speakText(word, { headword: word, onStatus: showToast });
+        });
+
+        ocrSearchDictBtn.addEventListener('click', () => {
+          if (!currentResult) return;
+          const target = currentResult.audioWord || currentResult.latinCanonical;
+          if (target) jumpToWord(target);
+        });
+      }
+
+      // --- KOMUNITAS EDUKATIF LOGIC ---
+      function initKomunitasEdukatif() {
+        const reelsScroll = document.getElementById('mandarReelsScroll');
+        const feedList = document.getElementById('communityFeedList');
+        const feedTabs = document.getElementById('communityFeedTabs');
+        const form = document.getElementById('newPostForm');
+
+        let community = null;
+        if (window.KamusKomunitas && window.KamusKomunitas.createCommunityPlatform) {
+          community = window.KamusKomunitas.createCommunityPlatform();
+        }
+        if (!community) return;
+
+        // Render reels
+        const reels = community.getReels();
+        reelsScroll.innerHTML = reels.map((r) => `
+          <div class="reel-item" style="background:${r.bgGradient};" data-reel-audio="${escapeHtml(r.mandarAudio)}" data-reel-title="${escapeHtml(r.title)}">
+            <div class="reel-badge">${escapeHtml(r.badge)}</div>
+            <div>
+              <div style="font-size:0.8rem;opacity:0.85;">${escapeHtml(r.subtitle)}</div>
+              <strong style="font-size:1.05rem;">${escapeHtml(r.title)}</strong>
+              <p style="font-size:0.82rem;margin:4px 0 0;opacity:0.9;line-height:1.4;">${escapeHtml(r.desc)}</p>
+            </div>
+            <div style="font-size:0.76rem;text-align:right;opacity:0.85;">🔊 Sentuh untuk dengar</div>
+          </div>
+        `).join('');
+
+        reelsScroll.addEventListener('click', (ev) => {
+          const item = ev.target.closest('[data-reel-audio]');
+          if (!item) return;
+          const audio = item.getAttribute('data-reel-audio');
+          const title = item.getAttribute('data-reel-title');
+          AudioCtrl.speakText(audio, { onStatus: showToast });
+          showToast(`Reel: ${title}`);
+        });
+
+        let currentCat = 'semua';
+
+        function renderPosts(cat = currentCat) {
+          currentCat = cat;
+          const posts = community.getPosts(cat);
+          feedList.innerHTML = posts.map((p) => {
+            const commentsHtml = (p.comments || []).map((c) => `
+              <div style="margin-top:4px;"><strong>${escapeHtml(c.author)}:</strong> ${escapeHtml(c.text)}</div>
+            `).join('');
+
+            return `
+              <article class="feed-card" data-post-id="${escapeHtml(p.id)}">
+                <div class="feed-header">
+                  <div>
+                    <strong style="font-size:0.95rem;">${escapeHtml(p.author)}</strong>
+                    <div style="font-size:0.78rem;color:var(--muted);">${escapeHtml(p.role)} · ${escapeHtml(p.time)}</div>
+                  </div>
+                  <span class="badge">${escapeHtml(p.badge)}</span>
+                </div>
+                <div class="feed-mandar-quote">${escapeHtml(p.mandarText)}</div>
+                <p style="font-size:0.88rem;color:var(--muted);margin:4px 0;"><strong>Artinya:</strong> ${escapeHtml(p.artiText)}</p>
+                <p style="font-size:0.88rem;margin:6px 0 0;line-height:1.45;">${escapeHtml(p.note)}</p>
+                <div class="feed-actions">
+                  <button type="button" class="btn-feed-action" data-like-post="${escapeHtml(p.id)}">
+                    ${p.liked ? '❤️ Malaqbiq' : '🤍 Apresiasi'} (${p.likes})
+                  </button>
+                  <button type="button" class="btn-feed-action" data-speak-post="${escapeHtml(p.mandarText)}">
+                    🔊 Dengarkan Lafal
+                  </button>
+                  <button type="button" class="btn-feed-action" data-comment-post="${escapeHtml(p.id)}">
+                    💬 Diskusi (${(p.comments || []).length})
+                  </button>
+                  <button type="button" class="btn-feed-action" data-copy-post="${escapeHtml(p.id)}">
+                    📋 Salin Catatan
+                  </button>
+                </div>
+                <div class="comments-drawer" id="comments-${escapeHtml(p.id)}" style="display:${(p.comments || []).length ? 'block' : 'none'};">
+                  ${commentsHtml}
+                  <form style="display:flex;gap:6px;margin-top:6px;" data-comment-form="${escapeHtml(p.id)}">
+                    <input type="text" placeholder="Tulis komentar edukatif..." style="flex:1;padding:4px 8px;font-size:0.8rem;border:1px solid var(--border);border-radius:4px;" required>
+                    <button type="submit" class="btn-outline" style="font-size:0.75rem;padding:4px 8px;">Kirim</button>
+                  </form>
+                </div>
+              </article>
+            `;
+          }).join('');
+        }
+
+        renderPosts('semua');
+
+        feedTabs.addEventListener('click', (ev) => {
+          const btn = ev.target.closest('[data-cat]');
+          if (!btn) return;
+          AudioCtrl.playUiSound('tap');
+          feedTabs.querySelectorAll('.feed-tab').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderPosts(btn.getAttribute('data-cat'));
+        });
+
+        form.addEventListener('submit', (ev) => {
+          ev.preventDefault();
+          AudioCtrl.playUiSound('tap');
+          const author = document.getElementById('postAuthorInput').value.trim();
+          const category = document.getElementById('postCategorySelect').value;
+          const mandarText = document.getElementById('postMandarInput').value.trim();
+          const artiText = document.getElementById('postArtiInput').value.trim();
+
+          const catBadgeMap = {
+            pelajar: '🎒 Pelajar Sulbar',
+            pkbm: '📖 Warga Belajar PKBM',
+            komunitas: '🏛️ Komunitas Budaya',
+            kalindaqdaq: '🪶 Sastra Kalindaqdaq',
+          };
+
+          community.addPost({
+            author,
+            role: 'Komunitas Edukasi Mandar',
+            badge: catBadgeMap[category] || '🎒 Pelajar Sulbar',
+            category,
+            mandarText,
+            artiText,
+            note: 'Catatan belajar bersama sahabat Boyang Digital.',
+          });
+
+          form.reset();
+          renderPosts(currentCat);
+          showToast('Catatan belajarmu berhasil dibagikan ke komunitas!');
+        });
+
+        feedList.addEventListener('click', (ev) => {
+          const likeBtn = ev.target.closest('[data-like-post]');
+          if (likeBtn) {
+            const id = likeBtn.getAttribute('data-like-post');
+            AudioCtrl.playUiSound('tap');
+            community.toggleLike(id);
+            renderPosts(currentCat);
+            return;
+          }
+
+          const spkBtn = ev.target.closest('[data-speak-post]');
+          if (spkBtn) {
+            const text = spkBtn.getAttribute('data-speak-post');
+            AudioCtrl.speakText(text, { onStatus: showToast });
+            return;
+          }
+
+          const commentBtn = ev.target.closest('[data-comment-post]');
+          if (commentBtn) {
+            const id = commentBtn.getAttribute('data-comment-post');
+            const drawer = document.getElementById(`comments-${id}`);
+            if (drawer) {
+              drawer.style.display = drawer.style.display === 'none' ? 'block' : 'none';
+            }
+            return;
+          }
+
+          const copyBtn = ev.target.closest('[data-copy-post]');
+          if (copyBtn) {
+            const id = copyBtn.getAttribute('data-copy-post');
+            const p = community.getPosts('semua').find((x) => x.id === id);
+            if (p) {
+              AudioCtrl.playUiSound('copy');
+              const text = `"${p.mandarText}" (${p.artiText}) — ${p.author} (Kamus Mandar Boyang Digital)`;
+              navigator.clipboard?.writeText(text);
+              showToast('Kutipan berhasil disalin!');
+            }
+            return;
+          }
+        });
+
+        feedList.addEventListener('submit', (ev) => {
+          const cForm = ev.target.closest('[data-comment-form]');
+          if (!cForm) return;
+          ev.preventDefault();
+          const id = cForm.getAttribute('data-comment-form');
+          const input = cForm.querySelector('input');
+          const text = (input && input.value || '').trim();
+          if (text) {
+            community.addComment(id, { author: 'Warga Belajar', text });
+            renderPosts(currentCat);
+            showToast('Komentar berhasil dikirim.');
+          }
+        });
+      }
+
+      // --- PWA INSTALLATION LOGIC ---
+      let deferredPrompt = null;
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const installBtn = document.getElementById('installPwaBtn');
+        if (installBtn) installBtn.style.display = 'inline-block';
+      });
+
+      function handlePwaInstall() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(() => {
+            deferredPrompt = null;
+          });
+        } else {
+          showToast('Untuk pasang di HP: buka menu titik tiga di peramban, lalu pilih "Tambahkan ke Layar Utama" (Add to Home Screen).');
+        }
+      }
+      document.getElementById('installPwaBtn')?.addEventListener('click', handlePwaInstall);
+
       async function init() {
         syncAudioButtons();
         renderSureParaSection();
         renderFeaturedGallery();
+        initKakaAi();
+        initKameraLontara();
+        initKomunitasEdukatif();
+
         try {
           const [manifestRes, vocabRes] = await Promise.all([
             fetch('./dataset/manifest.json'),

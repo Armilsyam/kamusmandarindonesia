@@ -9,6 +9,9 @@ const { buildPagesSite, DATASET_FILES } = require('../scripts/build-pages');
 const { computeSha256 } = require('../scripts/build-dataset');
 require('../public/assets/kamus-media');
 require('../public/assets/kamus-linguistics');
+require('../public/assets/kamus-kaka-ai');
+require('../public/assets/kamus-vision-lontara');
+require('../public/assets/kamus-komunitas');
 
 const {
   createAudioController,
@@ -29,6 +32,23 @@ const {
   lontaraqToLatinPreview,
 } = globalThis.KamusLinguistics;
 
+const {
+  createKakaAiAssistant,
+  KALINDAQDAQ_COLLECTION,
+  CULTURE_TOPICS,
+} = globalThis.KamusKakaAi;
+
+const {
+  createLontaraScanner,
+  SAMPLE_PRESETS,
+} = globalThis.KamusVisionLontara;
+
+const {
+  createCommunityPlatform,
+  SEED_POSTS,
+  MANDAR_REELS,
+} = globalThis.KamusKomunitas;
+
 test('buildPagesSite assembles index.html, belajar.html, lontara.html, assets, and exact PDF/JSON copies', () => {
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'kamus-pages-'));
   try {
@@ -36,9 +56,13 @@ test('buildPagesSite assembles index.html, belajar.html, lontara.html, assets, a
     assert.ok(res.files.includes('index.html'));
     assert.ok(res.files.includes('belajar.html'));
     assert.ok(res.files.includes('lontara.html'));
+    assert.ok(res.files.includes('manifest.webmanifest'));
     assert.ok(res.files.includes('.nojekyll'));
     assert.ok(res.files.includes('assets/kamus-media.js'));
     assert.ok(res.files.includes('assets/kamus-linguistics.js'));
+    assert.ok(res.files.includes('assets/kamus-kaka-ai.js'));
+    assert.ok(res.files.includes('assets/kamus-vision-lontara.js'));
+    assert.ok(res.files.includes('assets/kamus-komunitas.js'));
     assert.ok(res.files.includes('assets/illustrations/batik-sure-para-sulbar.jpg'));
     assert.ok(res.files.includes('assets/illustrations/lopi-sandeq.jpg'));
     assert.ok(res.files.includes('assets/illustrations/anjoro.jpg'));
@@ -49,8 +73,18 @@ test('buildPagesSite assembles index.html, belajar.html, lontara.html, assets, a
     assert.match(html, /\.\/dataset\/kamus-mandar-indonesia-2025\.pdf/);
     assert.match(html, /\.\/assets\/kamus-media\.js/);
     assert.match(html, /\.\/assets\/kamus-linguistics\.js/);
+    assert.match(html, /\.\/assets\/kamus-kaka-ai\.js/);
+    assert.match(html, /\.\/assets\/kamus-vision-lontara\.js/);
+    assert.match(html, /\.\/assets\/kamus-komunitas\.js/);
     assert.match(html, /\.\/belajar\.html/);
     assert.match(html, /\.\/lontara\.html/);
+    assert.match(html, /BOYANG DIGITAL/);
+    assert.match(html, /Kaka AI/);
+    assert.match(html, /Kamera Lontara/);
+    assert.match(html, /komunitas-edukatif/);
+    assert.match(html, /PKBM/);
+    assert.match(html, /freemium/i);
+    assert.match(html, /Play Store/i);
     assert.match(html, /Batik Sure' Parara Sulawesi Barat/);
     assert.match(html, /Sulawesi Barat/);
     assert.doesNotMatch(html, /Sulawesi Selatan/i);
@@ -160,4 +194,76 @@ test('KamusLinguistics handles IPA, canonical patterns, affixes, abbreviations, 
   assert.equal(lontaraqToLatinPreview('ᨅᨘᨂ'), 'bunga');
   assert.equal(lontaraqToLatinPreview('ᨅᨚᨐ'), 'boya');
   assert.match(SURE_PARA_VARIANTS.klasik.name, /Batik Sure' Parara/);
+});
+
+test('Kaka AI assistant provides smart answers for vocabulary, morphology, Kalindaqdaq and culture', () => {
+  const mockVocab = new Map([
+    ['boyang', [{ headword: 'boyang', pos: ['n'], definitionText: 'n rumah', source: { bookPage: 84 } }]],
+    ['lopi', [{ headword: 'lopi', pos: ['n'], definitionText: 'n perahu', source: { bookPage: 259 } }]],
+  ]);
+
+  const assistant = createKakaAiAssistant({
+    vocabMap: mockVocab,
+    linguistics: globalThis.KamusLinguistics,
+    audioCtrl: createAudioController(),
+  });
+
+  const greet = assistant.ask('Halo Kaka AI!');
+  assert.match(greet.reply, /Boyang Digital/);
+  assert.match(greet.reply, /PKBM/);
+
+  const boyangAns = assistant.ask('apa arti kata boyang?');
+  assert.match(boyangAns.reply, /rumah/);
+  assert.match(boyangAns.reply, /ᨅᨚᨐ/);
+
+  const kaliAns = assistant.ask('Tuliskan puisi kalindaqdaq Mandar');
+  assert.match(kaliAns.reply, /8 - 7 - 5 - 7/);
+
+  const sandeqAns = assistant.ask('ceritakan tentang perahu sandeq');
+  assert.match(sandeqAns.reply, /Sandeq/);
+  assert.match(sandeqAns.reply, /Austronesia/);
+});
+
+test('KamusVisionLontara provides optical presets and dictionary-backed OCR resolution', () => {
+  const mockVocab = new Map([
+    ['boyang', [{ headword: 'boyang', pos: ['n'], definitionText: 'n rumah', source: { bookPage: 84 } }]],
+  ]);
+
+  const scanner = createLontaraScanner({
+    vocabMap: mockVocab,
+    linguistics: globalThis.KamusLinguistics,
+  });
+
+  const presets = scanner.getPresets();
+  assert.ok(presets.length >= 6);
+  assert.ok(presets.some((p) => p.headword === 'boyang'));
+
+  const resBoyang = scanner.scanPresetOrHeuristic('boyang');
+  assert.equal(resBoyang.detectedLontara, 'ᨅᨚᨐ');
+  assert.equal(resBoyang.dictionaryEntry.headword, 'boyang');
+  assert.match(resBoyang.confidence, /%/);
+});
+
+test('KamusKomunitas supports educational social posts, feeds, and reels for Sulbar students and PKBM', () => {
+  const community = createCommunityPlatform();
+  const allPosts = community.getPosts('semua');
+  assert.ok(allPosts.length >= 4);
+
+  const reels = community.getReels();
+  assert.ok(reels.length >= 4);
+  assert.ok(reels.some((r) => r.title.includes('Tabeq')));
+
+  const newPost = community.addPost({
+    author: 'Siswa Test Majene',
+    role: 'Pelajar Sulbar',
+    badge: '🎒 Pelajar Sulbar',
+    category: 'pelajar',
+    mandarText: 'Iyau meloaq meqguru basa Mandar',
+    artiText: 'Saya ingin belajar bahasa Mandar',
+  });
+  assert.equal(newPost.author, 'Siswa Test Majene');
+
+  const initialLikes = newPost.likes;
+  const likedState = community.toggleLike(newPost.id);
+  assert.equal(likedState.likes, initialLikes - 1); // was liked=true initially, toggling turns off
 });
