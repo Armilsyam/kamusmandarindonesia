@@ -1644,11 +1644,15 @@
 
         <div class="ai-prompt-chips" id="aiPromptChips">
           <button type="button" class="ai-chip" data-prompt="Apa arti kata tabeq dan bagaimana etikanya?">🗣️ Etika Kata "Tabeq"</button>
-          <button type="button" class="ai-chip" data-prompt="Jelaskan rumus awalan ma- dan meccoko">🧩 Rumus Imbuhan "ma-"</button>
+          <button type="button" class="ai-chip" data-prompt="Ceritakan sejarah Kerajaan Balanipa dan Perjanjian Allamungan Batu">🏛️ Sejarah Kerajaan Balanipa</button>
+          <button type="button" class="ai-chip" data-prompt="Jelaskan profil 6 kabupaten di Sulawesi Barat">🗺️ 6 Kabupaten Sulbar</button>
+          <button type="button" class="ai-chip" data-prompt="Apa saja makanan dan kuliner tradisional khas Mandar Sulbar?">🍲 Kuliner: Jepa &amp; Bau Peapi</button>
+          <button type="button" class="ai-chip" data-prompt="Bagaimana perbandingan bahasa Mandar, Bugis, Makassar, Toraja, Jawa, dan Sunda?">🇮🇩 Komparasi Bahasa Nusantara</button>
+          <button type="button" class="ai-chip" data-prompt="Apa bahasa mandarnya makan, minum, tidur, dan rumah?">🔍 Kosakata Sehari-hari</button>
           <button type="button" class="ai-chip" data-prompt="Tuliskan contoh puisi Kalindaqdaq Mandar pola 8-7-5-7">🪶 Puisi Kalindaqdaq</button>
-          <button type="button" class="ai-chip" data-prompt="Apa itu perahu Sandeq dan bagian-bagiannya?">⛵ Perahu Sandeq</button>
+          <button type="button" class="ai-chip" data-prompt="Apa itu perahu Sandeq dan keajaiban maritimnya?">⛵ Perahu Sandeq</button>
+          <button type="button" class="ai-chip" data-prompt="Bagaimana peran PKBM dan pendidikan di Sulawesi Barat?">🎒 Pendidikan &amp; PKBM</button>
           <button type="button" class="ai-chip" data-prompt="Bagaimana cara menulis aksara Lontar boyang?">✍️ Tulisan Lontar "Boyang"</button>
-          <button type="button" class="ai-chip" data-prompt="Apa itu Batik Sure' Parara Sulawesi Barat?">🎨 Batik Sure' Parara Sulbar</button>
         </div>
 
         <form class="ai-input-row" id="aiChatForm">
@@ -2670,7 +2674,7 @@
               appendMessage('ai', '<p>Maaf, asisten Kaka AI sedang memuat data kamus...</p>');
               return;
             }
-            assistant.setVocabMap(state.vocabMap);
+            assistant.setVocabMap(state.vocabMap, state.entries);
             const ans = assistant.ask(q);
             lastMandarAudio = ans.mandarSpeak || 'tabeq';
             const formatted = formatMarkdown(ans.reply);

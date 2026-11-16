@@ -222,6 +222,38 @@ test('Kaka AI assistant provides smart answers for vocabulary, morphology, Kalin
   const sandeqAns = assistant.ask('ceritakan tentang perahu sandeq');
   assert.match(sandeqAns.reply, /Sandeq/);
   assert.match(sandeqAns.reply, /Austronesia/);
+
+  // Sejarah & Kerajaan Sulbar
+  const balanipaAns = assistant.ask('ceritakan sejarah kerajaan Balanipa');
+  assert.match(balanipaAns.reply, /Balanipa/);
+  assert.match(balanipaAns.reply, /Todilaling/);
+
+  const allamunganAns = assistant.ask('apa itu perjanjian Allamungan Batu di Luyo?');
+  assert.match(allamunganAns.reply, /Sipamandar/);
+  assert.match(allamunganAns.reply, /Pitu Ulunna Salu/);
+
+  // Geografi 6 Kabupaten
+  const majeneAns = assistant.ask('ceritakan kabupaten majene');
+  assert.match(majeneAns.reply, /Kota Pendidikan/);
+  assert.match(majeneAns.reply, /UNSULBAR/);
+
+  const mamasaAns = assistant.ask('apa budaya kabupaten mamasa');
+  assert.match(mamasaAns.reply, /Kondosapata/);
+  assert.match(mamasaAns.reply, /Banua Sibarrung/);
+
+  // Kuliner Sulbar
+  const kulinerAns = assistant.ask('apa saja makanan dan kuliner khas mandar sulbar?');
+  assert.match(kulinerAns.reply, /Jepa/);
+  assert.match(kulinerAns.reply, /Bau Peapi/);
+
+  // Komparasi Seluruh Indonesia (Nusantara)
+  const indoAns = assistant.ask('bagaimana perbandingan bahasa bugis, makassar, toraja, jawa dan sunda dengan mandar?');
+  assert.match(indoAns.reply, /Austronesia/);
+  assert.match(indoAns.reply, /Bhinneka Tunggal Ika/);
+
+  // Reverse translation Indonesia -> Mandar
+  const revAns = assistant.ask('apa bahasa mandarnya rumah?');
+  assert.match(revAns.reply, /boyang/);
 });
 
 test('KamusVisionLontara provides optical presets and dictionary-backed OCR resolution', () => {
